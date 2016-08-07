@@ -12,3 +12,7 @@ alias mv='/bin/mv -i'
 alias wget='wget -c --no-check-certificate'
 #录屏（分辨率为800x600，名称为screen.mp4 的视频）
 alias screencapture='ffmpeg -video_size 800x600 -framerate 25 -f x11grab -i :0.0+0,0 screen.mp4'
+#查找命令
+alias grep='grep --color=auto'
+#显示日期时间
+alias Date='date +%Y%m%d%H%M'
