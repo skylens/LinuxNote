@@ -1,3 +1,1 @@
-<?php
-  echo 'Hello,World!';
-?>
+#PHP学习笔记
