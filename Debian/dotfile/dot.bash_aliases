@@ -15,4 +15,4 @@ alias screencapture='ffmpeg -video_size 800x600 -framerate 25 -f x11grab -i :0.0
 #查找命令
 alias grep='grep --color=auto'
 #显示日期时间
-alias Date='date +%Y%m%d%H%M'
+alias Date='date +%Y-%m-%d %H:%M'
