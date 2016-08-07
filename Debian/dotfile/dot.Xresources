@@ -18,8 +18,54 @@ xterm*fontMenu*fontdefault*Label: Default
 xterm*xftAntialias: true
 xterm*selectToClipboard: true
 
+!!! make url selection better (seems not working)
+! http://www.debian-administration.org/article/66/Customizing_your_xterm
+xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
 !!!look and feel
 xterm*termName: xterm-256color
 xterm*borderLess: true
 xterm*ScrollBar: false
 xterm*visualBell: false
+
+xterm*omitTranslation: fullscreen
+! disable alt-enter in xterm, and enable it in emacs.
+xterm*fullscreen: never
+xterm*metaSendsEscape: true
+
+xterm*allowSendEvents: True
+xterm*allowTitleOps: True
+xterm*sessionMgt: false
+
+!!! http://sunaku.github.io/zenburn-terminal-color-scheme.html
+XTerm*color0: #000d18(墨蓝色)
+XTerm*color1: #e89393(粉色)
+XTerm*color2: #9ece9e(淡绿色)
+XTerm*color3: #f0dfaf(黄)
+XTerm*color4: #1f1f1f(棕色)
+! #8cd0d3(淡蓝色)
+XTerm*color5: #c0bed1(淡紫色)
+XTerm*color6: #dfaf8f(白橙色)
+XTerm*color7: #efefef(黄白色)
+XTerm*color8: #000d18(墨绿色)
+XTerm*color9: #e89393(红粉色)
+XTerm*color10: #9ece9e(浅绿色)
+XTerm*color11: #f0dfaf(淡黄色)
+XTerm*color12: #8cd0d3(浅蓝色)
+XTerm*color13: #c0bed1(紫白色)
+XTerm*color14: #dfaf8f(棕黄色)
+XTerm*color15: #efefef(紫白色)
+XTerm*colorBD: #ffcfaf(黄)
+XTerm*colorIT: #80d4aa(蓝绿色)
+XTerm*colorUL: #ccdc90(黄绿色)
+XTerm*foreground: black
+!XTerm*foreground: #dcdccc
+!XTerm*background: #ccdc90
+XTerm*background: #8faf9f(绿蓝色)
+
+!default(deepblue)
+!XTerm*foreground: #dcdccc()
+!XTerm*background: #000d18(墨绿色)
+
+!#1f1f1f
+XTerm*cursorColor: #8faf9f
