@@ -1,0 +1,25 @@
+! -*- mode: Conf[Xdefaults];-*-
+!!! run 'xrdb -merge .Xresources' after change
+
+xterm*loginShell: true
+
+!!!font and locale(字体和区域设置)
+!主要的字体
+xterm*faceName: Monaco:antialias=True:pixelsize=22
+!粗体字体
+xterm*boldFont: Monaco:style=Bold:pixelsize=22
+!次要字体
+xterm*faceNameDoublesize: WenQuanYi Micro Hei:antialias=True:pixelsize=22
+xterm*cjkWidth: false
+xterm*locale: true
+xterm*utf8: true
+xterm*utf8Title: true
+xterm*fontMenu*fontdefault*Label: Default
+xterm*xftAntialias: true
+xterm*selectToClipboard: true
+
+!!!look and feel
+xterm*termName: xterm-256color
+xterm*borderLess: true
+xterm*ScrollBar: false
+xterm*visualBell: false
