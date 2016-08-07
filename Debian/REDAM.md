@@ -1,0 +1,3 @@
+#Debian Configure
+
+bash vim tmux Xorg emacs...
