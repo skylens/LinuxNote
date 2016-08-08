@@ -44,7 +44,6 @@
  ```
  
  ### 更新 mysql 数据库中的 root 的 
+ ```
   mysql>use mysql;
- 
- 
  ```
