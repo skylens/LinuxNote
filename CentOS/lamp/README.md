@@ -46,5 +46,11 @@
  2 更新 mysql 数据库中的 root 的 
  
  ```
-  mysql>use mysql;
+  mysql> use mysql;
  ```
+
+3 更新 user 表中的 root 的 password ,更新为 123456
+
+```
+ mysql> UPDATE user SET password=PASSWORD('123456') WHERE user='root';
+```
