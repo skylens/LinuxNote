@@ -23,7 +23,7 @@
 ```
 
 ## 配置 mysql
-### 第一次使用 mysql ,不用输密码,直接回车
+1 第一次使用 mysql ,不用输密码,直接回车
 
 ```
  $ mysql -u root -p
@@ -43,7 +43,8 @@
  mysql>
  ```
  
- ### 更新 mysql 数据库中的 root 的 
+ 2 更新 mysql 数据库中的 root 的 
+ 
  ```
   mysql>use mysql;
  ```
