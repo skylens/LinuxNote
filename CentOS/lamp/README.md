@@ -55,7 +55,7 @@
  mysql> UPDATE user SET password=PASSWORD('123456') WHERE user='root';
 ```
 
-4 
+4 刷新
 
 ```
  mysql> flush privileges;
