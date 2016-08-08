@@ -54,3 +54,15 @@
 ```
  mysql> UPDATE user SET password=PASSWORD('123456') WHERE user='root';
 ```
+
+4 
+
+```
+ mysql> flush privileges;
+```
+
+5 退出
+
+```
+ mysql> exit;
+```
