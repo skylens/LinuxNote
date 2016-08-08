@@ -13,3 +13,11 @@
  $ yum -y install httpd
 ```
 ## 
+
+# CentOS 下 MySQL 安装与配置
+
+## 安装 mysql
+
+```
+ $ yum -y install mysql mysql-server
+```
