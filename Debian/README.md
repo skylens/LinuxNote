@@ -14,6 +14,22 @@
 ```
 deb http://mirrors.163.com/debian/ jessie main non-free contrib  
 deb-src http://mirrors.163.com/debian/ jessie main non-free contrib
+
+deb http://mirrors.163.com/debian/ jessie-updates main non-free contrib
+deb http://mirrors.163.com/debian/ jessie-backports main non-free contrib
+deb-src http://mirrors.163.com/debian/ jessie-updates main non-free contrib
+deb-src http://mirrors.163.com/debian/ jessie-backports main non-free contrib
+deb http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib
+deb-src http://mirrors.163.com/debian-security/ jessie/updates main non-free contrib
+
+deb http://mirrors.ustc.edu.cn/debian/ jessie main contrib non-free
+deb-src http://mirrors.ustc.edu.cn/debian/ jessie main contrib non-free
+deb http://mirrors.ustc.edu.cn/debian/ jessie-updates main contrib non-free
+deb-src http://mirrors.ustc.edu.cn/debian/ jessie-updates main contrib non-free
+deb http://mirrors.ustc.edu.cn/debian/ jessie-backports main contrib non-free
+deb-src http://mirrors.ustc.edu.cn/debian/ jessie-backports main contrib non-free
+deb http://mirrors.ustc.edu.cn/debian-security/ jessie/updates main contrib non-free
+deb-src http://mirrors.ustc.edu.cn/debian-security/ jessie/updates main contrib non-free
 ```
 ```
 # apt-get update
