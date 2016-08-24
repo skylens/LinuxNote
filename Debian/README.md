@@ -131,4 +131,11 @@ $ sudo cp dotfile/fonts/* /usr/share/fonts/truetype/
 $ alsactl init
 $ alsamixer
 ```
+
+## 如何实现 **host-a** ssh免密码登录 **host-b**
+
+> 在**host-a**中
+```
+
+```
 bash vim tmux Xorg emacs...
