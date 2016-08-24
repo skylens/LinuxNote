@@ -54,8 +54,59 @@ deb-src http://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib
 * 基本软件
 
 ```
-# apt-get install modemmanager acpi acpi-support acpid acpitool alsa-utils anacron apt apt-file bash bash-completion build-essential curl dash dkms fcitx fcitx-module-cloudpinyin fcitx-googlepinyin flip fonts-arphic-ukai fonts-arphic-uming fonts-wqy-microhei fonts-wqy-zenhei gdebi git git-core grun i3 ifupdown ifupdown-extra imagemagick info iw  less libnss3-tools localepurge lsof nmap ntfs-3g ntpdate pulseaudio pavucontrol pv qiv sawfish ssh sudo systemd tcpdump time tmux ttyrec unbound usbutils wpasupplicant x11-apps xfonts-terminus xfonts-wqy xinit xterm xorg
+# apt-get install modemmanager acpi acpi-support acpid acpitool alsa-utils anacron apt apt-file bash bash-completion build-essential curl dash dkms fcitx fcitx-module-cloudpinyin fcitx-googlepinyin flip fonts-arphic-ukai fonts-arphic-uming fonts-wqy-microhei fonts-wqy-zenhei gdebi git git-core grun i3 ifupdown ifupdown-extra imagemagick info iw  less libnss3-tools localepurge lsof nmap ntfs-3g ntpdate pulseaudio pavucontrol pv qiv sawfish ssh sudo systemd tcpdump time tmux ttyrec unbound usbutils wpasupplicant x11-apps xfonts-terminus xfonts-wqy xinit xterm xorg tar zip unzip
 ```
+* 还是用```root```登陆(```tux```就是普通用户的用户名)
+
+```
+# nano /etc/sudoers.d/tux
+```
+* 添加下面两行
+```
+User_Alias      NORMAL = tux
+NORMAL  ALL = NOPASSWD: ALL
+```
+* 更改文件的权限
+```
+# chmod 0440 /etc/sudoers.d/tux
+```
+
+* 切换回普通用户,以普通用户身份完成以下操作
+
+
+```
+$ cd
+$ for f in dotfile/dot.*; do ln -sf $f; done
+$ ln -sf dotfile/help/dot.* .
+$ rm -f .bash*
+$ rename 's/dot//' dot.*
+$ wget -O .keys.png http://cs2.swfu.edu.cn/~wx672/tex-fun/keys/keys.png
+```
+```
+$ sudo cp ~/dotfile/etc/systemd/system/autologin@.service /etc/systemd/system/
+$ sudo ln -s /etc/systemd/system/autologin@.service /etc/systemd/system/getty.target.wants/getty@tty8.service
+$ sudo nano /etc/systemd/system/getty.target.wants/getty@tty8.service
+```
+* 找到这行```ExecStart=-/sbin/agetty -a wx672 --noclear %I $TERM```,把wx672改为tux(也就是你的普通用户名)
+
+```$ sudo nano /etc/systemd/logind.conf```
+* 把```#NAutoVTs=6```改为```NAutoVTs=8```
+
+```$ sudo dpkg-reconfigure locales```
+  +  [X] en_US.UTF-8 UTF-8
+  +  [X] zh_CN.GB18030 GB18030
+  +  [X] zh_CN.UTF-8 UTF-8
+  +  默认语言环境选 None
+```
+$ sudo cp ~/dotfile/etc/default/locale /etc/default
+$ sudo cp ~/dotfile/etc/default/keyboard /etc/default
+```
+* 字体
+```
+$ sudo cp dotfile/fonts/* /usr/share/fonts/truetype/
+```
+
+```sudo reboot```
 
 
 bash vim tmux Xorg emacs...
