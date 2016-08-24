@@ -93,9 +93,9 @@ $ sudo nano /etc/systemd/system/getty.target.wants/getty@tty8.service
 * 把```#NAutoVTs=6```改为```NAutoVTs=8```
 
 ```$ sudo dpkg-reconfigure locales```
-  +  [X] en_US.UTF-8 UTF-8
-  +  [X] zh_CN.GB18030 GB18030
-  +  [X] zh_CN.UTF-8 UTF-8
+  +   en_US.UTF-8 UTF-8
+  +   zh_CN.GB18030 GB18030
+  +   zh_CN.UTF-8 UTF-8
   +  默认语言环境选 None
 ```
 $ sudo cp ~/dotfile/etc/default/locale /etc/default
