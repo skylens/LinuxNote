@@ -145,12 +145,12 @@ $ ls -alh
 $ scp .ssh/id_rsa.pub host-b@192.168.2.4:/home/test/id_rsa.pub
 ```
 > 把**host-b**中的```id_rsa.pub```追加到```.ssh/authorized_keys```中,并且更改```.ssh/authorized_keys```的权限
+
 ```
 $ ssh host-b@192.168.2.4
 $ cat id_rsa.pub >> .ssh/authorized_keys
 $ chmod 600 .ssh/authorized_keys
 $ exit
-
 ```
 
 ## debian下的vpn设置
