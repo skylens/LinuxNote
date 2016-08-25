@@ -142,7 +142,7 @@ $ ls -alh
 ```
 > 将**host-a**中的```id_rsa.pub```上传到**host-b**中
 ```
-$ scp .ssh/id_rsa.pub host-b@192.168.2.4:/home/test/id_rsa.pub 
+$ scp .ssh/id_rsa.pub host-b@192.168.2.4:/home/test/id_rsa.pub
 ```
 > 把**host-b**中的```id_rsa.pub```追加到```.ssh/authorized_keys```中,并且更改```.ssh/authorized_keys```的权限
 ```
@@ -152,5 +152,8 @@ $ chmod 600 .ssh/authorized_keys
 $ exit
 
 ```
+
+## debian下的vpn设置
+
 
 bash vim tmux Xorg emacs...
