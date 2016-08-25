@@ -4,7 +4,7 @@
   * [dotfile](https://github.com/skylens/LinuxNote/tree/master/Debian/dotfile)
     1. [ssh面密码登录](https://github.com/skylens/LinuxNote/tree/master/Debian#如何实现-host-a-ssh免密码登录-host-b)
     2. [Debian声音设置](https://github.com/skylens/LinuxNote/tree/master/Debian#声音设置)
-    2. [Debian VPN](https://github.com/skylens/LinuxNote/tree/master/Debian#debian下的vpn设置)
+    3. [Debian VPN](https://github.com/skylens/LinuxNote/tree/master/Debian#debian下的vpn设置)
   * [Debian下lamp](https://github.com/skylens/LinuxNote/tree/master/Debian/lamp)
 + [CentOS的安装及配置](https://github.com/skylens/LinuxNote/tree/master/CentOS)
   * [CentOS下lamp环境](https://github.com/skylens/LinuxNote/tree/master/CentOS/lamp)
@@ -18,7 +18,7 @@
 
 ## 参考资料
 
-[wx672's Wiki](http://cs2.swfc.edu.cn/~wx672/lecture_notes/)
+[wx672's lecture_notes](http://cs2.swfc.edu.cn/~wx672/lecture_notes/)
 
 [Leone's Wiki](http://cs3.swfu.edu.cn/~yongjun/index.html)
 
