@@ -1,10 +1,11 @@
 # LinuxNote
 ## Linux学习笔记
+
++ [LinuxLearn](https://github.com/skylens/LinuxNote/tree/master/LinuxLeran)
+
 + [Debian的安装及配置](https://github.com/skylens/LinuxNote/tree/master/Debian)
   * [dotfile](https://github.com/skylens/LinuxNote/tree/master/Debian/dotfile)
-    1. [ssh面密码登录](https://github.com/skylens/LinuxNote/tree/master/Debian#如何实现-host-a-ssh免密码登录-host-b)
-    2. [Debian声音设置](https://github.com/skylens/LinuxNote/tree/master/Debian#声音设置)
-    3. [Debian VPN](https://github.com/skylens/LinuxNote/tree/master/Debian#debian下的vpn设置)
+    
   * [Debian下lamp](https://github.com/skylens/LinuxNote/tree/master/Debian/lamp)
 + [CentOS的安装及配置](https://github.com/skylens/LinuxNote/tree/master/CentOS)
   * [CentOS下lamp环境](https://github.com/skylens/LinuxNote/tree/master/CentOS/lamp)
