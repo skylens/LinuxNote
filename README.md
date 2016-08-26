@@ -18,8 +18,13 @@
 ## 参考资料
 
 [wx672's lecture_notes](http://cs2.swfc.edu.cn/~wx672/lecture_notes/)
+
 [Leone's Wiki](http://cs3.swfu.edu.cn/~yongjun/index.html)
+
 [rory's Wiki](http://cs3.swfu.edu.cn/~rory/)
+
 [Debian/Ubuntu安装指导](http://cs2.swfc.edu.cn/~wx672/lecture_notes/linux/tutorials/install.html)
+
 [Debian 配置01](http://cs3.swfu.edu.cn/~yongjun/debian-basic)
+
 [Debian 配置02](http://cs3.swfu.edu.cn/~rory/?p=448)
