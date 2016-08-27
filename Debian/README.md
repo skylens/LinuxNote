@@ -70,7 +70,7 @@ deb-src http://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib
 * 基本软件
 
 ```
-# apt-get install modemmanager acpi acpi-support acpid acpitool alsa-utils anacron apt apt-file bash bash-completion build-essential curl dash dkms fcitx fcitx-module-cloudpinyin fcitx-googlepinyin flip fonts-arphic-ukai fonts-arphic-uming fonts-wqy-microhei fonts-wqy-zenhei gdebi git git-core grun i3 ifupdown ifupdown-extra imagemagick info iw  less libnss3-tools localepurge lsof nmap ntfs-3g ntpdate pulseaudio pavucontrol pv qiv sawfish ssh sudo systemd tcpdump time tmux ttyrec unbound usbutils wpasupplicant x11-apps xfonts-terminus xfonts-wqy xinit xterm xorg tar zip unzip vim emacs-goodies-el emacs24 esound
+# apt-get install modemmanager acpi acpi-support acpid acpitool alsa-utils anacron apt apt-file bash bash-completion build-essential curl dash dkms fcitx fcitx-module-cloudpinyin fcitx-googlepinyin flip fonts-arphic-ukai fonts-arphic-uming fonts-wqy-microhei fonts-wqy-zenhei gdebi git git-core grun i3 ifupdown ifupdown-extra imagemagick info iw  less libnss3-tools localepurge lsof nmap ntfs-3g ntpdate pulseaudio pavucontrol pv qiv sawfish ssh sudo systemd tcpdump time tmux ttyrec unbound usbutils wpasupplicant x11-apps xfonts-terminus xfonts-wqy xinit xterm xorg tar zip unzip vim emacs-goodies-el emacs24 esound tpp
 ```
 * 还是用```root```登陆(```tux```就是普通用户的用户名)
 
