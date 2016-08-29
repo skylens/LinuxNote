@@ -1,4 +1,6 @@
-# Debian Install
+# Debian Install for Loaptop
+
+** 1. 网络配置、源配置、安装ssh **
 
 ```$ su -```
 
@@ -7,6 +9,17 @@
 ```# dhclient eth0```
 
 ```# ping -c 3 www.163.com```
+
+设置开机自动获取IP，打开```/etc/network/interfaces```
+
+```# nano /etc/network/interfaces```
+
+向```/etc/network/interfaces```添加
+
+```
+auto eth0
+iface eth0 inet dhcp
+```
 
 ```# nano /etc/apt/sources.list```
 > debian 8.5 软件源
@@ -57,7 +70,7 @@ deb-src http://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib
 # apt-get install openssh-server
 ```
 
-**开始安装软件**
+** 2. 安装软件 **
 
 * 安装常用软件(当然也可以只安装基本的软件,以后用到什么软件再装什么软件)
 
@@ -133,6 +146,36 @@ $ alsamixer
 ```
 
 
+# Debian Install for server
 
+** 1. 网络配置、源配置、安装ssh **
+
+配置和laptop没太大区别
+1. 网络地址设置为静态地址
+
+打开```/etc/network/interfaces```
+
+```# nano /etc/network/interfaces```
+
+向```/etc/network/interfaces```添加
+
+```
+auto eth0
+iface eth0 inet static
+address 192.168.2.5
+netmask 255.255.255.0
+gateway 192.168.2.2
+```
+2. 源用稳定源
+
+** 2. 安装软件 **
+
+```apt-get install vim nano sudo tmux ntpdate ```
+
+** 3. 设置ntp时间同步 **
+
+```ntpdate 202.108.6.95```
+
+** 4. 其他 **
 
 bash vim tmux Xorg emacs...
