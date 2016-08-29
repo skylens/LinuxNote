@@ -1,6 +1,6 @@
 # Debian Install for Loaptop
 
-** 1. 网络配置、源配置、安装ssh **
+1. **网络配置、源配置、安装ssh**
 
 ```$ su -```
 
@@ -70,7 +70,7 @@ deb-src http://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib
 # apt-get install openssh-server
 ```
 
-** 2. 安装软件 **
+2. **安装软件**
 
 * 安装常用软件(当然也可以只安装基本的软件,以后用到什么软件再装什么软件)
 
@@ -148,7 +148,7 @@ $ alsamixer
 
 # Debian Install for server
 
-** 1. 网络配置、源配置、安装ssh **
+1. **网络配置、源配置、安装ssh**
 
 配置和laptop没太大区别
 1. 网络地址设置为静态地址
@@ -168,11 +168,11 @@ gateway 192.168.2.2
 ```
 2. 源用稳定源
 
-** 2. 安装软件 **
+2. **安装软件**
 
 ```apt-get install vim nano sudo tmux ntpdate ```
 
-** 3. 设置ntp时间同步 **
+3. **设置ntp时间同步**
 
 ```ntpdate 202.108.6.95```
 

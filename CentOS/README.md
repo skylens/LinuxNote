@@ -1,1 +1,4 @@
-# CentOS or Oracle Linux Install 
+# CentOS(Oracle Linux) Install
+
+1. **网络设置**
+ 
