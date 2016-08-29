@@ -53,5 +53,38 @@ IPADDR=192.168.2.7
 GATEWAY=192.168.2.2
 NETMASK=255.255.255.0
 DNS1=114.114.114.114
-DNS2=8.8.8.8 
+DNS2=8.8.8.8
+```
+2. **利用本地镜像源安装几个软件**
+
+```
+# yum install -y wget openssh-server net-tools
+```
+
+3. **配置yum**
+
+备份```/etc/yum.repos.d/CentOS-Base.repo```
+
+```
+# mv  /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+```
+
+下载或```scp```上传repo文件,放到```/etc/yum.repos.d/```下,生成缓存
+
+```
+# yum clean all
+# yum makecache
+```
+
+4. **升级一下软件,安装一些常用软件**
+
+```
+# yum update
+# yum install -y sudo vim bash bash-completion nano tmux ntpdate tar zip unzip
+```
+
+5. **其他配置**
+
+```
+
 ```
