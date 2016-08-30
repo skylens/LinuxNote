@@ -1,11 +1,56 @@
 # lamp learn note
 
+> MySQl安装
+
+```
+# aptitude install mysql-server mysql-client
+```
+
+设置密码
+
+```
+# /usr/bin/mysqladmin -u root password 123456
+```
+
 > apache2 安装设置
 
 ```
-$ sudo apt-get install apache2 apache2-doc
-$ sudo a2enmod userdir
-$ mkdir /home/$USER/public_html
+# apt-get install apache2 apache2-doc
+```
+
+> PHP安装
+
+```
+# aptitude install php5 php5-mysql libapache2-mod-php5
+# apt-get install php5-mysql php5-curl
+```
+
+测试
+
+```
+# nano /var/www/test.php
+<?php phpinfo(); ?>
+```
+在浏览器中输入```http://127.0.0.1/test.php```
+
+> phpmyadmin安装
+
+```
+# aptitude install phpmyadmin
+```
+
+重启Apache
+
+```
+# /etc/init.d/apache2 restart
+```
+
+> Apache的其他设置
+
+**1. 开启mod_userdir模块,实现```http://127.0.0.1/~<username>```**
+```
+# a2enmod userdir
+# mkdir /home/$USER/public_html
 ```
 > 切换到**Root**用户
 ```
