@@ -1,4 +1,6 @@
-# lamp learn note
+# Web开发环境
+
+## lamp learn note
 
 > MySQl安装
 
@@ -62,3 +64,9 @@
 ```
 curl http://127.0.0.1/~<username>
 ```
+
+## lnmp learn note
+
+> apt-get install nginx
+
+> 安装mysql
