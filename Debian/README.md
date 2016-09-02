@@ -207,7 +207,7 @@ gateway 192.168.2.2
 
 ```apt-get install vim nano sudo tmux ntpdate ```
 
-3. **设置ntp时间同步**
+3. **设置[ntp](http://www.ntp.org.cn/)时间同步**
 
 ```ntpdate 202.108.6.95```
 
