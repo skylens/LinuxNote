@@ -1,5 +1,9 @@
 # Debian Install for Loaptop
 
+__**# 表示以```root```身份登录系统进行操作**__
+
+__**$ 表示以普通用户身份登录系统进行操作**__
+
 1. **网络配置、源配置、安装ssh**
 
 ```$ su -```
@@ -144,7 +148,38 @@ $ sudo cp dotfile/fonts/* /usr/share/fonts/truetype/
 $ alsactl init
 $ alsamixer
 ```
+## 时间设置
 
+```
+$sudo tzselect //更改时区
+
+```
+
+linux 单系统跳过这步
+对于双系统```Windows+linux```时间标准由操作系统设定,Windows 默认使用 ```LOCAL```,linux 默认使用 ```UTC```,linux也支持```LOCAL```,在linux 下```sudo cat /etc/adjtime```查看时间标准设定,把linux的时间设定改为```LOCAL```,这样Windows的时间就没有问题了
+
+```
+root@debian:~# cat /etc/adjtime
+0.000000 1472436284 0.000000
+1472436284
+UTC
+```
+
+```$ sudo hwclock -w --localtime```
+
+```
+root@debian:~# cat /etc/adjtime
+0.000000 1472793798 0.000000
+1472793798
+LOCAL
+````
+
+用 ntp 同步时间
+
+```
+$sudo apt-get install ntpdate
+$sudo ntpdate 202.108.6.95
+```
 
 # Debian Install for server
 
