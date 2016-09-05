@@ -4,7 +4,7 @@
 
 [Vedio](http://www.imooc.com/learn/547)
 
-[**1. 在Debian上搭建lamp**](https://github.com/skylens/LinuxNote/tree/master/Debian/lamp)
+[**1. 在Debian上搭建lamp**](https://github.com/skylens/LinuxNote/tree/master/Debian/web/lamp/)
 
 开启mod_rewrite模块,重启Apache
 

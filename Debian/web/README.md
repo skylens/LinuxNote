@@ -6,7 +6,7 @@ __**# 表示以```root```身份登录系统进行操作**__
 
 __**$ 表示以普通用户身份登录系统进行操作**__
 
-> MySQl安装
+> ```MySQl``安装
 
 ```
 # aptitude install mysql-server mysql-client
@@ -18,13 +18,13 @@ __**$ 表示以普通用户身份登录系统进行操作**__
 # /usr/bin/mysqladmin -u root password 123456
 ```
 
-> apache2 安装设置
+> ```apache2``` 安装设置
 
 ```
 # apt-get install apache2 apache2-doc
 ```
 
-> PHP安装
+> ```PHP``` 安装
 
 ```
 # aptitude install php5 php5-mysql libapache2-mod-php5
@@ -39,7 +39,7 @@ __**$ 表示以普通用户身份登录系统进行操作**__
 ```
 在浏览器中输入```http://127.0.0.1/test.php```
 
-> phpmyadmin安装
+> ```phpmyadmin``` 安装
 
 ```
 # aptitude install phpmyadmin
@@ -71,10 +71,17 @@ curl http://127.0.0.1/~<username>
 
 ## lnmp learn note
 
-> apt-get install nginx
+> ```Nginx``` 安装
 
-> 安装mysql
+```
+# apt-get install nginx
+```
 
+> 安装 ```MySQL```
+
+```
+# aptitude install mysql-server mysql-client
+```
 
 
 ## jsp learn note
@@ -94,7 +101,7 @@ curl http://127.0.0.1/~<username>
     # /usr/share/tomcat8/lib/
     ```
 
-> 安装 ```mysql```
+> 安装 ```MySQl```
 
 ```
 # aptitude install mysql-client mysql-server
