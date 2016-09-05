@@ -52,3 +52,29 @@ tcp6       0      0 :::80                   :::*                    LISTEN      
 tcp6       0      0 :::22                   :::*                    LISTEN      381/sshd
 
 ```
+
+## ```du``` 查看文件和目录磁盘使用的空间
+
+> -c 除了显示个别目录或文件的大小外,同时也显示所有目录或文件的总和
+
+> -m 以 MB 为单位
+
+> -k 以 KB 为单位
+
+> -h 以 K,M,G 为单位,提高信息的可读性
+
+> -s 仅显示总计,只列出最后加总的值
+
+```
+$ du test.log     #查看文件test.log的容量
+$ du test/ #查看目录test/的容量
+```
+
+## ```bash color``` 彩色输出
+
+
+[```bashcolor```](http://misc.flogisoft.com/bash/tip_colors_and_formatting)
+
+[```bashcolor```](http://www.commandlinefu.com/commands/view/5879/show-numerical-values-for-each-of-the-256-colors-in-bash)
+
+[```fish-shell```](https://github.com/fish-shell/fish-shell/)

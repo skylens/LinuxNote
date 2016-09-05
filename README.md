@@ -4,7 +4,7 @@
 + [LinuxLearn](https://github.com/skylens/LinuxNote/tree/master/LinuxLeran)
 + [Debian的安装及配置](https://github.com/skylens/LinuxNote/tree/master/Debian)
   * [dotfile](https://github.com/skylens/LinuxNote/tree/master/Debian/dotfile)  
-  * [Debian下lamp](https://github.com/skylens/LinuxNote/tree/master/Debian/lamp)
+  * [Debian下lamp](https://github.com/skylens/LinuxNote/tree/master/Debian/web/lamp.md)
 + [CentOS的安装及配置](https://github.com/skylens/LinuxNote/tree/master/CentOS)
   * [CentOS下lamp环境](https://github.com/skylens/LinuxNote/tree/master/CentOS/lamp)
   * [CentOS下lnmp环境](https://github.com/skylens/LinuxNote/tree/master/CentOS/lnmp)
