@@ -33,3 +33,22 @@ rsync -vh --progress test.mp4 test/
 #-h 人性化
 #--progress 在传输时现实传输过程
 ```
+
+## ```netstat``` 显示网络连接、路由表和网络接口信息
+
+> ```netstat -ntlp``` 查看当前所有tcp端口
+
+```
+# netstat -ntlp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      1248/exim4      
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      849/mysqld      
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      381/sshd        
+tcp6       0      0 ::1:25                  :::*                    LISTEN      1248/exim4      
+tcp6       0      0 127.0.0.1:8005          :::*                    LISTEN      447/java        
+tcp6       0      0 :::8080                 :::*                    LISTEN      447/java        
+tcp6       0      0 :::80                   :::*                    LISTEN      488/apache2     
+tcp6       0      0 :::22                   :::*                    LISTEN      381/sshd
+
+```
