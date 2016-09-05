@@ -74,3 +74,28 @@ curl http://127.0.0.1/~<username>
 > apt-get install nginx
 
 > 安装mysql
+
+
+
+## jsp learn note
+
+> 安装 ```Tomcat8```
+
+```
+# apt-get install tomcat8
+```
+  + 在浏览器中输入```http://127.0.0.1:8080``` 测试
+
+  + ```tomcat``` 的一些配置目录
+    ```
+    # 应用家目录
+    # /var/lib/tomcat8/webapps/ROOT/
+    # 依赖目录
+    # /usr/share/tomcat8/lib/
+    ```
+
+> 安装 ```mysql```
+
+```
+# aptitude install mysql-client mysql-server
+```
