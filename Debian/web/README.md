@@ -6,7 +6,7 @@ __**# 表示以```root```身份登录系统进行操作**__
 
 __**$ 表示以普通用户身份登录系统进行操作**__
 
->  ```MySQl`` 安装
+> ```MySQl``` 安装
 
 ```
 # aptitude install mysql-server mysql-client
