@@ -84,7 +84,14 @@ DNS2=8.8.8.8
 ```
 
 5. **其他配置**
+    1. 关闭 selinux
+    暂时
+    ```
+    # setenforce 0
+    ```
+    修改配置文件,永久关闭 selinux
 
-```
-
-```
+    ```
+    # vi /etc/selinux/config
+    找到" SELINUX=encforcing " 改为 " SELINUX=disabled "
+    ```
