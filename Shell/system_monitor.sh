@@ -23,16 +23,16 @@ reset_terminal=$(tput sgr0)
 #Check if connected to Internet or not
 	ping -c 3 www.163.com &>/dev/null && echo "Internet:Conneted" || echo "Internet:Disconnected"
 #Check Internal IP
-  internalip=$(hostname -I)
-  echo -e '\E[32m' "Check Internal IP:" $reset_terminal $internalip
+  	internalip=$(hostname -I)
+	echo -e '\E[32m' "Check Internal IP:" $reset_terminal $internalip
 #Check External IP
-  externalip=$(curl -s http://ipecho.net/plain)
-  echo -e '\E[32m' "Check External IP:" $reset_terminal $externalip
+  	externalip=$(curl -s http://ipecho.net/plain)
+  	echo -e '\E[32m' "Check External IP:" $reset_terminal $externalip
 #Check DNS
-  nameservers=$(cat /etc/resolv.conf |grep -E "\<nameserver[ ]+"|awk '{print $NF}')
-  echo -e '\E[32m' "Check DNS:" $reset_terminal $nameservers
+	nameservers=$(cat /etc/resolv.conf |grep -E "\<nameserver[ ]+"|awk '{print $NF}')
+  	echo -e '\E[32m' "Check DNS:" $reset_terminal $nameservers
 #Check Logged In Users
-  who>/tmp/who
-  echo -e '\E[32m' "Check Logged In Users:" $reset_terminal && cat /tmp/who
-  rm -rf /tmp/who
+	who>/tmp/who
+  	echo -e '\E[32m' "Check Logged In Users:" $reset_terminal && cat /tmp/who
+  	rm -rf /tmp/who
 fi
