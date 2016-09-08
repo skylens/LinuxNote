@@ -85,6 +85,9 @@ $ du test/ #查看目录test/的容量
 例
 
 下载 ```https://github.com/skylens/LinuxNote/blob/master/Shell/system_monitor.sh```
+
 直接 ```wget https://github.com/skylens/LinuxNote/blob/master/Shell/system_monitor.sh``` 则会下载 github 上源码所在的网页
+
 需要更改为 ```wget http://raw.githubusercontent.com/skylens/LinuxNote/master/Shell/system_monitor.sh```
+
 即 ```https ==> http```  ```github.com ==> raw.githubusercontent.com``` 
