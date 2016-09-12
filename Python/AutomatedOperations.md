@@ -117,3 +117,87 @@
   ```
 
   *
+
++ 文件内容差异对比方法
+
+  * 两个字符串的差异对比
+
+  ```
+  #!/usr/bin/env python
+  #coding:utf-8
+
+  import difflib
+  text1 = """text1:  #定义字符串1
+  This module provides classes and functions for comparing sequences.
+  including HTML and context and unidied diffs.
+  difflib document v7.4
+  add string
+  """
+  text1_lines = text1.splitlines()  # 以行进行分隔,以便进行对比
+  text2 = """text2:   # 定义字符串2
+  This module provides classes and function for Comparing sequences.
+  including HTML and context and unified diffs.
+  difflib document v7.5"""
+  text2_lines = text2.splitlines()
+  d = difflib.Differ()  #创建Differ()对象
+  diff = d.compare(text1_lines, text2_lines)  #采用compare方法对字符串进行比较
+  print '\n'.join(list(diff))
+  ```
+
+  采用HtmlDiff()类的make_file()方法生成HTML文档
+
+  ```
+  d = difflib.Differ()  
+  diff = d.compare(text1_lines, text2_lines)
+  print '\n'.join(list(diff))
+  ```
+
+  替换为
+
+  ```
+  d = difflib.HtmlDiff()
+  print d.make_file(text1_lines, text2_lines)
+  ```
+
+* 对比 ndinx 配置文件的差异
+
+  ```
+  #!/usr/bin/env python
+  #cosing:utf-8
+
+  import difflib
+  import sys
+
+  try:
+  	textfile1=sys.argv[1]
+  	textfile2=sys.argv[2]
+  except Exception,e:
+  	print "Error:"+str(e)
+  	print "Usage: simple9.py filename1 filename2"
+  	sys.exit()
+
+  def readfile(filename):
+  	try:
+  		fileHandle = open (filename, 'rb')
+  		text=fileHandle.read().splitlines()
+  		fileHandle.close()
+  		return text
+  	except IOError as error:
+  		print ('Read file Error:'+str(error))
+  		sys.exit()
+  if textfile1=="" or textfile2=="":
+  	print "Usage : simaple9.py filename1 filename2"
+  	sys.exit()
+
+  text1_lines = readfile(textfile1)
+  text2_lines = readfile(textfile2)
+
+  d = difflib.HtmlDiff()
+  print d.make_file(text1_lines,text2_lines)
+  ```
+
+  运行
+
+  ```
+  python simaple9.py nginx.conf1 nginx.conf2 > /var/www/html/nginx_1.html
+  ```
