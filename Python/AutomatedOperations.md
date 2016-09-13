@@ -201,3 +201,7 @@
   ```
   python simaple9.py nginx.conf1 nginx.conf2 > /var/www/html/nginx_1.html
   ```
+
++ 文件目录差异对比
+
+  * 
