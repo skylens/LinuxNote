@@ -18,9 +18,9 @@ export PS1
 
 eval "$(lesspipe)"
 
-if [ -f ~/.lscolors ]; then 
+if [ -f ~/.lscolors ]; then
 	eval "$(dircolors ~/.lscolors)"
-else 
+else
 	eval "$(dircolors)"
 fi
 
