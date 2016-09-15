@@ -91,6 +91,10 @@ deb-src http://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib
 ```
 
 ```
+# apt-get install fbterm fcitx im-config fcitx-frontend-fbterm
+```
+
+```
 # apt-get install modemmanager acpi acpi-support acpid acpitool alsa-utils anacron apt apt-file bash bash-completion build-essential curl dash dkms fcitx fcitx-module-cloudpinyin fcitx-googlepinyin flip fonts-arphic-ukai fonts-arphic-uming fonts-wqy-microhei fonts-wqy-zenhei gdebi git grun i3 ifupdown ifupdown-extra imagemagick info iw  less libnss3-tools localepurge lsof nmap ntfs-3g ntpdate pulseaudio pavucontrol pv qiv sawfish ssh sudo systemd tcpdump time tmux ttyrec unbound usbutils wpasupplicant x11-apps xfonts-terminus xfonts-wqy xinit xterm xorg tar zip unzip vim emacs-goodies-el emacs24 esound tpp ipython python python-pip
 ```
 * 还是用```root```登陆(```tux```就是普通用户的用户名)
@@ -134,6 +138,8 @@ $ sudo nano /etc/systemd/system/getty.target.wants/getty@tty8.service
   +   zh_CN.GB18030 GB18030
   +   zh_CN.UTF-8 UTF-8
   +  默认语言环境选 None
+
+
 ```
 $ sudo cp ~/dotfile/etc/default/locale /etc/default
 $ sudo cp ~/dotfile/etc/default/keyboard /etc/default
