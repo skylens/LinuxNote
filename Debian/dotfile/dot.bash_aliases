@@ -18,5 +18,5 @@ alias grep='grep --color=auto'
 alias Date='date +%Y-%m-%d-%H-%M'
 # PDF reader
 alias zathura='zathura --fork 2>/dev/null'
-# show PDF powerpoint 
+# show PDF powerpoint
 alias impressive='/usr/bin/impressive --windowed -c memory --clock -M --nologo'

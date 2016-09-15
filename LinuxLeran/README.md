@@ -147,3 +147,10 @@ $ wc -c #显示字节数
 ```
 $ wc -l /etc/passwd
 ```
+
+## 通过命令查找对应属于的软件包
+
+```
+$ dpkg -S `which ifconfig`
+net-tools: /sbin/ifconfig
+```
