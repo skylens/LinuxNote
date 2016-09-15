@@ -16,3 +16,7 @@ alias screencapture='ffmpeg -video_size 800x600 -framerate 25 -f x11grab -i :0.0
 alias grep='grep --color=auto'
 # show date
 alias Date='date +%Y-%m-%d-%H-%M'
+# PDF reader
+alias zathura='zathura --fork 2>/dev/null'
+# show PDF powerpoint 
+alias impressive='/usr/bin/impressive --windowed -c memory --clock -M --nologo'
