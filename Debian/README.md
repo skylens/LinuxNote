@@ -161,7 +161,7 @@ $ alsamixer
 ## 时间设置
 
 ```
-$sudo tzselect //更改时区
+$ sudo tzselect //更改时区
 
 ```
 
