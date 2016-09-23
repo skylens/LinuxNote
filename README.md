@@ -17,7 +17,7 @@
 
 ## 参考资料
 
-[wx672's lecture_notes](http://cs2.swfc.edu.cn/~wx672/lecture_notes/)
+[wx672's lecture notes](http://cs2.swfc.edu.cn/~wx672/lecture_notes/)
 
 [Leone's Wiki](http://cs3.swfu.edu.cn/~yongjun/index.html)
 
