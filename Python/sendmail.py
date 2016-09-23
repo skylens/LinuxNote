@@ -9,8 +9,8 @@ import string
 
 HOST = "smtp.qq.com"
 SUBJECT = "Test email from Python"
-TO = "319085528@qq.com"
-FROM = "319085528@qq.com"
+TO = "receiveaccount@qq.com"
+FROM = "sendaccount@qq.com"
 text = "Python rules them all!"
 BODY = String.join((
 	"From: %s" % FROM,
@@ -22,7 +22,7 @@ BODY = String.join((
 server = smtplib.SMTP()
 server.connect(HOST,"25")
 server.starttls()
-server.login("319085528@qq.com","password")
+server.login("sendaccount@qq.com","password")
 server.sendmail(FROM, [TO], BODY)
 server.quit
 
