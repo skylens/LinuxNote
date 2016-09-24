@@ -1,4 +1,4 @@
-**#GitHub 设置及使用**
+#**GitHub 设置及使用**
 
 1. 注册 GitHub 账号
 
@@ -14,7 +14,7 @@ $ sudo apt-get install git
 $ ssh-keygen -t rsa -C "your_email@youremail.com"
 $ cd .ssh/
 cat id_rsa.pub
-sh-rsa ************************************************************************************************************************************************************************************************************************************************************************************ your_email@youremail.com
+sh-rsa ********************************** your_email@youremail.com
 ``` 
 
 复制 cat 内容
@@ -26,7 +26,6 @@ sh-rsa *************************************************************************
 ```
 $ ssh -T git@github.com
 
-```
 Hi youraccount! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
