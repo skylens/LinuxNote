@@ -2,4 +2,4 @@
 
 |uptime|
 |:-:|
-|dmesg|tail|
+|dmesg\|tail|
