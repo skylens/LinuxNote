@@ -6,7 +6,7 @@ import time
 import sys
 import pycurl
 
-URL="https://www.google.com.hk"
+URL="http://www.163.com"
 c = pycurl.Curl()
 c.setopt(pycurl.URL, URL)
 c.setopt(pycurl.CONNECTTIMEOUT, 5)
