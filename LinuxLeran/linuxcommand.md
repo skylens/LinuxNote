@@ -91,3 +91,101 @@ Linux 3.16.0-4-amd64 (VM) 	2016年09月24日 	_x86_64_	(1 CPU)
 ```
 
 (作用:输出进程的CPU占用率)
+
+```
+$ iostat -xz 1
+Linux 3.16.0-4-amd64 (VM) 	2016年09月25日 	_x86_64_	(1 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.42    0.00    2.65    0.38    0.00   96.55
+
+Device:         rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
+sda               8.70     2.21   22.88    1.46   378.74    17.95    32.59     0.06    2.32    1.11   21.26   0.53   1.28
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.99    0.00    0.00    0.00    0.00   99.01
+
+Device:         rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util
+
+^C
+```
+
+(作用:查看机器磁盘IO情况)
+
+```
+$ free -m
+             total       used       free     shared    buffers     cached
+Mem:           480        134        346          4          9         41
+-/+ buffers/cache:         83        397
+Swap:          879          0        879
+```
+
+(作用:查看系统内存的使用情况)
+
+```
+$ sar -n DEV 1
+Linux 3.16.0-4-amd64 (VM) 	2016年09月25日 	_x86_64_	(1 CPU)
+
+23时00分55秒     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil
+23时00分56秒      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+23时00分56秒        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+23时00分56秒     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil
+23时00分57秒      eth0      0.99      0.99      0.06      0.41      0.00      0.00      0.00      0.00
+23时00分57秒        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+```
+
+(作用:查看网络设备的吞吐率)
+
+```
+$ sar -n TCP,ETCP 1
+Linux 3.16.0-4-amd64 (VM) 	2016年09月25日 	_x86_64_	(1 CPU)
+
+23时02分27秒  active/s passive/s    iseg/s    oseg/s
+23时02分28秒      0.00      0.00      0.00      0.00
+
+23时02分27秒  atmptf/s  estres/s retrans/s isegerr/s   orsts/s
+23时02分28秒      0.00      0.00      0.00      0.00      0.00
+
+23时02分28秒  active/s passive/s    iseg/s    oseg/s
+23时02分29秒      0.00      0.00      0.99      0.99
+
+23时02分28秒  atmptf/s  estres/s retrans/s isegerr/s   orsts/s
+23时02分29秒      0.00      0.00      0.00      0.00      0.00
+```
+
+(作用:查看TCP连接状态)
+
+```
+$ top 
+top - 23:03:52 up 7 min,  2 users,  load average: 0.00, 0.03, 0.04
+Tasks:  64 total,   1 running,  63 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem:    492492 total,   138708 used,   353784 free,     9768 buffers
+KiB Swap:   901116 total,        0 used,   901116 free.    43188 cached Mem
+
+   PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND                                                                    
+    32 root      20   0       0      0      0 S  0.3  0.0   0:01.62 kworker/0:2                                                                
+     1 root      20   0   28492   4584   3084 S  0.0  0.9   0:01.04 systemd                                                                    
+     2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd                                                                   
+     3 root      20   0       0      0      0 S  0.0  0.0   0:00.04 ksoftirqd/0                                                                
+     5 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 kworker/0:0H                                                               
+     6 root      20   0       0      0      0 S  0.0  0.0   0:00.03 kworker/u256:0                                                             
+     7 root      20   0       0      0      0 S  0.0  0.0   0:00.38 rcu_sched                                                                  
+     8 root      20   0       0      0      0 S  0.0  0.0   0:00.00 rcu_bh                                                                     
+     9 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 migration/0                                                                
+    10 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 watchdog/0                                                                 
+    11 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 khelper                                                                    
+    12 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kdevtmpfs                                                                  
+    13 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 netns                                                                      
+    14 root      20   0       0      0      0 S  0.0  0.0   0:00.00 khungtaskd                                                                 
+    15 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 writeback                                                                  
+    16 root      25   5       0      0      0 S  0.0  0.0   0:00.00 ksmd                                                                       
+    17 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 crypto
+
+```
+
+(作用:查看系统负载情况, 系统内存使用情况, 系统CPU使用情况, 等 为前面一些命令的汇总)
+
+
+
