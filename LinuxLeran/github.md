@@ -34,4 +34,7 @@ Hi youraccount! You've successfully authenticated, but GitHub does not provide s
 ```
 $ git config --global user.name "your name" //配置用户名
 $ git config --global user.email "your_email@youremail.com" //配置邮箱
+$ git config --global color.ui true //开启颜色显示
+$ git config --global core.editor emacs //配置你的编缉器
+$ git config --global merge.tool vimdiff //配置你的比较工具
 ```
