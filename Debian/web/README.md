@@ -34,7 +34,7 @@ __**$ 表示以普通用户身份登录系统进行操作**__
 测试
 
 ```
-# nano /var/www/test.php
+# nano /var/www/html/test.php
 <?php phpinfo(); ?>
 ```
 在浏览器中输入```http://127.0.0.1/test.php```
