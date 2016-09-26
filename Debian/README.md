@@ -184,6 +184,12 @@ root@debian:~# cat /etc/adjtime
 LOCAL
 ````
 
+24小时制
+
+```
+$ sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+$ #然后用 ntp 同步时间
+```
 用 ntp 同步时间
 
 ```
