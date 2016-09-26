@@ -17,3 +17,13 @@
 ```
 # apt-get install python-pip
 ```
+
++ 安装 scapy 
+
+```
+# curl https://codeload.github.com/secdev/scapy/zip/v2.3.2
+# unzip scapy-2.3.2.zip
+# cd scapy-2.3.2/
+# python setup.py install
+```
+

@@ -5,7 +5,7 @@ import xlsxwriter
 
 workbook = xlsxwriter.Workbook('chart.xlsx') #创建一个Excel文件
 worksheet = workbook.add_worksheet() #创建一个工作表对象
-chart = workbook.add_chart({'type': 'colum'}) #创建一个图表对象
+chart = workbook.add_chart({'type': 'column'}) #创建一个图表对象
 #定义数据表头列表
 title = [u'业务名称',u'星期一',u'星期二',u'星期三',u'星期四',u'星期五',u'星期六',u'星期天',u'平均流量']
 buname= [u'业务官网',u'新闻中心',u'购物频道',u'体育频道',u'亲子频道'] #定义频道名称
@@ -44,10 +44,10 @@ def chart_series(cur_row):
 	worksheet.write_formula('I'+cur_row, \
 	'=AVERAGE(B'+cur_row+':H'+cur_row+')',format_ave) #计算(AVERAGE函数)频道周平均流量
 	chart.add_series({
-		'categories': '=Sheet!$B$1:$H$1', #将"星期一至星期天"作为图表数据标签(x轴)
+		'categories': '=Sheet1!$B$1:$H$1', #将"星期一至星期天"作为图表数据标签(x轴)
 		'values':     '=Sheet1!$B$'+cur_row+':H$'+cur_row, #频道一周所有数据作为数据区域
 		'line':       {'color': 'black'}, #线条颜色定义为black(黑色)
-		'name':       '=Sheet1!$A$'+cur+row, #引用业务名称为图列项
+                'name':       '=Sheet1!$A$'+cur_row, #引用业务名称为图列项
 	})
 for row in range(2, 7): #数据域以第2~6行进行图表数据系列函数调用
 	chart_series(str(row))
