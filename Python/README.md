@@ -31,7 +31,7 @@
 
   + 更改 ipython 提示符
 
-  ![Alt text](../Other/picture/test.jpg)
+  ![](../Other/picture/ipython_1.png)![](../Other/picture/ipython_2.png)
 
   ```
   $ ipython profile create #在当前目录下生成用户配置文件
