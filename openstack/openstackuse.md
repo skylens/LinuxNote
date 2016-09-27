@@ -1,9 +1,15 @@
 # 使用管理 openstack
 
++ 镜像
+
+  + 测试镜像 Cirros
+    user:cirros
+    password:cubswin:)
+
 + 安全组
 
   + linux
+    添加所有规则除了(RDP, MS SQL)
 
-    + ssh 打开 TCP 22 号端口
-    + http 打开 TCP 80 号端口
-    + mysql 打开 TCP 3306 号端口
+  + windows
+    添加所有规则除了(SSH)
