@@ -27,3 +27,17 @@
 # python setup.py install
 ```
 
++ 其他
+
+  + 更改 ipython 提示符
+  
+  ```
+  $ ipython profile create #在当前目录下生成用户配置文件
+  $ cd .ipython/profile_default/
+  $ vim ipython_config.py
+    ...
+    c.PromptManager.out_template = '\\# <<< ' 
+    ...
+    c.PromptManager.in_template = '\\# >>> '
+    ...
+  ```
