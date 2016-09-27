@@ -18,7 +18,7 @@
 # apt-get install python-pip
 ```
 
-+ 安装 scapy 
++ 安装 scapy
 
 ```
 # curl https://codeload.github.com/secdev/scapy/zip/v2.3.2
@@ -30,13 +30,15 @@
 + 其他
 
   + 更改 ipython 提示符
-  
+
+  ![Alt text](../Other/picture/test.jpg)
+
   ```
   $ ipython profile create #在当前目录下生成用户配置文件
   $ cd .ipython/profile_default/
   $ vim ipython_config.py
     ...
-    c.PromptManager.out_template = '\\# <<< ' 
+    c.PromptManager.out_template = '\\# <<< '
     ...
     c.PromptManager.in_template = '\\# >>> '
     ...
