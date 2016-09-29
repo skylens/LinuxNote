@@ -5,6 +5,7 @@
 ```
 $ wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-12.1.1-3770994.x86_64.bundle  //12.1.1
 $ wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-12.5.0-4352439.x86_64.bundle  //12.5.0
+windows https://download3.vmware.com/software/wkst/file/VMware-workstation-full-12.5.0-4352439.exe
 ```
 
 + 安装
