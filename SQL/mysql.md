@@ -1,6 +1,6 @@
 # MySQl 学习笔记
 
-[ITF](http://cs.swfu.edu.cn/itf/?p=103)
+ **[Itf mysql资料](http://cs.swfu.edu.cn/itf/?p=103)**
 
 + 开启远程访问的权限
 
