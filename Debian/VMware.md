@@ -1,4 +1,6 @@
-## 怎样在Debian下安装VMware Workstation Pro 12.1.1
+## Debian 下的 VMware Workstation Pro
+
+### 安装
 
 + 下载
 
@@ -21,3 +23,10 @@ $sudo ./VMware-Workstation-Full-12.1.1-3770994.x86_64.bundle
 + 启动VMware
 
 ```$ vmware```
+
+### 卸载
+
+```
+$ su - root
+# vmware-installer -u vmware-workstation  //点下一步进行卸载
+```
