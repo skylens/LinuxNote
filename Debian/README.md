@@ -221,12 +221,29 @@ gateway 192.168.2.2
 
 2. **安装软件**
 
-```apt-get install vim nano sudo tmux ntpdate ```
+```apt-get install vim nano sudo tmux ntpdate zip unzip tar ssh aptitude```
 
 3. **设置[ntp](http://www.ntp.org.cn/)时间同步**
 
 ```ntpdate 202.108.6.95```
 
-** 4. 其他 **
+4. **  其他 **
+
+    a. bash-completion
+
+    ```
+    $ nano .bashrc  //打开 .bashrc 添加
+    ...
+    # enable programmable completion features (you don't need to enable
+    # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+    # sources /etc/bash.bashrc).
+    if ! shopt -oq posix; then
+      if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+      elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+      fi
+    fi
+    ```
 
 bash vim tmux Xorg emacs...
