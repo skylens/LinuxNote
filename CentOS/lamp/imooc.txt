@@ -1,0 +1,51 @@
+Centos 7 lamp
+
+sudo yum install gcc gcc++ libxml2-devel
+
+下载解压 php7
+
+编译安装 php7 (nginx 需要打开 fpm 模块)
+$ ./configure --prefix=/usr/local/php7 --enable-fpm
+$ make
+$ sudo make install
+
+安装 mysql
+
+下载解压 mysql
+
+sudo yum install cmake gcc-c++ ncurses-devel perl-Data-Dumper boost boost-doc boost-devel
+
+mysql 用 cmake 进行编译
+
+$ cmake \
+> -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
+> -DMYSQL_DATADIR=/mydata/mysql/data \
+> -DSYSCONFDIR=/etc \
+> -DMYSQL_USER=mysql \
+> -DWITH_MYISAM_STORAGE
+
+
+apache2
+
+下载解压 apr apr-util
+
+下载解压编译安装 pcre
+(
+./configure --prefix=/usr/local/pcre
+make
+sudo make install
+)
+
+下载解压 apache2
+
+$ mv apr apr-util httpd/srclib/
+
+$ ./configure --prefix=/usr/local/apache -with-pcre=/usr/local/pcre/bin/prce-config -with-included-apr
+$ make
+$ sudo make install
+
+
+下载解压 nginx
+
+$ ./configure --prefix=/usr/loacl/nginx --with-pcre=../pcre-8.73/
+(../pcre-8.73/  是pcre的解压目录)
