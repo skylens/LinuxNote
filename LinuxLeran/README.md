@@ -154,3 +154,17 @@ $ wc -l /etc/passwd
 $ dpkg -S `which ifconfig`
 net-tools: /sbin/ifconfig
 ```
+
+## Tab 自动补全
+
+```
+$ sudo apt-get install bash
+$ vim .bashrc  //追加
+
+if [ "$PS1" ]; then
+  if [ -r /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+```
