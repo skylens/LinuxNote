@@ -6,12 +6,12 @@
  
  * 安装 CentOS 7 
 
-   -对旧服务器上的数据进行备份, 以免安装新的操作系统导致数据丢失
+   1.对旧服务器上的数据进行备份, 以免安装新的操作系统导致数据丢失
 
-   -选择默认语言为 Engilsh , 时区为 Asia/shanghai , 最小安装, 更改主机名(标明个节点的名称control,network,compute), 
+   2.选择默认语言为 Engilsh , 时区为 Asia/shanghai , 最小安装, 更改主机名(标明个节点的名称control,network,compute), 
    选择磁盘格式化(文件格式为ext4), 设置 Root 账户的密码, 普通用户的用户名及密码
 
-   -配置网络
+   3.配置网络
     
     ```
     # cd /etc/sysconfig/network-scripts/
