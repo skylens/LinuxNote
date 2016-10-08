@@ -11,8 +11,8 @@
 ###### 3. 配置网络 (注意修改 `*` 的位置)   
 ```bash
 # cd /etc/sysconfig/network-scripts/
-# cp ifcfg-enp0s3 ifcfg-enp0s3.bak
-# vi ifcfg-enp0s3
+# cp ifcfg-enp0s3 ifcfg-enp0s3.bak	//备份网卡配置原文件
+# vi ifcfg-enp0s3		        //修改网卡配置文件, 指定 IP 地址
    TYPE=Ethernet
   *BOOTPROTO=static 
    DEFROUTE=yes
@@ -34,5 +34,11 @@
   *NETMASK=255.255.255.0
   *DNS1=114.114.114.114
   *DNS2=8.8.8.8
-
+# /etc/init.d/network restart		//重启网络服务, 让网卡配置文件生效
+# ping -c 3 www.bing.com		//测试网络是否通畅
  ```
+###### 4. 安装 wget, openssh-server, vim
+```bash
+# yum list
+# yum install -y wget openssh-server vim
+```
