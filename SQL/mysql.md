@@ -23,6 +23,11 @@ mysql> FLUSH PRIVILEGES;
 //退出mysql
 mysql> exit;
 ```
++ 远程登录 mysql 
+
+```
+$ mysql -h 127.0.0.3 -u root -p
+```
 
 + 添加用户并授权
 
