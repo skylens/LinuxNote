@@ -4,4 +4,8 @@
 
   打开`启动应用程序`, 添加名称`terminal`, 添加命令`gnome-terminal --full-screen`, 添加注释`terminal开机启动全屏`
 
- 
++ fctix 输入法
+
+```
+$ sudo apt-get install fcitx fcitx-googlepinyin fcitx-module-kimpanel fcitx-module-cloudpinyin
+```
