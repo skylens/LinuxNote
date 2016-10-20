@@ -84,7 +84,13 @@ DNS2=8.8.8.8
 ```
 
 5. **其他配置**
-    1. 关闭 selinux
+    1. 设置 ntp 统一服务器时间
+	
+    ```
+    # sudo ntpdate 202.108.6.95
+    ```
+
+    2. 关闭 selinux
     暂时
     ```
     # setenforce 0
@@ -95,3 +101,5 @@ DNS2=8.8.8.8
     # vi /etc/selinux/config
     找到" SELINUX=encforcing " 改为 " SELINUX=disabled "
     ```
+    
+    3. 
