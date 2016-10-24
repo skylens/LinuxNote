@@ -3,7 +3,7 @@
 + 安装
 
 
-+ 上传限制修改
++ [上传限制修改](http://d-prototype.com/archives/2016)
 
 ```
 # cd /var/www/owncloud/
