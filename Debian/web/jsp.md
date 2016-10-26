@@ -7,6 +7,12 @@ $ sudo apt-get install openjdk-8-jdk openjdk-8-jre
 $ sudo apt-get install tomcat8
 ```
 
++ 安装 mysql
+
+```
+# apt-get install mysql-client-5.5 mysql-server-5.5
+```
+
 + tomcat8 的配置文件所在目录
 
 ```
