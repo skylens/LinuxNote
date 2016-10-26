@@ -37,4 +37,13 @@ $ mysql -uroot -p
 $ mysql> INSERT INTO user (host, user, password,select_priv, insert_priv, update_priv) VALUES ('%', 'test',PASSWORD('123456'), 'Y', 'Y', 'Y');
 ```
 
-+ 其他
++ Navicat Preminum 使用
+
+  * 导出为sql文件
+    
+    打开数据库 ==> 转储 SQL 文件 ==> 结构和数据
+  
+  * 导入数据
+    
+    打开数据库 ==> 表 ==> 导入向导
+    
