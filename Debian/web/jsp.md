@@ -12,6 +12,7 @@ $ sudo apt-get install tomcat8
 ```
 # cd /var/lib/tomcat8/webapps/ROOT/     //放网页的目录
 # cp mysql-connector-java-5.1.39-bin.jar /usr/share/tomcat8/lib/      //复制 mysql jdbc驱动到lib目录,以便于 jsp 连接数据库
+# /etc/init.d/tomcat8 restart   //添加了 mysql jdbc驱动, 需要重启 tomcat8 服务, 否则不生效
 ```
 
 + 安装 php 及 mysql
