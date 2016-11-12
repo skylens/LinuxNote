@@ -2,6 +2,9 @@
 
 + 安装
 
+```
+# apt-get install php5-gd
+```
 
 + [上传限制修改](http://d-prototype.com/archives/2016)
 
