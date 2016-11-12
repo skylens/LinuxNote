@@ -21,6 +21,7 @@
 # wget https://cn.wordpress.org/wordpress-4.5.3-zh_CN.tar.gz
 # tar zxf wordpress-4.5.3-zh_CN.tar.gz
 # mv wordpress/ /var/www/html/
+# chown -R www-data /var/www/
 ```
 
 **3. 安装wordpress**
