@@ -2,6 +2,7 @@
 
 + 安装
 
+ 错误 PHP module GD not installed
 ```
 # apt-get install php5-gd
 ```
