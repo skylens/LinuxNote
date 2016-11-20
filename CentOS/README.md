@@ -11,7 +11,7 @@
 
 备份并编辑```/etc/sysconfig/network-scripts/ifcfg-enp0s3```
 
-```
+```shell
 # cd /etc/sysconfig/network-scripts/
 # cp ifcfg-enp0s3 ifcfg-enp0s3.bak
 # vi ifcfg-enp0s3
@@ -32,17 +32,16 @@
 14 UUID=be068d11-d1de-4342-9f6f-96aaa53b957f
 15 DEVICE=eno16777736
 16 ONBOOT=no
-
 ```
 
 配置动态分配IP : 修改(16行)
 
-```
+```shell
 16 ONBOOT=yes
 ```
 配置静态IP : 修改(2,16行),添加
 
-```
+```shell
 2 BOOTPROTO=static
 .
 .
@@ -83,23 +82,23 @@ DNS2=8.8.8.8
 # yum install -y sudo vim bash bash-completion nano tmux ntpdate tar zip unzip
 ```
 
-5. **其他配置**
+5.  **其他配置**
     1. 设置 ntp 统一服务器时间
-	
+
     ```
     # sudo ntpdate 202.108.6.95
     ```
 
     2. 关闭 selinux
-    暂时
+       暂时
     ```
     # setenforce 0
     ```
     修改配置文件,永久关闭 selinux
 
-    ```
+    ```shell
     # vi /etc/selinux/config
     找到" SELINUX=encforcing " 改为 " SELINUX=disabled "
     ```
-    
-    3. 
+
+    3. ​
