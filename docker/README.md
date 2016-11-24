@@ -4,7 +4,7 @@
 
 ######[ubuntu 安装](https://docs.docker.com/engine/installation/linux/ubuntulinux/)	
 
-以 ubuntu 14.04 为例
+  以 ubuntu 14.04 为例
 
 ```shell
 $ sudo apt-get update
