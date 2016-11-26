@@ -20,7 +20,7 @@ int main(int argc, char * argv[]){
 
 运行结果
 
-![main_para0](main_para0.png)![main_para1]()
+![main_para0](main_para0.png)![main_para1](main_para1.png)
 
 注意
 
