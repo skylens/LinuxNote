@@ -7,9 +7,15 @@
 ```
 $ wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-12.1.1-3770994.x86_64.bundle  //12.1.1
 $ wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-12.5.0-4352439.x86_64.bundle  //12.5.0
-windows https://download3.vmware.com/software/wkst/file/VMware-workstation-full-12.5.0-4352439.exe
 ```
+windows 
 
+```
+vmware workstation 10 : https://download3.vmware.com/software/wkst/file/VMware-workstation-full-10.0.4-2249910.exe
+(1F04Z-6D111-7Z029-AV0Q4-3AEH8)
+vmware workstation 11 : https://download3.vmware.com/software/wkst/file/VMware-workstation-full-11.0.0-2305329.exe
+(JZ6WK-4529P-HZAA1-9RAG6-33JNR / 5F4EV-4Z0DP-XZHN9-0L95H-02V17) 
+```
 + 安装
 
 ```
