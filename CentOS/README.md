@@ -62,6 +62,8 @@ DNS2=8.8.8.8
 
 3. **配置yum**
 
+``` yum install epel-release ```
+
 备份```/etc/yum.repos.d/CentOS-Base.repo```
 
 ```
