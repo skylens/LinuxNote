@@ -4,3 +4,5 @@
 
    [Debian 下 LaTeX 软件列表](./pkg)
 
+   ``` sudo aptitude -R install `cat pkg` ``` 安装
+
