@@ -111,6 +111,6 @@ Server = http://mirrors.cqu.edu.cn/archlinux/$repo/os/$arch
   ...
 # timedatectl status
 # timedatectl set-ntp true
-  
+# 1
 ```
 
