@@ -1,8 +1,14 @@
 # *ArchLinux*
 
+相关链接 
+
+[http://regenerus.com/how-to-install-archlinux-on-vmware-workstation/](http://regenerus.com/how-to-install-archlinux-on-vmware-workstation/)
+
+[虚拟机安装Archlinux的简易步骤](http://www.jianshu.com/p/82a40aac52aa)
+
 ### cfdisk 分区 
 
-``` cfdisk ```
+`cfdisk`
 
 分区1: Boot /dev/sda1 
 
@@ -12,7 +18,7 @@
 
 ### 查看分区
 
-```lsblk```
+`lsblk`
 
 ### 格式化分区 
 
