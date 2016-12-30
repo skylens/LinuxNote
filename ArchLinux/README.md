@@ -2,17 +2,17 @@
 
 ### cfdisk 分区 
 
+``` cfdisk ```
+
 分区1: Boot /dev/sda1 
 
 分区2: Sawp /dev/sda2 
 
-分区3: Root /dev/sda3)
-
-``` cfdisk ```
+分区3: Root /dev/sda3
 
 ### 查看分区
 
-``` lsblk```
+```lsblk```
 
 ### 格式化分区 
 
