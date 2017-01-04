@@ -1,4 +1,4 @@
-# GitLab
+# [GitLab](https://about.gitlab.com/)
 
 ## CentOS 7 安装 `GitLab`
 
