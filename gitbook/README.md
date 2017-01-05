@@ -1,5 +1,7 @@
 # GitBook 
 
+[官方文档](https://toolchain.gitbook.com/)
+
 ## GitBook 环境搭建
 
 ### Ubuntu 下环境搭建
