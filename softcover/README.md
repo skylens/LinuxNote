@@ -1,4 +1,5 @@
-# [softcover 在线文档托管](http://manual.softcover.io/book/)
+# [softcover 在线文档托管](https://www.softcover.io/start)
+[官方文档](http://manual.softcover.io/book/)
 
 ## ubuntu 下安装 `softcover` 
 
