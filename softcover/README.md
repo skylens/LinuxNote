@@ -2,7 +2,7 @@
 
 ## ubuntu 下安装 `softcover` 
 
-先安装 [`ruby`]() [`gem`]()
+先安装 [`ruby 和 gem`](../Ruby/README.md)
 
 ```bash
 $ sudo apt-get install libcurl3 libcurl3-gnutls libcurl4-openssl-dev
