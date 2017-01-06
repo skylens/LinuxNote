@@ -1,0 +1,11 @@
+# softcover 在线文档托管
+
+## ubuntu 下安装 `softcover` 
+
+先安装 [`ruby`]() [`gem`]()
+
+```bash
+$ sudo apt-get install libcurl3 libcurl3-gnutls libcurl4-openssl-dev
+$ sudo gem install softcover
+```
+
