@@ -14,7 +14,7 @@ $ sudo gem install softcover
 $ softcover check
 ```
 
-![](../picture/softcover_check.png)
+![](./picture/softcover_check.png)
 
 ```
 Missing dependencies:
