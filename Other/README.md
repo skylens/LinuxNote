@@ -21,3 +21,7 @@
 + [laod hosts](https://laod.org/hosts/2015-google-hosts.html)
 
 + [my hosts](https://blog.my-eclipse.cn/host-google.html)
+
+note
+
+http://www.bootcss.com/p/font-awesome/
