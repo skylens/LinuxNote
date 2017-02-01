@@ -9,3 +9,7 @@
 https://github.com/Wattos/LightDM-Webkit-MacOSX-Theme
 
 https://github.com/apheleia/solarc-theme
+
+https://github.com/ActusOS/GnomeYosemiteIcons.git
+
+https://github.com/erikdubois/Themes-Icons-Pack
