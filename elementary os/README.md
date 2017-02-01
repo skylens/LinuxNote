@@ -7,3 +7,5 @@
 [meihua](https://github.com/LinxGem33)
 
 https://github.com/Wattos/LightDM-Webkit-MacOSX-Theme
+
+https://github.com/apheleia/solarc-theme
