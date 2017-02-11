@@ -7,13 +7,13 @@
 # apt-get install python python-dev
 ```
 
-* easy_install
+* easy_install 安装
 
 ```
 # apt-get install python-setuptools
 ```
 
-* pip
+* pip 安装(方便安装第三方库)
 
 ```
 # apt-get install python-pip
@@ -23,12 +23,6 @@
 
 ```
 # apt-get install ipython
-```
-
-+ pip 安装(方便安装第三方库)
-
-```
-# apt-get install python-pip
 ```
 
 + 安装 scapy
