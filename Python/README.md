@@ -6,6 +6,19 @@
 ```
 # apt-get install python python-dev
 ```
+
+* easy_install
+
+```
+# apt-get install python-setuptools
+```
+
+* pip
+
+```
+# apt-get install python-pip
+```
+
 + ipython 自动补全的 python
 
 ```
