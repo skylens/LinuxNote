@@ -5,7 +5,9 @@
 + 开启远程访问的权限
 
 ```
-$ sudo vim /etc/mysql/my.cnf  # 注释 bind-address          = 127.0.0.1 这行
+$ sudo vim /etc/mysql/my.cnf  # 注释 bind-address          = 127.0.0.1 这行
+或者
+$ sudo vim mysql/mysql.conf.d/mysqld.cnf  # 注释 bind-address          = 127.0.0.1 这行
 ...
 #  bind-address          = 127.0.0.1
 ...
