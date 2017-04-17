@@ -18,4 +18,8 @@
 $ sudo pacman -S unzip zip 
 ```
 
-###安装
+###安装主题和图标
+
+```bash
+$ sudo pacman -S arch-icons-themes
+```
