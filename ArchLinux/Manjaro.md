@@ -12,6 +12,7 @@ User_Alias      NORMAL = skylens
 NORMAL  ALL = NOPASSWD: ALL
 $ sudo chmod 0440 /etc/sudoers.d/skylens
 ```
+
 ###安装
 
 推荐英语安装
@@ -34,6 +35,7 @@ Server = ftp://ftp.cuhk.edu.hk/pub/Linux/manjaro/stable/$repo/$arch
 ## Country       : China
 Server = http://ftp.cuhk.edu.hk/pub/Linux/manjaro/stable/$repo/$arch
 ```
+
 配置`yaourt`
 
 在 `/etc/pacman.conf` 末尾添加
@@ -44,6 +46,7 @@ Server = http://ftp.cuhk.edu.hk/pub/Linux/manjaro/stable/$repo/$arch
 SigLevel = Optional TrustAll
 Server   = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 ```
+
 更新一下源，并安装`archlinuxcn-keyring`和`yaourt`
 
 ```bash
@@ -62,6 +65,8 @@ $ sudo pacman -S xfce4-terminal git fish unzip zip unrar p7zip file-roller ntfs-
 ```bash
 $ sudo pacman -S wqy-bitmapfont wqy-zenhei adobe-source-han-sans-cn-fonts wqy-microhei-lite wqy-microhei noto-fonts-emoji ttf-mac-fonts ttf-droid ttf-ubuntu-font-family ttf-dejavu ttf-monaco 
 ```
+
+当然也可以把字体文件拷贝到`/usr/share/fonts/TTF/`目录下，然后刷新字体`fc-cache -vf`,适合在linux下使用windows字体
 
 ###安装输入法
 
