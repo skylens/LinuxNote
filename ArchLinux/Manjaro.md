@@ -8,18 +8,59 @@
 
 推荐英语安装
 
-###修改源
+###修改源和配置`yaourt`
 
+在 `/etc/pacman.d/mirrorlist` 中修改（也可以使用 `grep -A 1 'China' mirrorlist >> mirrorlist ` 把不是中国的源删除）
 
+```bash
+## Country       : China
+Server = http://mirrors.ustc.edu.cn/manjaro/stable/$repo/$arch
+## Country       : China
+Server = http://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/$repo/$arch
+## Country       : China
+Server = http://mirrors.zju.edu.cn/manjaro/stable/$repo/$arch
+## Country       : China
+Server = https://mirrors.zju.edu.cn/manjaro/stable/$repo/$arch
+## Country       : China
+Server = ftp://ftp.cuhk.edu.hk/pub/Linux/manjaro/stable/$repo/$arch
+## Country       : China
+Server = http://ftp.cuhk.edu.hk/pub/Linux/manjaro/stable/$repo/$arch
+```
+配置`yaourt`
+
+在 `/etc/pacman.conf` 末尾添加
+
+```bash
+[archlinuxcn]
+#The Chinese Arch Linux communities packages.
+SigLevel = Optional TrustAll
+Server   = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+```
+更新一下源，并安装`yaourt`
+
+```bash
+$ sudo pacman -Syu yaourt
+```
 
 ###安装软件
 
 ```bash
-$ sudo pacman -S unzip zip 
+$ sudo pacman -S xfce4-terminal git fish unzip zip unrar p7zip file-roller ntfs-3g dosfstools wget emacs 
+```
+
+###安装中文字体
+
+```bash
+$ sudo pacman -S wqy-bitmapfont wqy-zenhei adobe-source-han-sans-cn-fonts wqy-microhei-lite wqy-microhei
+```
+###安装输入法
+
+```bash
+$ sudo pacman -S fcitx fcitx-fbterm fctix-googlepinyin fcitx-cloudpinyin
 ```
 
 ###安装主题和图标
 
 ```bash
-$ sudo pacman -S arch-icons-themes
+$ sudo pacman -S arc-gtk-theme arch-icons-themes
 ```
