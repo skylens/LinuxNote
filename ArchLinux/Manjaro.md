@@ -79,3 +79,7 @@ $ sudo pacman -S fcitx fcitx-fbterm fctix-googlepinyin fcitx-cloudpinyin
 ```bash
 $ sudo pacman -S arc-gtk-theme arch-icons-themes
 ```
+
+### 壁纸设置
+
+`Manjaro Linux` 使用的是 `Nitrogen`，通过 `demune` 打开 
