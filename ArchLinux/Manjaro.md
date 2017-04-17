@@ -12,4 +12,10 @@
 
 
 
+###安装软件
+
+```bash
+$ sudo pacman -S unzip zip 
+```
+
 ###安装
