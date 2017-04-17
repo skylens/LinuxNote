@@ -51,8 +51,9 @@ $ sudo pacman -S xfce4-terminal git fish unzip zip unrar p7zip file-roller ntfs-
 ###安装中文字体
 
 ```bash
-$ sudo pacman -S wqy-bitmapfont wqy-zenhei adobe-source-han-sans-cn-fonts wqy-microhei-lite wqy-microhei
+$ sudo pacman -S wqy-bitmapfont wqy-zenhei adobe-source-han-sans-cn-fonts wqy-microhei-lite wqy-microhei noto-fonts-emoji ttf-mac-fonts ttf-droid ttf-ubuntu-font-family ttf-dejavu ttf-monaco 
 ```
+
 ###安装输入法
 
 ```bash
