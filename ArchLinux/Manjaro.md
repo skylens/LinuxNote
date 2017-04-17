@@ -4,6 +4,14 @@
 
 `Manjaro`安装是基于图型界面的，安装起来比和`ubuntu`一样简单，不像`Archlinux`采用命令行来安装，这样来说对于新手来说是不友好的，`Manjaro`则采用图形化的方式来安装，要友好许多！
 
+###设置`sudo`免密码(skylens 为普通用户名)
+
+```bash
+$ sudo vim /etc/sudoers.d/skylens
+User_Alias      NORMAL = skylens
+NORMAL  ALL = NOPASSWD: ALL
+$ sudo chmod 0440 /etc/sudoers.d/skylens
+```
 ###安装
 
 推荐英语安装
@@ -36,9 +44,10 @@ Server = http://ftp.cuhk.edu.hk/pub/Linux/manjaro/stable/$repo/$arch
 SigLevel = Optional TrustAll
 Server   = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 ```
-更新一下源，并安装`yaourt`
+更新一下源，并安装`archlinuxcn-keyring`和`yaourt`
 
 ```bash
+$ sudo pacman -S archlinuxcn-keyring
 $ sudo pacman -Syu yaourt
 ```
 
@@ -65,3 +74,4 @@ $ sudo pacman -S fcitx fcitx-fbterm fctix-googlepinyin fcitx-cloudpinyin
 ```bash
 $ sudo pacman -S arc-gtk-theme arch-icons-themes
 ```
+
