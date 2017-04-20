@@ -12,6 +12,6 @@ $ pacman -Ss string              //在包数据库中查询关键字 string 有�
 $ pacman -Si                     //显示包详细的信息
 $ pacman -Qi                     //查询本地安装包的详细信息
 $ pacman -Ql                     //获取已安装软件包所包含文件的列表
-pacman -Sy      //更新源
-$
+$ pacman -Sy                     //更新源
+$ pacman -Syu                    //更新源更新系统
 ```
