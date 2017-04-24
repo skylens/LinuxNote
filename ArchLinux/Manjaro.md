@@ -83,3 +83,8 @@ $ sudo pacman -S arc-gtk-theme arch-icons-themes
 ### 壁纸设置
 
 `Manjaro Linux` 使用的是 `Nitrogen`，通过 `demune` 打开 
+
+
+### lightdm
+
+lightdm-gtk-greeter-settings-pkexec
