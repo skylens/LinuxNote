@@ -24,6 +24,8 @@
 
 #### 格式化 boot 分区 
 
+```mkfs.vfat -F32 /dev/sda1```
+
 ```mkfs.ext4 /dev/sda1```  
 
 #### 格式化 swap
