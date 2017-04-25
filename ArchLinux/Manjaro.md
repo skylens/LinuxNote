@@ -87,4 +87,12 @@ $ sudo pacman -S arc-gtk-theme arch-icons-themes
 
 ### lightdm
 
-lightdm-gtk-greeter-settings-pkexec
+`lightdm-gtk-greeter-settings-pkexec` lightdm登录图形界面配置工具
+
+### lxapperance
+
+`lxapperance` gtk图形界面配置工具
+
+### Grub
+
+`sudo grub-mkconfig -o /boot/grub/grub.cfg` 重新生成grub文件
