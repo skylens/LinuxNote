@@ -24,28 +24,39 @@
 
 #### 格式化 boot 分区 
 
-```mkfs.vfat -F32 /dev/sda1```
-
-```mkfs.ext4 /dev/sda1```  
+```bash
+# mkfs.vfat -F32 /dev/sda1
+```
 
 #### 格式化 swap
 
-```
-mkswap /dev/sda2
-swapon /dev/sda2
+```bash
+# mkswap /dev/sda2
+# swapon /dev/sda2
 ```
 
 #### 格式化主分区 
 
-```mkfs.ext4 /dev/sda3``` 
+```bash
+# mkfs.ext4 /dev/sda3
+```
 
-### 挂载主分区到 /mnt 下面
+### 挂载分区到 /mnt 下面
 
-```mount /dev/sda3 /mnt ```
+```bash
+# mount /dev/sda3 /mnt
+# cd /mnt
+# mkdir boot && cd boot
+# mkdir efi
+# cd
+# mount /dev/sda1 /mnt/boot/efi
+```
+
+
 
 ### 源设置
 
-```
+```bash
 # nano /etc/pacman.d/mirrorlist
 
 ##
@@ -66,41 +77,63 @@ Server = http://mirrors.cqu.edu.cn/archlinux/$repo/os/$arch
 
 ### 安装基本系统
 
-```pacstrap -i /mnt base```
-
-### 安装 Boot Leader
-
-```pacstrap /mnt grub-bios```
-
-###配置系统
-
+```bash
+# pacstrap -i /mnt base base-devel
 ```
+
+### 配置系统
+
+```bash
 # genfstab –p /mnt >> /mnt/etc/fstab
 # arch-chroot /mnt
+# nano /etc/locale.gen   # 去掉en_US.UTF-8,zh_CN.GB18030,zh_CN.UTF-8前面 的注释
+# locale-gen
+# echo "LANG=en_US.UTF-8" > /etc/locale.conf
 # mkinitcpio –p linux
+```
+
+### gurb安装
+
+#### grub(UEFI)
+
+```bash
+# pacman -S grub-bios efibootmgr dosfstools os-prober 
+# grub-mkconfig –o /boot/grub/grub.cfg
+# grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck --debug
+```
+
+#### grub(非UEFI)
+
+```bash
+# pacman -S grub-bios os-prober
 # grub-mkconfig –o /boot/grub/grub.cfg
 # grub-install /dev/sda
+```
+
+### 设置密码退出
+
+```bash
 # passwd
 # exit
 ```
 
-### 卸载 mnt 目录
+### 卸载挂载 的所有分区
 
-```umount /mnt```
+```bash
+# umount -R /mnt
+```
 
 ### 重启
 
-```systemctl reboot```
-
-### 进行一些设置
-
+```bash
+# reboot
 ```
-# pacman -S openssh fbterm
-# ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime //设置时区
-# nano /etc/locale.gen  //修改语言为 en_US.UTF-8
 
-# locale-gen
-# localectl set-locale LANG=”en_US.UTF-8”
+### 设置
+
+```bash
+# pacman -S openssh fbterm net-tools vim 
+# ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime //设置时区
 # dhcpcd eth0 //dhcp获取 IP 地址
 # systemctl enable dhcpcd
 # vim /etc/hosts.allow
@@ -113,6 +146,5 @@ Server = http://mirrors.cqu.edu.cn/archlinux/$repo/os/$arch
   ...
 # timedatectl status
 # timedatectl set-ntp true
-# 1
 ```
 
