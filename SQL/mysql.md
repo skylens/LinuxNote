@@ -22,6 +22,8 @@ mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'WITH GRANT OPTION;
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'IDENTIFIED BY '123456' WITH GRANT OPTION;
 //允许用户 test 从ip为 192.168.1.6 的主机连接到 mysql 服务器，并使用 '123456' 作为密码
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'test'@'192.168.1.6'IDENTIFIED BY '123456' WITH GRANT OPTION;
+//允许用户 test 从任意主机连接到 mysql 服务器，对testDB有所以权限，并使用 '123456' 作为密码
+mysql> GRANT ALL PRIVILEGES ON testDB.* TO 'test'@'%'IDENTIFIED BY '123456' WITH GRANT OPTION;
 //修改生效
 mysql> FLUSH PRIVILEGES;
 //退出mysql

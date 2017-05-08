@@ -34,6 +34,11 @@
 # python setup.py install
 ```
 
++ Python 调用 shell 
+
+`os.popen("shell command").read()` 适合只有一行输出的shell 命令
+
+
 + 其他
 
   + 更改 ipython 提示符

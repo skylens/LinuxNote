@@ -132,10 +132,78 @@ Server = http://mirrors.cqu.edu.cn/archlinux/$repo/os/$arch
 ### 设置
 
 ```bash
-# pacman -S openssh fbterm net-tools vim 
-# ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime //设置时区
 # dhcpcd eth0 //dhcp获取 IP 地址
 # systemctl enable dhcpcd
+# pacman -S openssh fbterm net-tools vim tmux 
+```
+
+#### 时间
+
+```bash
+# ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime //设置时区
+# hwclock --systohc --utc #将硬件时间设置为 UTC 
+# hwclock --systohc --localtime #将硬件时间设置为 localtime
+# 命令自动生成 /etc/adjtime
+
+```
+
+#### X-window
+
+```bash
+# pacman -S xorg-server xorg-server-utils xorg-xinit xf86-input-synaptics xf86-video-intel 
+# pacman -S xorg-xinit xorg-server xorg-server-utils pacman -S xf86-input-synaptics xf86-input-elographics xf86-input-keyboard 
+```
+
+####  声音
+
+```bash
+# pacman -S alsa-utils
+```
+
+#### 回收站机制及windows盘挂载
+
+```bash
+# pacman -S gvfs
+```
+
+#### 启动器
+
+```bash
+# pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+# systemctl enable lightdm
+```
+
+#### 网络
+
+```bash
+# pacman -S networkmanager #主程序
+# pacman -S networkmanager-openconnect #支持VPN（也可选networkmanager-openvpn/networkmanager-pptp/networkmanager-vpnc任意一个）
+# pacman -S rp-pppoe #支持 PPPoE/DSL 连接
+# systemctl start NetworkManager.service #立即启动 NetworkManager
+# systemctl enable NetworkManager.service #开机自动启用 NetworkManager
+```
+
+### 输入法
+
+```bash
+# pacman -S fcitx fcitx-im fcitx-cloudpinyin fcitx-configtool fcitx-googlepinyin fcitx-qt5
+```
+
+#### 解压软件
+
+```bash
+# pacman -S p7zip file-roller unrar
+```
+
+#### gksu
+
+```bash
+# pacman -S gksu
+```
+
+#### 其它设置
+
+```bash
 # vim /etc/hosts.allow
   ...  
   sshd:192.168.1.x:ALLOW

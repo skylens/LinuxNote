@@ -2,9 +2,9 @@
 
 安装 ruby
 
-CentOS ```# yum install ruby````
+CentOS `# yum install ruby`
 
-Debian ```# apt-get install ruby-full```
+Debian `# apt-get install ruby-full`
 
 gem ruby程序包管理安装工具
 
