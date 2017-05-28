@@ -151,7 +151,8 @@ Server = http://mirrors.cqu.edu.cn/archlinux/$repo/os/$arch
 
 ```bash
 # pacman -S xorg-server xorg-server-utils xorg-xinit xf86-input-synaptics xf86-video-intel 
-# pacman -S xorg-xinit xorg-server xorg-server-utils pacman -S xf86-input-synaptics xf86-input-elographics xf86-input-keyboard 
+# pacman -S xorg-xinit xorg-server xorg-server-utils 
+# pacman -S xf86-input-synaptics xf86-input-elographics xf86-input-keyboard 
 ```
 
 ####  声音

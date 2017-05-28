@@ -77,7 +77,7 @@ $ sudo pacman -S fcitx fcitx-fbterm fctix-googlepinyin fcitx-cloudpinyin
 ### 安装主题和图标
 
 ```bash
-$ sudo pacman -S arc-gtk-theme arch-icons-themes
+$ sudo pacman -S arc-gtk-theme arc-icons-themes
 ```
 
 ### 壁纸设置
