@@ -12,6 +12,7 @@ $ wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-1
 windows 
 
 ```
+vmware workstation 9 : 
 vmware workstation 10 : https://download3.vmware.com/software/wkst/file/VMware-workstation-full-10.0.4-2249910.exe
 (1F04Z-6D111-7Z029-AV0Q4-3AEH8)
 vmware workstation 11 : https://download3.vmware.com/software/wkst/file/VMware-workstation-full-11.0.0-2305329.exe
