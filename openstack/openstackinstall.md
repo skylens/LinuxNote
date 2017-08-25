@@ -42,3 +42,4 @@
 # yum list
 # yum install -y wget openssh-server vim
 ```
+##### 5. 开始安装
