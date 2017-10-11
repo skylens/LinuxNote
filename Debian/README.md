@@ -102,10 +102,14 @@ deb-src http://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib
 ```
 # nano /etc/sudoers.d/tux
 ```
-* 添加下面两行
+* 添加下面两行设置 sudo 无密码
 ```
 User_Alias      NORMAL = tux
 NORMAL  ALL = NOPASSWD: ALL
+```
+* 设置 sudo 要输入密码
+```shell
+tux ALL = (ALL) ALL
 ```
 * 更改文件的权限
 ```
