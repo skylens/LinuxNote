@@ -15,7 +15,7 @@ git remote add origin git@git.coding.net:skylens/emacs.d.git
 git push -u origin master
 ```
 
-# ** `git' 服务器**
+# **`git`服务器**
 
 [user manual](https://www.kernel.org/pub/software/scm/git/docs/user-manual.html)
 
