@@ -15,6 +15,14 @@ git remote add origin git@git.coding.net:skylens/emacs.d.git
 git push -u origin master
 ```
 
+### `git`子模块
+
+[子模块](https://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
+
+```bash
+git submodule add git://github.com/chneukirchen/rack.git rack
+```
+
 # **`git`服务器**
 
 [user manual](https://www.kernel.org/pub/software/scm/git/docs/user-manual.html)
