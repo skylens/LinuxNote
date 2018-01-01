@@ -6,3 +6,6 @@
 
    ``` sudo aptitude -R install `cat pkg` ``` 安装
 
+   [ArchLinux 下安装 LaTex ](http://lukesmith.xyz/latex)
+
+   ``` sudo pacman -S texlive-most texlive-lang ```
