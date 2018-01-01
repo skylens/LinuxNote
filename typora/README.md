@@ -9,4 +9,4 @@ Preferences -> Apperance -> Themes -> Open Theme Folder  添加[`self.css`](http
 ps: 这个文件是根据`github.css`改的，主要就是把字体改为了[`YaHei Consolas Hybrid`](https://github.com/yakumioto/YaHei-Consolas-Hybrid-1.12)，所以之前要先安装这个字体，当然了你要可以设置其他你喜欢的字体 :)
 
 
-[** `typora` 主题 **](http://theme.typora.io/)
+[**`typora` 官方主题**](http://theme.typora.io/)
