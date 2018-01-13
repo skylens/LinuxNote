@@ -35,3 +35,11 @@ Execution halted
 ```bash
 $ sudo apt-get install lmodern -y
 ```
+
+# Markdown 转 PDF (中文)
+
+[知乎](https://www.zhihu.com/question/20849824)
+
+```bash
+pandoc -N -s --toc --pdf-engine=xelatex -V CJKmainfont='PingFang SC' -V mainfont='Monaco' -V geometry:margin=1in README-zh.md -o README-zh.pdf
+```
