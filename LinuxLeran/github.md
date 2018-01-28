@@ -38,3 +38,24 @@ $ git config --global color.ui true //开启颜色显示
 $ git config --global core.editor emacs //配置你的编缉器
 $ git config --global merge.tool vimdiff //配置你的比较工具
 ```
+
+5. 配置 gitignore
+
+[macOS gitignore](https://github.com/github/gitignore/blob/master/Global/macOS.gitignore)
+
+[Windows gitignore](https://github.com/github/gitignore/blob/master/Global/Windows.gitignore)
+
+[Vim gitignore](https://github.com/github/gitignore/blob/master/Global/Vim.gitignore)
+
+[Emacs gitignore](https://github.com/github/gitignore/blob/master/Global/Emacs.gitignore)
+
+[Xcode gitignore](https://github.com/github/gitignore/blob/master/Global/Xcode.gitignore)
+
+[Tex gitignore](https://github.com/github/gitignore/blob/master/TeX.gitignore)
+
+[Python gitignore](https://github.com/github/gitignore/blob/master/Python.gitignore)
+
+```
+cd ~
+ls .gitignore
+```
