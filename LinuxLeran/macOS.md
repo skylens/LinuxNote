@@ -11,6 +11,10 @@
 
 ### [emacs](https://emacsformacosx.com/builds)
 
+```bash
+sudo port install emacs-app
+```
+
 ### [Macdown](https://macdown.uranusjr.com/) && [](https://typora.io/)
 
 ### [pandoc](http://www.pandoc.org/installing.html)
