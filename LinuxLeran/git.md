@@ -20,7 +20,7 @@ git push -u origin master
 [子模块](https://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
 
 ```bash
-git submodule add git://github.com/chneukirchen/rack.git rack
+git submodule add ssh://skylens@example.com/home/skylens/gitsubmodule.git
 ```
 
 # **`git`服务器**
