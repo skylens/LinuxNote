@@ -4,13 +4,16 @@
 
 + 下载
 
+Linux
+
 ```
 $ wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-12.1.1-3770994.x86_64.bundle  //12.1.1
 $ wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-12.5.0-4352439.x86_64.bundle  //12.5.0
 $ wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-12.5.2-4638234.x86_64.bundle  //12.5.2
 $ wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-14.0.0-6661328.x86_64.bundle  //14.0.0
 ```
-windows 
+
+Windows 
 
 ```
 vmware workstation 9 : 
@@ -21,6 +24,14 @@ vmware workstation 11 : https://download3.vmware.com/software/wkst/file/VMware-w
 vmware workstation 12 pro : https://download3.vmware.com/software/wkst/file/VMware-workstation-full-12.5.7-5813279.exe
 vmware workstation 14 pro : https://download3.vmware.com/software/wkst/file/VMware-workstation-full-14.0.0-6661328.exe
 ```
+
+macOS
+
+```
+VMware Fusion 10 : https://download3.vmware.com/software/fusion/file/VMware-Fusion-10.1.1-7520154.dmg
+(FG3TU-DDX1M-084CY-MFYQX-QC0RD)
+```
+
 + 安装
 
 ```
