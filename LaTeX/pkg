@@ -19,10 +19,6 @@ texlive-latex-recommended-doc
 texlive-pictures
 texlive-pictures-doc
 texlive-xetex
-emacs-goodies-el
-emacs24
-emacs24-common-non-dfsg
-emacs24-el
 fonts-arphic-ukai
 fonts-arphic-uming
 fonts-dejavu
