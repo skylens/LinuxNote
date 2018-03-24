@@ -44,6 +44,7 @@ $ mv hooks/post-update.sample hooks/post-update
 ```bash
 $ git clone http://yourserver.com/~you/proj
 $ git clone ssh://you@yourserver.come/home/you/public_html/proj
+$ git clone ssh://you@yourserver.com/~/public_html/proj
 ```
 
 3. Tips
