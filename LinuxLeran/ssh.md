@@ -1,2 +1,17 @@
-ssh-copy-id -i <-i指定文件路径> <user>@<ip>
+# SSH
 
+## 向远程主机注入公钥
+
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa.pub user@hostname
+```
+
+## 动态端口映射
+
+[参考](https://blog.csdn.net/chenjh213/article/details/49795521)
+
+```bash
+ssh -NfD 1080 user@hostname
+ps aux | grep ssh   //查看进程
+kill 1234    //结束进程
+```
