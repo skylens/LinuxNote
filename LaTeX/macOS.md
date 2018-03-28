@@ -6,6 +6,8 @@
 
 ## 更新及安装 [latexmk](http://mg.readthedocs.io/latexmk.html)
 
+[参考](http://jimolonely.github.io/2018/01/12/tools/004-install-texlive/)
+
 ```zsh
 sudo tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet
 sudo tlmgr update --self
