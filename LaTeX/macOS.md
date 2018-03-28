@@ -7,6 +7,7 @@
 ## 更新及安装 [latexmk](http://mg.readthedocs.io/latexmk.html)
 
 ```zsh
+sudo tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet
 sudo tlmgr update --self
 sudo tlmgr install latexmk
 ```
