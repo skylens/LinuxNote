@@ -1,4 +1,4 @@
-## Debian 下的 VMware Workstation Pro
+## VMware
 
 ### 安装
 
@@ -39,6 +39,7 @@ $sudo chmod +x VMware-Workstation-Full-12.1.1-3770994.x86_64.bundle
 $sudo ./VMware-Workstation-Full-12.1.1-3770994.x86_64.bundle
 $ rm -rf *~  //删除目录下的 ~ (切忌不要 rm -rf ~ ,这样会删除但前用户的家目录)
 ```
+
 + 输入序列号
 
 12.5.0

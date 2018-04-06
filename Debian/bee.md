@@ -9,5 +9,15 @@
 + [永久关闭](https://wiki.archlinux.org/index.php/PC_speaker#Globally)
 
 ```bash
-# echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+# echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf  //Debian系
+# echo "alias pcspkr off" >> /etc/modprobe.conf  //CentOS系
+```
+
++ 修改 inputrc 文件
+
+```bash
+# vi /etc/inputrc
+//取消注释
+set bell-style none
+
 ```
