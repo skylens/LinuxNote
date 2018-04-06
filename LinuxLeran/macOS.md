@@ -29,6 +29,12 @@ sudo port install emacs-app
 brew install mpv
 ```
 
+### [ffmpeg](https://www.ffmpeg.org/download.html#build-mac)
+
+```bash
+brew install ffmpeg
+```
+
 ### [handshaker](https://www.smartisan.com/apps/handshaker)
 
 
