@@ -12,6 +12,9 @@ mosh
 minicom
 tmux
 wget
+libav
+you-get
+youtube-dl
 unrar
 ```
 
