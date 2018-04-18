@@ -4,6 +4,7 @@
 
 ```bash
 ffmpeg
+mpg123
 fontconfig
 htop
 p7zip
