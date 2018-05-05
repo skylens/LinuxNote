@@ -1,5 +1,13 @@
 # shell 脚本中彩色输出
 
+[参考](https://www.jianshu.com/p/ba1b8aded634)
+
+[参考1](https://unix.stackexchange.com/questions/148/colorizing-your-terminal-and-shell-environment)
+
+[参考2](https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux)
+
+[参考3](http://www.cnblogs.com/lr-ting/archive/2013/02/28/2936792.html)
+
 + 效果
 
 ![](color_shell.png)
