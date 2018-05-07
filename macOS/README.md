@@ -93,3 +93,24 @@ JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home"
 CLASS_PATH="$JAVA_HOME/lib"
 PATH=".;$PATH:$JAVA_HOME/bin"
 ```
+
+### 允许任何来源
+
+```sh
+sudo spctl --master-disable
+```
+
+### gpg
+
+```sh
+brew install gnupg
+
+```
+
+### 
+
+```sh
+brew install lrzsz
+git clone https://github.com/mmastrac/iterm2-zmodem.git
+cp iterm2-zmodem/*.sh /usr/local/bin/
+```
