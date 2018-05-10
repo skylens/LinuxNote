@@ -19,6 +19,12 @@ youtube-dl
 unrar
 ```
 
+### chrome
+
+```sh
+wget https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
+```
+
 ### Sublime Text 3
 
 + setting
@@ -41,11 +47,8 @@ unrar
 
 ```
 
-### Atom
+### VS Code
 
-```bash
-$ 
-```
 
 ### [adb](https://developer.android.com/studio/releases/platform-tools.html)
 
@@ -54,7 +57,7 @@ $ wget https://dl.google.com/android/repository/platform-tools-latest-darwin.zip
 $ unzip platform-tools-latest-darwin.zip -d ~/ && mv platform-tools ~/.platform-tools
 ```
 
-### [scrcpy开源Android投屏软件]()
+### [scrcpy开源Android投屏软件](https://github.com/Genymobile/scrcpy)
 
 ```sh
 brew install scrcpy
@@ -64,6 +67,12 @@ brew install scrcpy
 
 ```bash
 $ brew install sshfs
+```
+
+### [Mounty](http://enjoygineering.com/mounty/)
+
+```sh
+wget http://enjoygineering.com/mounty/releases/Mounty.dmg
 ```
 
 ### git && svn
@@ -107,10 +116,55 @@ brew install gnupg
 
 ```
 
-### 
+### lrzsz 设置
 
 ```sh
 brew install lrzsz
 git clone https://github.com/mmastrac/iterm2-zmodem.git
 cp iterm2-zmodem/*.sh /usr/local/bin/
 ```
+
+### wechat 小助手
+
+```sh
+cd ~/Downloads && rm -rf WeChatPlugin-MacOS && git clone https://github.com/TKkk-iOSer/WeChatPlugin-MacOS.git --depth=1 && ./WeChatPlugin-MacOS/Other/Install.sh
+```
+
+### MS Office 2016
+
+[Suite Install (Word / Excel / PowerPoint / Outlook / OneNote / MAU) 16.11.1 [18031100] 64-bit](https://go.microsoft.com/fwlink/?linkid=525133)
+
+[Word Standalone 16.11.1 [18031100] 64-bit](https://go.microsoft.com/fwlink/?linkid=525134)
+
+[Excel Standalone 16.11.1 [18031100] 64-bit](https://go.microsoft.com/fwlink/?linkid=525135)
+
+[PowerPoint Standalone 16.11.1 [18031100] 64-bit](https://go.microsoft.com/fwlink/?linkid=525136)
+
+[Outlook Standalone 16.11.1 [18031100] 64-bit](https://go.microsoft.com/fwlink/?linkid=525137)
+
+[OneNote Standalone 16.11.1 [18031100] 64-bit](https://go.microsoft.com/fwlink/?linkid=820886)
+
+[Microsoft AutoUpdate (MAU) 3.17.18031100 64-bit](https://go.microsoft.com/fwlink/?linkid=830196)
+
+### [Visual Studio](https://www.visualstudio.com/zh-hans/vs/mac/)
+
+### [JetBrains Toolbox](https://www.jetbrains.com/toolbox/download/#section=mac)
+
+### snipaste 截图
+
+### [NextCloud](https://nextcloud.com/install/#install-clients)
+
+### [CheatSheet](https://www.mediaatelier.com/CheatSheet/)
+
+### [Real VNC](https://www.realvnc.com/en/connect/download/viewer/)
+
+### [opera neon](https://www.opera.com/zh-cn/computer/neon)
+
+### 日志文件阅读
+
+[lnav](http://lnav.org/)
+
+```sh
+brew install lnav
+```
+
