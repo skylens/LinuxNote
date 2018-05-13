@@ -15,3 +15,7 @@ ssh -NfD 1080 user@hostname
 ps aux | grep ssh   //查看进程
 kill 1234    //结束进程
 ```
+
+# mosh
+
+防火墙需开放6000-61000的udp端口
