@@ -176,3 +176,5 @@ brew install lnav
 
 ### [IINA 开源 MPV 播放器](https://lhc70000.github.io/iina/)
 
+### [BaiduPCS go 版 百度云部限速](https://github.com/iikira/BaiduPCS-Go)
+
