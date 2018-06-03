@@ -111,10 +111,14 @@ sudo spctl --master-disable
 
 ### gpg
 
++ gpg
+
 ```sh
 brew install gnupg
 
 ```
+
++ [gpg tools](https://gpgtools.org/)
 
 ### lrzsz 设置
 
@@ -150,7 +154,9 @@ cd ~/Downloads && rm -rf WeChatPlugin-MacOS && git clone https://github.com/TKkk
 
 ### [JetBrains Toolbox](https://www.jetbrains.com/toolbox/download/#section=mac)
 
-### snipaste 截图
+### [snipaste 截图](https://zh.snipaste.com/)
+
+### [壁纸 pap.er](http://paper.meiyuan.in/)
 
 ### [NextCloud](https://nextcloud.com/install/#install-clients)
 
@@ -167,4 +173,6 @@ cd ~/Downloads && rm -rf WeChatPlugin-MacOS && git clone https://github.com/TKkk
 ```sh
 brew install lnav
 ```
+
+### [IINA 开源 MPV 播放器](https://lhc70000.github.io/iina/)
 
