@@ -2,7 +2,7 @@
 
 #### docker 安装
 
-######[ubuntu 安装](https://docs.docker.com/engine/installation/linux/ubuntulinux/)	
+###### [ubuntu 安装](https://docs.docker.com/engine/installation/linux/ubuntulinux/)	
 
   以 ubuntu 14.04 为例
 
@@ -20,7 +20,7 @@ $ sudo docker run hello-world
 [其他类型的Linux系统安装](https://docs.docker.com/engine/installation/linux/)
 
 
-####docker 安装脚本
+#### docker 安装脚本
 
 [官方](https://get.docker.com/)
 
