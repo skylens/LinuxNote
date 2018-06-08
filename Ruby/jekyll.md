@@ -4,7 +4,7 @@
 
 [jekyll](https://jekyllrb.com/) 是一款简单的使用 `ruby` 语言开发的静态网页生成器。
 
-### 通过 `[docker](../docker/)` 来使用 `jekyll` 
+### 通过 [`docker`](../docker/) 来使用 `jekyll` 
 
 + 从远程仓库拉取镜像
 
