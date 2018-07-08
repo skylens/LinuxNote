@@ -80,3 +80,9 @@ make install
   "method":"chacha20"
 }
 ```
+
+启动服务
+
+```sh
+ss-server -c /etc/ss-livbe/config.json -v
+```
