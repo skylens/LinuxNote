@@ -6,6 +6,14 @@
 ssh-copy-id -i ~/.ssh/id_rsa.pub user@hostname
 ```
 
+## ssh-kegen 删除 know_hosts 中的主机
+
+```sh
+ssh-kegen -R root@192.168.1.1
+
+ssh-kegen -R root@github.io
+```
+
 ## 动态端口映射
 
 [参考](https://blog.csdn.net/chenjh213/article/details/49795521)
