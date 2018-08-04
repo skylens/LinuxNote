@@ -46,16 +46,16 @@ server {
     ssl_certificate "/etc/pki/nginx/certificate.crt";
     ssl_certificate_key "/etc/pki/nginx/private.key";
     ssl_dhparam "/etc/pki/nginx/dhparam.pem";
-	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-	ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS;
     ssl_session_cache shared:SSL:1m;
     ssl_session_timeout  10m;
     ssl_prefer_server_ciphers on;
 
-	add_header Strict-Transport-Security "max-age=31536000; includeSubDomains;preload" always;
-	add_header X-Frame-Options DENY;
-	add_header X-Content-Type-Options nosniff;
-	add_header X-Xss-Protection 1;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains;preload" always;
+    add_header X-Frame-Options DENY;
+    add_header X-Content-Type-Options nosniff;
+    add_header X-Xss-Protection 1;
     
     ssl_buffer_size 8k;
 
@@ -71,7 +71,7 @@ server {
     error_page  500 502 503 504  /50x.html;
 
     location = /50x.html {
-        root  /var/www/skylens.co;
+        root  /var/www/html;
     }
 }
 ```
