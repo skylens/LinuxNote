@@ -12,7 +12,14 @@ export JAVA_HOME
 export PATH
 export CLASSPATH
 
-# 重启生效
+# 使环境变量生效
+# souce /etc/profile 
+
+# 检验，若如下命令有输出，则证明配置成功
+
+# java
+
+# javac
 ```
 
 ## Windows 10 下设置JDK环境变量
@@ -23,4 +30,4 @@ export CLASSPATH
 
 - 新建 `CLASSPATH` 变量，值为 `.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar`
 
-
+打开 cmd  输入 `java ` 和 `javac`，如果有输出，则证明配置成功
