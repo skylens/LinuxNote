@@ -16,7 +16,8 @@ $ sudo ln -s /usr/bin/nodejs /usr/bin/node
 GitBook 安装
 
 ```bash
-$ sudo npm install gitbook-cli -g
+$ sudo npm install -g gitbook
+$ sudo npm install -g gitbook-cli
 ```
 
 初始化一本书 
@@ -25,9 +26,29 @@ $ sudo npm install gitbook-cli -g
 $ gitbook init ./BookName
 ```
 
-启动服务，浏览器验证(浏览器输入 `http://localhost:4000` )
+启动服务，浏览器验证(浏览器输入 `http://localhost:4000` 或者 `http:// ip :4000`)
 
 ```bash
 $ cd BookName/
 $ gitbook serve
+```
+
+编译成 html 静态文件
+
+```bash
+$ cd BookName
+$ gitbook build ./ /usr/share/nginx/html/ --gitbook=3.2.2
+```
+
+编译成 epub、mobi 文件
+
+```bash
+$ gitbook epub ./ ./mybook.epub
+$ gitbook mobi ./ ./mybook.mobi
+```
+
+epub 文件转 pdf
+
+```bash
+ebook-convert mybook.epub mybook.pdf
 ```
