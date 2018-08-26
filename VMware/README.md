@@ -28,8 +28,9 @@ vmware workstation 14 pro : https://download3.vmware.com/software/wkst/file/VMwa
 macOS
 
 ```
-VMware Fusion 10 : https://download3.vmware.com/software/fusion/file/VMware-Fusion-10.1.1-7520154.dmg
+VMware Fusion 10.1.1 : https://download3.vmware.com/software/fusion/file/VMware-Fusion-10.1.1-7520154.dmg
 (FG3TU-DDX1M-084CY-MFYQX-QC0RD)
+VMware Fusion 10.1.3 : https://download3.vmware.com/software/fusion/file/VMware-Fusion-10.1.3-9472307.dmg
 ```
 
 + 安装
