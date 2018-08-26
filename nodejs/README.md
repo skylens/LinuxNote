@@ -1,6 +1,13 @@
 # nodejs
 
-## 安装
+## 设置 npm 源
+
+```bash
+npm config set registry http://registry.npm.taobao.org/
+npm config set registry https://registry.npmjs.org/
+```
+
+## 使用包管理工具安装
 
 ```
 # sudo apt-get install nodejs
@@ -15,3 +22,11 @@ v4.2.6
 # npm -v
 3.5.2
 ```
+
+## 使用源码安装
+
++ CentOS 7
+
+  ```bash
+  
+  ```
