@@ -3,8 +3,8 @@
 ## 设置 npm 源
 
 ```bash
-npm config set registry http://registry.npm.taobao.org/
-npm config set registry https://registry.npmjs.org/
+# npm config set registry http://registry.npm.taobao.org/
+# npm config set registry https://registry.npmjs.org/
 ```
 
 ## 使用包管理工具安装
