@@ -28,5 +28,10 @@ v4.2.6
 + CentOS 7
 
   ```bash
-  
+  # yum install -y gcc make gcc-c++ openssl-devel wget
+  # wget https://nodejs.org/dist/v8.9.4/node-v8.9.4.tar.gz
+  # tar -zxvf node-v8.9.4.tar.gz && cd node-v8.9.4
+  # ./configure && make && make install
+  # node -v
+  # npm -v
   ```
