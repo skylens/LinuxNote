@@ -21,3 +21,9 @@ https://www.google.com/chrome/browser/desktop/index.html?hl=zh-CN&standalone=1
 或
 https://www.google.com/intl/zh-CN/chrome/browser/desktop/index.html?standalone=1
 ```
+
+# chrome 切换回原来的风格
+
+```
+chrome://flags/#top-chrome-md
+```
