@@ -1,4 +1,4 @@
-# macOS 自签发证书
+# macOS 生成自签名的代码签名证书
 
 ### 钥匙串访问 (Keychains.app) -> 证书助理 (Certificate Assistant) -> 创建证书 Create a Certificate
 
