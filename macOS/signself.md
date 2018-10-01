@@ -1,6 +1,8 @@
 # macOS 生成自签名的代码签名证书
 
-### 钥匙串访问 (Keychains.app) -> 证书助理 (Certificate Assistant) -> 创建证书 Create a Certificate
+参考：[https://github.com/DoubleLabyrinth/navicat-keygen/issues/50#issuecomment-416824334](https://github.com/DoubleLabyrinth/navicat-keygen/issues/50#issuecomment-416824334)
+
+### 钥匙串访问 (Keychains.app) -> 证书助理 (Certificate Assistant) -> 创建证书 (Create a Certificate)
 
 ![](pics/one.png)
 
