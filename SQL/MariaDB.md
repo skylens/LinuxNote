@@ -26,13 +26,45 @@ service mysql start
 service mysql status
 ```
 
-### 登陆修改密码，首次登陆密码为空
+### 设置初始化密码及修改密码
+
++ 方法一：(初始密码为空)
 
 ```sh
-mysql -uroot -p
+mysql
+```
 
-> use mysql;
-> update user set password=password("root")where user='root';
-> flush privileges;
-> exit;
+```sql
+UPDATE mysql.user SET PASSWORD=PASSWORD('dbpassword') WHERE USER='root';
+FLUSH PRIVILEGES;
+exit;
+```
+
++ 方法二：(初始密码为空) --不生效--
+
+```sh
+mysql
+```
+
+```sql
+SET PASSWORD FOR 'root'@'%' = PASSWORD('dbpassword');
+```
+
++ 方法三
+
+```sh
+mysql
+```
+
+```sql
+use mysql;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'dbpassword' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY 'dbpassword' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+```
+
+### 删除空用户
+
+```sql
+DELETE FROM mysql.user WHERE user='';
 ```
