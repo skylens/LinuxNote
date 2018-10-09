@@ -79,9 +79,7 @@ wget http://enjoygineering.com/mounty/releases/Mounty.dmg
 
 + git client
 
-```sh
-SourceTree
-```
+[SourceTree](https://www.sourcetreeapp.com)
 
 + svn client
 
