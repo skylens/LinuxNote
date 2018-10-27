@@ -23,6 +23,7 @@ vmware workstation 11 : https://download3.vmware.com/software/wkst/file/VMware-w
 (JZ6WK-4529P-HZAA1-9RAG6-33JNR / 5F4EV-4Z0DP-XZHN9-0L95H-02V17) 
 vmware workstation 12 pro : https://download3.vmware.com/software/wkst/file/VMware-workstation-full-12.5.7-5813279.exe
 vmware workstation 14 pro : https://download3.vmware.com/software/wkst/file/VMware-workstation-full-14.0.0-6661328.exe
+vmware workstation 15 pro : http://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.0.0-10134415.exe
 ```
 
 macOS
@@ -82,6 +83,22 @@ AC5XK-0ZD4H-088HP-9NQZV-ZG2R4
 ZC5XK-A6E0M-080XQ-04ZZG-YF08D
 
 ZY5H0-D3Y8K-M89EZ-AYPEG-MYUA8
+```
+
+15
+
+```
+YG5H2-ANZ0H-M8ERY-TXZZZ-YKRV8
+
+UG5J2-0ME12-M89WY-NPWXX-WQH88
+
+UA5DR-2ZD4H-089FY-6YQ5T-YPRX6
+
+GA590-86Y05-4806Y-X4PEE-ZV8E0
+
+ZF582-0NW5N-H8D2P-0XZEE-Z22VA
+
+YA18K-0WY8P-H85DY-L4NZG-X7RAD
 ```
 
 + 启动VMware
