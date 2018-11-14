@@ -10,7 +10,7 @@
 
 4. `chroot /sysroot ` 
 
-5. `echo redhat|passwd -stdin root`
+5. `echo redhat|passwd --stdin root`
 
 6. `touch /.autorelabel `
 
@@ -26,7 +26,7 @@
 
 3. `mount –o remount,rw /`
 
-4. `echo redhat|passwd –stdin root`
+4. `echo redhat|passwd -–stdin root`
 
 5. `touch /.autorelabel `
 
