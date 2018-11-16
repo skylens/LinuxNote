@@ -83,7 +83,7 @@ systemctl enable network
 hostnamectl set-name desktop.example.com
 ```
 
-##### 三、开启 `selinux`
+##### 三、开启 selinux
 
 ```shell
 setenforce 1
@@ -113,6 +113,30 @@ yum repolsit all
 
 ##### 调整逻辑卷容量
 
+```sh
 
+```
 
 #### RHCE 部分
+
+##### selinux 设置
+
+##### ssh 通过 firewalld 防火墙进行访问控制
+
++ 方法一
+
+在图形界面下使用 `firewall-config` 命令打开图形化的配置工具，使用图形界面配置
+
++ 方法二
+
+直接使用命令行进行配置
+
+```shell
+firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="172.24.3.0/24" service name="ssh" reject'
+```
+
+--移除规则--
+
+```shell
+firewall-cmd --permanent --remove-rich-rule='rule family="ipv4" source address="192.168.149.0/24" service name="ssh" reject'
+```
