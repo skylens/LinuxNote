@@ -1,10 +1,10 @@
-### RHCE
+### `RHCE`
 
 ### 前言
 
+`RHCE` 分为 `RHCSA` 和 `RHCE` 两部分考试。`RHCSA` 共 2.5 个小时，总分 300 分，210 通过，通过 `RHCSA` 考试后，可获得 `RHCSA` 证书。`RHCE` 考试共 3.5 个小时，总分 300 分，210 分通过，通过 `RHCSA` 和 `RHCE` 考试后才能获得 `RHCE`证书。
 
-
-#### RHCSA 部分
+#### `RHCSA` 部分
 
 ##### 一、破解 `root` 密码
 
@@ -43,9 +43,9 @@
 
 7. `reboot`
 
-##### 二、设置 IP 地址及主机名
+##### 二、设置` IP` 地址及主机名
 
-###### 设置 IP
+###### 设置 `IP`
 
 + 方法一
 
@@ -77,13 +77,23 @@ systemctl restart network
 systemctl enable network
 ```
 
++ 方法三 （使用 `tui` 或者 `gui` 来配置）
+
+```sh
+nmtui
+
+或者
+
+nm-connection-edit
+```
+
 ###### 设置主机名(重新登陆生效)
 
 ```shell
 hostnamectl set-name desktop.example.com
 ```
 
-##### 三、开启 selinux
+##### 三、开启 `selinux`
 
 ```shell
 setenforce 1
@@ -96,7 +106,7 @@ vim /etc/selinux/config
 SELINUX=enforcing
 ```
 
-##### 四、配置 YUM 仓库
+##### 四、配置` YUM` 仓库
 
 ```shell
 vim /etc/yum.repo.d/rhel.repo
@@ -111,17 +121,75 @@ yum makecache all
 yum repolsit all
 ```
 
-##### 调整逻辑卷容量
+##### 五、调整逻辑卷容量
+
+###### 1. 检查容量
 
 ```sh
+df -Th 或者 lvdisplay
+```
+
+###### 2、扩展容量
+
+```sh
+lvresize -L 290M /dev/vg0/lv0
+lvextend -L 290M /dev/vg0/lv0
+lvextend -L +100M /dev/vg0/lv0
+通知文件系统(默认使用 resize2fs )
+resize2fs /dev/vg0/lv0
+xfs_growfs /dev/vg0/lv0
+```
+
+###### 3、缩小容量
+
+```sh
+需要卸载分区
+umount /mnt/lvm
+检查文件系统
+e2feck -f /dev/vg0/lv0
+通知文件系统
+resize2fs /dev/vg0/lv0 300M
+缩小容量
+lvresize -L 200M /dev/vg0/lv0
+lvreduce -L 200M /dev/vg0/lv0
+lvreduce -L -100M /dev/vg0/lv0
+检查容量
+lvdisplay
+重新挂载
+mount /dev/vg0/lv0 /mnt/lvm
+mount -a
 
 ```
 
-#### RHCE 部分
+##### 六、创建用户和用户组
 
-##### selinux 设置
+###### 创建名为 `staff` 的组，组 `id` 为 40000
 
-##### ssh 通过 firewalld 防火墙进行访问控制
+```sh
+groupadd -g 40000 staff
+```
+
+###### 创建名为` admin` 的用户， `staff` 为其附属组
+
+```sh
+useradd -G staff admin
+```
+
+###### 创建名为 `hello` 的用户指定 `shell` 为不可登录 `shell`
+
+```sh
+useradd hello -s /sbin/nologin
+```
+
+
+
+
+
+#### `RHCE` 部分
+
+##### `selinux` 设置
+
+##### `ssh` 通过 `firewalld` 防火墙进行访问控制
 
 + 方法一
 
