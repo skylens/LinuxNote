@@ -135,8 +135,50 @@ yum repolsit all
 firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="172.24.3.0/24" service name="ssh" reject'
 ```
 
---移除规则--
+**移除规则**
 
 ```shell
 firewall-cmd --permanent --remove-rich-rule='rule family="ipv4" source address="192.168.149.0/24" service name="ssh" reject'
+```
+
+##### alias 别名设置
+
+```shell
+echo "alias newps='ps -Ao user,pid,ppid,command'" >>/etc/profile.d/newps.sh
+. /etc/profile
+```
+
+##### samba 搭建
+
+安装软件
+
+```shell
+yum install -y samba samba-client cifs-utils
+```
+
+创建目录，检查用户，设置用户密码
+
+```shell
+mkdir /smb1
+id ldapuser1
+smbpasswd -a ldapuser1
+```
+
+修改配置文件(修改组为 `STAFF`)
+
+```shell
+vim /etc/samba/smb.conf
+
+workgroup = STAFF
+
+
+[smb1]
+		path = /smb1
+		hosts allow = 172.16.254.
+```
+
+selinux 相关配置
+
+```shell
+chcon -R -t samba_share_t /smb1
 ```
