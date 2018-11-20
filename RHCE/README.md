@@ -202,11 +202,25 @@ getfacl
 ##### 八、建立定时任务
 
 ```sh
-参数 '-e' 是编辑模式，'-u' 是指定用户 (大致格式： 分、时、天、月、星期、命令)
+参数 '-e' 是编辑模式，'-u' 是指定用户 (大致格式： 分、时、日、月、星期、命令)
 crontab -e -u admin
 28 3 * * * /bin/echo 'hello' >>/root/test.txt
 检查计划任务
 crontab -l -u admin
+```
+
+##### 九、创建一个共享目录
+
+```sh
+mkdir /mnt/share
+所属组为 staff
+chgrp staff /mnt/share/
+组成员可读可写可执行
+chmod g+rwx /mnt/share/
+其他组成员没有任何权限
+chmod o-rwx /mnt/share/
+目录下创建的文件的所属组被自动设置为 staff
+chmod g+s /mnt/share/
 ```
 
 #### `RHCE` 部分
