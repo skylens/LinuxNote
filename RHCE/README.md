@@ -1,4 +1,4 @@
-### `RHCE`
+### `RHCE` 笔记
 
 ### 前言
 
@@ -123,6 +123,8 @@ yum repolsit all
 
 ##### 五、调整逻辑卷容量
 
+[参考](https://blog.csdn.net/lovektm/article/details/78461453)
+
 ###### 1. 检查容量
 
 ```sh
@@ -135,12 +137,14 @@ df -Th 或者 lvdisplay
 lvresize -L 290M /dev/vg0/lv0
 lvextend -L 290M /dev/vg0/lv0
 lvextend -L +100M /dev/vg0/lv0
-通知文件系统(默认使用 resize2fs )
+通知文件系统(默认使用 resize2fs, xfs 文件系统需要先挂载，在执行操作)
 resize2fs /dev/vg0/lv0
 xfs_growfs /dev/vg0/lv0
 ```
 
 ###### 3、缩小容量
+
+`ext4` 文件系统支持缩小容量，`xfs` 文件系统不支持缩小容量
 
 ```sh
 需要卸载分区
@@ -180,9 +184,30 @@ useradd -G staff admin
 useradd hello -s /sbin/nologin
 ```
 
+##### 七、文件权限
 
+```sh
+文件所有者及所属组为 root
+chown root:root /var/tmp/fstab
+文件对任何人都没有可执行权限
+chmod a-x /var/tmp/fstab
+用户 admin 对文件有读写权限
+setfacl -m u:admin:rw- fstab
+用户 hello 对文件没有读写权限
+setfacl -m u:hello:--- fstab
+检查文件权限
+getfacl
+````
 
+##### 八、建立定时任务
 
+```sh
+参数 '-e' 是编辑模式，'-u' 是指定用户 (大致格式： 分、时、天、月、星期、命令)
+crontab -e -u admin
+28 3 * * * /bin/echo 'hello' >>/root/test.txt
+检查计划任务
+crontab -l -u admin
+```
 
 #### `RHCE` 部分
 
