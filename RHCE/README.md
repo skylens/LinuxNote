@@ -147,8 +147,8 @@ xfs_growfs /dev/vg0/lv0
 umount /mnt/lvm
 检查文件系统
 e2feck -f /dev/vg0/lv0
-通知文件系统
-resize2fs /dev/vg0/lv0 300M
+通知文件系统 (这里的 resize2fs 要指定缩小到的容量)
+resize2fs /dev/vg0/lv0 200M
 缩小容量
 lvresize -L 200M /dev/vg0/lv0
 lvreduce -L 200M /dev/vg0/lv0
@@ -158,7 +158,6 @@ lvdisplay
 重新挂载
 mount /dev/vg0/lv0 /mnt/lvm
 mount -a
-
 ```
 
 ##### 六、创建用户和用户组
