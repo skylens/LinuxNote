@@ -223,6 +223,14 @@ chmod o-rwx /mnt/share/
 chmod g+s /mnt/share/
 ```
 
+##### 十、升级内核
+
+```sh
+rpm -ivh http://mirror.centos.org/centos/7/os/x86_64/Packages/kernel-3.10.0-693.el7.x86_64.rpm
+grub2-editenv list
+uname -r
+```
+
 #### `RHCE` 部分
 
 ##### `selinux` 设置
