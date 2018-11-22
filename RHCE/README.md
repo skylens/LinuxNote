@@ -231,6 +231,92 @@ grub2-editenv list
 uname -r
 ```
 
+##### 十三、配置 `NTP` 时间同步
+
+```sh
+yum install -y chrony
+vim /etc/chrony.conf
+
+server server.example.com iburst
+
+timedatectl set-ntp true
+systemctl restart chronyd
+systemctl restart chrony-wait
+systemctl enable chronyd
+systemctl enable chrony-wait
+
+chronyc waitsync
+chronyc source
+```
+
+##### 十四、创建归档文件
+
+```sh
+tar -zcvf /root/sysconfig.tar.gz /etc/
+tar -jcvf /root/sysconfig.tar.bz2 /etc/
+tar -Jcvf /root/sysconfig.tar.xz /etc/
+```
+
+##### 十五、添加一个账户
+
+```sh
+useradd -u 3456 admin
+passwd admin
+id admin
+```
+
+##### 十六、添加一个 `swap` 分区
+
+swap 类型的 Hex code 是 `82`
+
+```sh
+mkswap /dev/sdb1
+swapon /dev/sdb1
+
+vim /etc/fstab
+
+/dev/sdb1 swap swap defaults 0 0
+
+mount -a
+```
+
+##### 十七、查找文件
+
+把系统上拥有者为 admin 用户的所有文件，并将其拷贝到/root/findfiles 目录中
+
+```sh
+mkdir /root/findfiles
+find / -user admin -exec cp -rfp {} /root/findfiles \;
+```
+
+##### 十八、查找一个字符串（过滤文件）
+
+```sh
+cat /usr/share/dict/words | grep seismic > /root/wordlist
+```
+
+##### 十九、创建逻辑卷
+
+LVM 类型的 Hex code 是 `8e`
+
+```sh
+pvcreate /dev/sda6
+
+vgcreate -s 16M vg2 /dev/sda6
+
+lvcreate -n lv2 -l 50 /dev/vg2
+
+mkfs.xfs /dev/vg2/lv2
+
+mkdir /mnt/database
+
+vim /etc/fstab
+
+/dev/vg2/lv2 /mnt/database xfs defaults 0 0
+
+mount -a
+```
+
 #### `RHCE` 部分
 
 ##### `selinux` 设置
