@@ -197,7 +197,7 @@ setfacl -m u:admin:rw- fstab
 setfacl -m u:hello:--- fstab
 检查文件权限
 getfacl
-````
+```
 
 ##### 八、建立定时任务
 
