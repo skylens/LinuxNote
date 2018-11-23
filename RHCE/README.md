@@ -125,13 +125,13 @@ yum repolsit all
 
 [参考](https://blog.csdn.net/lovektm/article/details/78461453)
 
-###### 1. 检查容量
+###### 检查容量
 
 ```sh
 df -Th 或者 lvdisplay
 ```
 
-###### 2、扩展容量
+###### 扩展容量
 
 ```sh
 lvresize -L 290M /dev/vg0/lv0
@@ -142,7 +142,7 @@ resize2fs /dev/vg0/lv0
 xfs_growfs /dev/vg0/lv0
 ```
 
-###### 3、缩小容量
+###### 缩小容量
 
 `ext4` 文件系统支持缩小容量，`xfs` 文件系统不支持缩小容量
 
