@@ -138,3 +138,11 @@ gpgcheck=0
 # epel源
 /usr/bin/rsync -av --exclude=debug rsync://mirrors.ustc.edu.cn/epel/7/x86_64/ /data/yumrepo/epel/7/x86_64/
 ```
+
+### 下载 rpm 包及依赖
+
+```sh
+yum install yum-utils
+yumdownloader samba httpd --destdir ./ --resolve
+ yumdownloader "@Development Tools" --destdir ./ --resolve
+```
