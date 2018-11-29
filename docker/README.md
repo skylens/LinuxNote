@@ -2,31 +2,31 @@
 
 #### docker 安装
 
-###### [ubuntu 安装](https://docs.docker.com/engine/installation/linux/ubuntulinux/)	
++ 默认安装
 
-  以 ubuntu 14.04 为例
-
-```shell
-$ sudo apt-get update
-$ sudo apt-get install apt-transport-https ca-certificates
-$ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-$ sudo echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" > /etc/apt/sources.list.d/docker.list
-$ sudo apt-get update
-$ sudo apt-get install docker-engine
-$ sudo service docker start
-$ sudo docker run hello-world
+```sh
+curl -sSL get.docker.com | sh
 ```
 
-[其他类型的Linux系统安装](https://docs.docker.com/engine/installation/linux/)
++ 指定镜像源
 
+```sh
+curl -fsSL get.docker.com -o get-docker.sh
+sh get-docker.sh --mirror Aliyun
+```
 
-#### docker 安装脚本
+#### 设置加速地址
 
-[官方](https://get.docker.com/)
+```sh
+curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s https://registry.docker-cn.com
+```
 
-[阿里云](http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/interne)
+#### docker compose 安装
 
-
+```sh
+curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+```
 
 #### docker 命令
 
