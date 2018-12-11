@@ -20,7 +20,7 @@ tar -xvf Linux-PAM-1.3.0.tar.gz && cd Linux-PAM-1.3.0
 make && make install
 cd
 tar -xvf openssh-7.9p1.tar.gz && cd openssh-7.9p1
-./configure --prefix=/usr --sysconfdir=/etc/ssh --with-pam --with-zlib --with-md5-passwords --with-ssl-dir=/usr
+./configure --prefix=/usr --sysconfdir=/etc/ssh --with-pam-dir=/usr --with-pam --with-zlib --with-md5-passwords --with-ssl-dir=/usr
 make && make install
 cp sshd_config /etc/ssh/sshd_config
 systemctl restart sshd
