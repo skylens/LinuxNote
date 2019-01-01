@@ -27,3 +27,7 @@ kill 1234    //结束进程
 # mosh
 
 防火墙需开放6000-61000的udp端口
+
+```sh
+firewall-cmd --permanent --zone=public --add-port=60000-61000/udp && firewall-cmd --reload 
+```
