@@ -10,32 +10,27 @@
 # curl -O -L https://nginx.org/download/nginx-1.14.0.tar.gz
 # curl -O -L https://ftp.pcre.org/pub/pcre/pcre-8.42.tar.gz
 # curl -O -L http://zlib.net/zlib-1.2.11.tar.gz
-# tar -xvf nginx-1.14.0.tar.gz
-# tar -xvf pcre-8.42.tar.gz
-# tar -xvf zlib-1.2.11.tar.gz
 ```
 
 ### 安装依赖包
 
 ```bash
-# cd pcre-8.42
-# ./configure
-# make && make install
+# tar -xvf pcre-8.42.tar.gz && cd pcre-8.42
+# ./configure && make && make install
 
-# cd zlib-1.2.11
-# ./configure
-# make && make install
+# tar -xvf zlib-1.2.11.tar.gz && cd zlib-1.2.11
+# ./configure && make && make install
 
 ```
 
-以及 升级安装 [OpenSSL](openssl.md) 
+以及 升级安装 [OpenSSL](openssl.md)
 
 ### 安装 nginx
 
 ```bash
 # ./configure \
 --user=nginx \
---group=nginx \
+--groupnginx \
 --prefix=/etc/nginx \
 --sbin-path=/usr/sbin/nginx \
 --conf-path=/etc/nginx/nginx.conf \
@@ -50,11 +45,20 @@
 --with-zlib=../zlib-1.2.11 \
 --with-file-aio \
 --with-http_realip_module \
---without-http_scgi_module \
---without-http_uwsgi_module \
---without-http_fastcgi_module
-
-# make && make install
+--with-http_v2_module \
+--with-http_addition_module \
+--with-http_sub_module \
+--with-http_dav_module \
+--with-http_flv_module \
+--with-http_mp4_module \
+--with-http_gunzip_module \
+--with-http_gzip_static_module \
+--with-http_auth_request_module \
+--with-http_random_index_module \
+--with-http_secure_link_module \
+--with-http_degradation_module \
+--with-http_slice_module \
+--with-http_stub_status_module && make && make install
 ```
 
 ### 添加 nginx 用户组及用户
@@ -65,6 +69,8 @@
 ```
 
 ### 添加启动脚本
+
++ SysVinit
 
 ```bash
 # vi /etc/init.d/nginx
@@ -180,12 +186,45 @@ esac
 # chmod +x /etc/init.d/nginx
 ```
 
++ systemd
+
+```sh
+vim /usr/lib/systemd/system/nginx.service
+
+[Unit]
+Description=nginx - high performance web server
+Documentation=https://nginx.org/en/docs/
+After=network-online.target remote-fs.target nss-lookup.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/nginx.pid
+ExecStartPre=/usr/sbin/nginx -t -c /etc/nginx/nginx.conf
+ExecStart=/usr/sbin/nginx -c /etc/nginx/nginx.conf
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+```
+
 ### 启动服务
+
++ SysVinit
 
 ```bash
 # service nginx start
 # chkconfig --add nginx
 # chkconfig --level 345 nginx on
+```
+
++ systemd
+
+```bash
+# systemctl start nginx
+# systemctl enable nginx
+# systemctl status nginx
 ```
 
 ## 配置
