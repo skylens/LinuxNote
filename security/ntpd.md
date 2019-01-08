@@ -16,12 +16,56 @@ yum install gcc gcc-c++ libcap-devel make
 
 ### 备份原先配置文件
 
++  rpm 包安装程序相关文件位置
+
 ```bash
-cp -ar /etc/ntp /etc/ntp.bak
-cp /etc/ntp.conf /etc/ntp.conf.bak
-cp /etc/init.d/ntpd /etc/init.d/ntpd.bak
-cp /etc/sysconfig/ntpd /etc/sysconfig/ntpd.bak
-cp /etc/sysconfig/ntpdate /etc/sysconfig/ntpdate.bak
+# rpm -ql ntp
+/etc/dhcp/dhclient.d
+/etc/dhcp/dhclient.d/ntp.sh
+/etc/ntp.conf
+/etc/ntp/crypto
+/etc/ntp/crypto/pw
+/etc/sysconfig/ntpd
+/usr/bin/ntpstat
+/usr/lib/systemd/ntp-units.d/60-ntpd.list
+/usr/lib/systemd/system/ntpd.service
+/usr/sbin/ntp-keygen
+/usr/sbin/ntpd
+/usr/sbin/ntpdc
+/usr/sbin/ntpq
+/usr/sbin/ntptime
+/usr/sbin/tickadj
+/usr/share/doc/ntp-4.2.6p5
+/usr/share/doc/ntp-4.2.6p5/COPYRIGHT
+/usr/share/doc/ntp-4.2.6p5/ChangeLog
+/usr/share/doc/ntp-4.2.6p5/NEWS
+/usr/share/man/man5/ntp.conf.5.gz
+/usr/share/man/man5/ntp_acc.5.gz
+/usr/share/man/man5/ntp_auth.5.gz
+/usr/share/man/man5/ntp_clock.5.gz
+/usr/share/man/man5/ntp_decode.5.gz
+/usr/share/man/man5/ntp_misc.5.gz
+/usr/share/man/man5/ntp_mon.5.gz
+/usr/share/man/man8/ntp-keygen.8.gz
+/usr/share/man/man8/ntpd.8.gz
+/usr/share/man/man8/ntpdc.8.gz
+/usr/share/man/man8/ntpq.8.gz
+/usr/share/man/man8/ntpstat.8.gz
+/usr/share/man/man8/ntptime.8.gz
+/usr/share/man/man8/tickadj.8.gz
+/var/lib/ntp
+/var/lib/ntp/drift
+/var/log/ntpstats
+```
+
++ 备份
+
+```bash
+cp -ar /etc/ntp{,.bak}
+cp /etc/ntp.conf{,.bak}
+cp /etc/init.d/ntpd{,.bak}
+cp /etc/sysconfig/ntpd{,.bak}
+cp /etc/sysconfig/ntpdate{,.bak}
 ```
 
 ### 卸载 ntp 及 ntpdate (非必须)
