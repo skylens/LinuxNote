@@ -79,7 +79,15 @@ yum erase ntp ntpdate
 ```bash
 tar -xvf ntp-4.2.8p12.tar.gz && cd ntp-4.2.8p12
 install -v -m710 -o ntp -g ntp -d /var/lib/ntp
-./configure --prefix=/usr --bindir=/usr/sbin --sysconfdir=/etc --enable-linuxcaps --with-lineeditlibs=readline --docdir=/usr/share/doc/ntp-4.2.8p12 --enable-all-clocks --enable-parse-clocks --enable-clockctl && make && make install
+./configure --prefix=/usr \
+--bindir=/usr/sbin \
+--sysconfdir=/etc \
+--enable-linuxcaps \
+--with-lineeditlibs=readline \
+--docdir=/usr/share/doc/ntp-4.2.8p12 \
+--enable-all-clocks \
+--enable-parse-clocks \
+--enable-clockctl && make && make install
 ```
 
 ### 重新拷贝会原来配置文件
