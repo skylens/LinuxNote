@@ -2,6 +2,8 @@
 
 [http://archive.ntp.org/ntp4/ntp-4.2](http://archive.ntp.org/ntp4/ntp-4.2/)
 
+[https://www.vultr.com/docs/setup-timezone-and-ntp-on-centos-6](https://www.vultr.com/docs/setup-timezone-and-ntp-on-centos-6)
+
 ### 下载软件包
 
 ```bash
