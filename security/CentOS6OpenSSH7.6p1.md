@@ -1,5 +1,7 @@
 # CentOS 6 升级 OpenSSH 7.6p1
 
+[参考](https://www.jianshu.com/p/014793e9760d)
+
 1. 关闭防火墙及 selinux
 
    ```bash
