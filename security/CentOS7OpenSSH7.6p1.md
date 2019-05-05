@@ -54,7 +54,7 @@
 
    ```bash
    tar -xvf openssh-7.6p1.tar.gz && cd openssh-7.6p1
-   ./configure --prefix=/usr --sysconfdir=/etc/ssh --with-pam --with-zlib --with-md5-passwords && make && make install
+   ./configure --prefix=/usr --sysconfdir=/etc/ssh --with-pam --with-zlib --with-md5-passwords --with-tcp-wrappers && make && make install
    
    cp contrib/redhat/sshd.pam /etc/pam.d/sshd.pam
    cp contrib/redhat/sshd.init /etc/init.d/sshd
