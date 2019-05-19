@@ -31,7 +31,12 @@ chmod a+x certbot-auto
 
 **`--register-unsafely-without-email`** 可选项
 
-### 重新
+cert.pem       #server cert only
+privkey.pem    #private key
+chain.pem      #intermediates
+fullchain.pem  #server cert + intermediates
+
+### 中间件配置
 
 ### Apache(httpd)
 
@@ -94,7 +99,7 @@ yum install nginx -y
 + 生成 dhparam 密钥 (可选)
 
 ```bash
-openssl dhparam -dsaparam -out /etc/letsencrypt/live/readdemo.com/dhparams.pem 4096
+openssl dhparam -dsaparam -out /etc/letsencrypt/live/readdemo.com/dhparam.pem 4096
 ```
 
 + 通过配置虚拟主机
@@ -118,7 +123,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/readdemo.com/privkey.pem;
 
     ssl_prefer_server_ciphers on;
-    ssl_dhparam /etc/letsencrypt/live/readdemo.com/dhparams.pem;
+    ssl_dhparam /etc/letsencrypt/live/readdemo.com/dhparam.pem;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_ciphers 'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS';
     keepalive_timeout 70;
