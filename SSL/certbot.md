@@ -36,6 +36,15 @@ privkey.pem    #private key
 chain.pem      #intermediates
 fullchain.pem  #server cert + intermediates
 
+#### 申请 ECC 证书
+
+
+
+```bash
+openssl ecparam -genkey -name secp384r1 | openssl ec -out elsenow-ecc.key
+
+```
+
 ### 中间件配置
 
 ### Apache(httpd)
