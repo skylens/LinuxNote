@@ -43,6 +43,8 @@ VMware Fusion 11.0.0 : https://download3.vmware.com/software/fusion/file/VMware-
 (
 7HYY8-Z8WWY-F1MAN-ECKNY-LUXYX
 )
+
+VMware Fusion 11.1.0 : https://download3.vmware.com/software/fusion/file/VMware-Fusion-11.1.0-13668589.dmg
 ```
 
 + 安装
