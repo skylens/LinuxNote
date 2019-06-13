@@ -144,5 +144,5 @@ gpgcheck=0
 ```sh
 yum install yum-utils
 yumdownloader samba httpd --destdir ./ --resolve
- yumdownloader "@Development Tools" --destdir ./ --resolve
+yumdownloader "@Development Tools" --destdir ./ --resolve
 ```
