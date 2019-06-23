@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://zhuanlan.zhihu.com/p/35268752 -->
+<html lang="zh" data-hairline="true" data-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="renderer" content="webkit"><meta name="force-rendering" content="webkit"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="google-site-verification" content="FTeR0c8arOPKh8c5DYh_9uu98_zJbaWw53J-Sch9MTg"><meta data-react-helmet="true" name="description" content="目录1 文档说明1.1文档简介1.2适用对象1.3生效范围1.4术语说明 2 概述3 系统安装3.1版本选择 4 安装kickstart环境准备安装前的准备 安装DHCP服务DHCP简介安装DHCP服务 安装TFTP服务TFTP简介 配置http服务通过虚拟…"><meta data-react-helmet="true" property="og:title" content="CentOS Linux操作系统无人值守安装配置规范（2016版）"><meta data-react-helmet="true" property="og:url" content="https://zhuanlan.zhihu.com/p/35268752"><meta data-react-helmet="true" property="og:description" content="目录1 文档说明1.1文档简介1.2适用对象1.3生效范围1.4术语说明 2 概述3 系统安装3.1版本选择 4 安装kickstart环境准备安装前的准备 安装DHCP服务DHCP简介安装DHCP服务 安装TFTP服务TFTP简介 配置http服务通过虚拟…"><meta data-react-helmet="true" property="og:image" content="https://pic2.zhimg.com/v2-7d50b2940e2652a6150ced844d293066_b.jpg"><meta data-react-helmet="true" property="og:type" content="article"><meta data-react-helmet="true" property="og:site_name" content="知乎专栏"><link data-react-helmet="true" rel="apple-touch-icon" href="https://static.zhihu.com/heifetz/assets/apple-touch-icon-152.67c7b278.png"><link data-react-helmet="true" rel="apple-touch-icon" href="https://static.zhihu.com/heifetz/assets/apple-touch-icon-152.67c7b278.png" sizes="152x152"><link data-react-helmet="true" rel="apple-touch-icon" href="https://static.zhihu.com/heifetz/assets/apple-touch-icon-120.b3e6278d.png" sizes="120x120"><link data-react-helmet="true" rel="apple-touch-icon" href="https://static.zhihu.com/heifetz/assets/apple-touch-icon-76.7a750095.png" sizes="76x76"><link data-react-helmet="true" rel="apple-touch-icon" href="https://static.zhihu.com/heifetz/assets/apple-touch-icon-60.a4a761d4.png" sizes="60x60"><link rel="shortcut icon" type="image/x-icon" href="https://static.zhihu.com/static/favicon.ico"><link rel="search" type="application/opensearchdescription+xml" href="https://static.zhihu.com/static/search.xml" title="知乎"><link rel="dns-prefetch" href="https://static.zhimg.com/"><link rel="dns-prefetch" href="https://pic1.zhimg.com/"><link rel="dns-prefetch" href="https://pic2.zhimg.com/"><link rel="dns-prefetch" href="https://pic3.zhimg.com/"><link rel="dns-prefetch" href="https://pic4.zhimg.com/"><link href="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/app.c473f9f19ba71ec3f1ca.css" rel="stylesheet"><link rel="stylesheet"><script defer="" crossorigin="anonymous" src="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/init.js" data-sentry-config="{&quot;dsn&quot;:&quot;https://65e244586890460588f00f2987137aa8@crash2.zhihu.com/193&quot;,&quot;sampleRate&quot;:0.1,&quot;release&quot;:&quot;1777-0153b87b&quot;,&quot;ignoreErrorNames&quot;:[&quot;NetworkError&quot;,&quot;SecurityError&quot;],&quot;ignoreErrors&quot;:[&quot;origin message&quot;,&quot;Network request failed&quot;,&quot;Loading chunk&quot;,&quot;这个系统不支持该功能。&quot;,&quot;Can&#39;t find variable: webkit&quot;,&quot;Can&#39;t find variable: $&quot;,&quot;内存不足&quot;,&quot;out of memory&quot;,&quot;DOM Exception 18&quot;,&quot;The operation is insecure&quot;,&quot;[object Event]&quot;,&quot;[object FileError]&quot;,&quot;[object DOMError]&quot;,&quot;[object Object]&quot;,&quot;拒绝访问。&quot;,&quot;Maximum call stack size exceeded&quot;,&quot;UploadError&quot;,&quot;无法 fetch&quot;,&quot;draft-js&quot;,&quot;缺少 JavaScript 对象&quot;,&quot;componentWillEnter&quot;,&quot;componentWillLeave&quot;,&quot;componentWillAppear&quot;,&quot;getInlineStyleAt&quot;,&quot;getCharacterList&quot;],&quot;whitelistUrls&quot;:[&quot;static.zhihu.com&quot;]}"></script><link rel="stylesheet" type="text/css" href="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/modals.eb20a50f09436979b01a.css"><script charset="utf-8" src="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/column.modals.7309441b9967fa0aa7a9.js"></script><link rel="stylesheet" type="text/css" href="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/richinput.4597be5e6911eaf2e794.css"><script charset="utf-8" src="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/column.richinput.bea2636c790e55041299.js"></script></head><body class="WhiteBg-body Body--isAppleDevice"><div id="root"><div class="App" data-reactroot=""><div class="LoadingBar"></div><main role="main" class="App-main"><div class="Post-content" data-zop-usertoken="{&quot;userToken&quot;:&quot;&quot;}" data-zop="{&quot;authorName&quot;:&quot;陈宝佳&quot;,&quot;itemId&quot;:35268752,&quot;title&quot;:&quot;CentOS Linux操作系统无人值守安装配置规范（2016版）&quot;,&quot;type&quot;:&quot;article&quot;}" data-za-detail-view-path-module="PostItem" data-za-extra-module="{&quot;card&quot;:{&quot;content&quot;:{&quot;type&quot;:&quot;Post&quot;,&quot;token&quot;:&quot;35268752&quot;}}}"><div class="ColumnPageHeader-Wrapper"><div></div></div><img class="TitleImage" src="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/v2-7d50b2940e2652a6150ced844d293066_1200x500.jpg" alt="CentOS Linux操作系统无人值守安装配置规范（2016版）"><article class="Post-Main Post-NormalMain" tabindex="-1"><header class="Post-Header"><h1 class="Post-Title">CentOS Linux操作系统无人值守安装配置规范（2016版）</h1><div class="Post-Author"></div><div></div></header><div class="Post-RichTextContainer"><div class="RichText ztext Post-RichText" ecommerce="[object Object]"><h2>目录</h2><ul><li>1 文档说明</li><ul><li>1.1文档简介</li><li>1.2适用对象</li><li>1.3生效范围</li><li>1.4术语说明</li></ul></ul><p class="ztext-empty-paragraph"><br></p><ul><li>2 概述</li><li>3 系统安装</li><ul><li>3.1版本选择</li></ul></ul><p class="ztext-empty-paragraph"><br></p><ul><li>4 安装kickstart</li><ul><li>环境准备</li><li>安装前的准备</li></ul></ul><p class="ztext-empty-paragraph"><br></p><ul><li>安装DHCP服务</li><ul><li>DHCP简介</li><li>安装DHCP服务</li></ul></ul><p class="ztext-empty-paragraph"><br></p><ul><li>安装TFTP服务</li><ul><li>TFTP简介</li></ul></ul><p class="ztext-empty-paragraph"><br></p><ul><li>配置http服务</li><li>通过虚拟机把我们的6.8镜像挂上去。</li><li>配置支持PXE的启动程序</li><ul><li>PXE引导配置（bootstrap）</li></ul></ul><p class="ztext-empty-paragraph"><br></p><ul><li>创建ks.cfg文件</li><ul><li>生成kickstart配置文件的三种方法：</li><li>ks.cfg详解</li><li>编写ks文件</li><li>整合编辑default配置文件</li></ul></ul><p class="ztext-empty-paragraph"><br></p><ul><li>最精简配置</li><li>无人值守自动安装</li><li>常见错误</li><ul><li>原因：</li><li>解决办法：</li></ul></ul><p class="ztext-empty-paragraph"><br></p><h2>1 文档说明</h2><h2>1.1文档简介</h2><p>本规范为CentOS Linux操作系统的安装配置规范。</p><h2>1.4术语说明</h2><p>KICKSTART： Kickstart是一种无人值守的安装方式。它的工作原理是在安装过程中记录人工干预填写的各种参数，并生成一个名为ks.cfg的文件。</p><p>PXE： 全名Pre-boot Execution Environment，预启动执行环境，通过网络接口启动计算机，不依赖本地存储设备（如硬盘）或本地已安装的操作系统，由Intel和Systemsoft公司于1999年9月20日公布的技术。</p><p>DHCP： 全名Dynamic Host Configuration Protocol，动态主机配置协议，通常被应用在大型的局域网络环境中，主要作用是集中的管理、分配IP地址，使网络环境中的主机动态的获得IP地址、网关地址、DNS服务器地址等信息，并能够提升地址的使用率。端口为67。</p><p>TFTP： TFTP（Trivial File Transfer Protocol,简单文件传输协议）是TCP/IP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，提供不复杂、开销不大的文件传输服务。端口号为69。</p><p>httpd： httpd是Apache超文本传输协议(HTTP)服务器的主程序。被设计为一个独立运行的后台进程，它会建立一个处理请求的子进程或线程的池。</p><h2>2 概述</h2><p>目前有时公司同时上线几十甚至上百台服务器，而且需要我们在短时间内完成系统安装。</p><h2>3 系统安装</h2><h2>3.1版本选择</h2><p>根据应用的要求，并结合硬件类型，选择适当的操作系统版本。</p><p>至本规范最后更新时，新安装操作系统允许使用的版本如下：</p><p>1)CentOS Linux Server 6.8</p><p>2)CentOS Linux Server 7.2(仅作为新技术研究/测试,以及云计算平台使用)</p><p>如无特殊要求，建议使用 CentOS Linux Server 6.8。为便于管理，不建议安装 SUSE 等其他厂商的 Linux 操作系统，若由于特殊要求，必须安装其他厂商的 Linux 操作系统，应及时报备，审批通过后方可安装，且应按照本配置规范要求进行配置。</p><h2>4 安装kickstart</h2><h2>环境准备</h2><div class="highlight"><pre><code>[root@MAC ~]# cat /etc/redhat-release 
+CentOS release 6.8 (Final)
+
+[root@MAC ~]# uname -r
+2.6.32-642.el6.x86_64
+
+[root@MAC ~]# getenforce
+Disabled
+
+[root@MAC ~]# /etc/init.d/iptables stop
+# 提示防火墙必须关闭并且修改配置文件重启，必须是Disabled状态。
+
+[root@MAC ~]# ip a |egrep 'inet ' 
+    inet 127.0.0.1/8 scope host lo
+    inet 10.0.0.88/24 brd 10.0.0.255 scope global eth0
+    inet 172.16.1.88/24 brd 172.16.1.255 scope global eth1
+    
+[root@MAC ~]# hostname
+MAC
+</code></pre></div><h2>安装前的准备</h2><p>两块网卡。</p><p>注意：</p><p>虚拟机网卡采用NAT模式，不要使用桥接模式，因为稍后我们会搭建DHCP服务器，在同一局域网多个DHCP服务会有冲突。</p><p>虚拟机的NAT模式的dhcp服务也关闭，避免干扰。</p><h2>安装DHCP服务</h2><h2>DHCP简介</h2><p>DHCP（Dynamic Host Configuration Protocol，动态主机配置协议）通常被应用在大型的局域网络环境中，主要作用是集中的管理、分配IP地址，使网络环境中的主机动态的获得IP地址、网关地址、DNS服务器地址等信息，并能够提升地址的使用率。</p><h2>安装DHCP服务</h2><p>ip 一定要设置可以连接外网的网段。</p><div class="highlight"><pre><code class="language-text">[root@MAC ~]# yum install -y dhcp
+
+#查看配置文件
+[root@MAC ~]# rpm -ql dhcp|grep "dhcpd.conf"
+/etc/dhcp/dhcpd.conf            # 这是dhcp配置的模板文件
+/usr/share/doc/dhcp-4.1.1/dhcpd-conf-to-ldap
+/usr/share/doc/dhcp-4.1.1/dhcpd.conf.sample
+/usr/share/man/man5/dhcpd.conf.5.gz
+
+
+[root@MAC ~]# cat /etc/dhcp/dhcpd.conf 
+#
+# DHCP Server Configuration file.
+#   see /usr/share/doc/dhcp*/dhcpd.conf.sample      # 提示我们可以参考这个模板来配置
+#   see 'man 5 dhcpd.conf'
+#
+
+[root@MAC ~]# cat &gt;/etc/dhcp/dhcpd.conf&lt;&lt;EOF
+#
+# DHCP Server Configuration file.
+#   see /usr/share/doc/dhcp*/dhcpd.conf.sample
+#   see 'man 5 dhcpd.conf'
+#
+subnet 10.0.0.0 netmask 255.255.255.0 {
+        range 10.0.0.100 10.0.0.200;
+        option subnet-mask 255.255.255.0;
+        default-lease-time 21600;
+        max-lease-time 43200;
+        next-server 10.0.0.88;
+        filename "/pxelinux.0";
+}
+EOF
+
+[root@MAC ~]# /etc/init.d/dhcpd start
+正在启动 dhcpd：        [确定]
+
+[root@MAC ~]# netstat -lntup|grep 67
+udp        0      0 0.0.0.0:67                  0.0.0.0:*                               3255/dhcpd   
+
+</code></pre></div><p>#注释</p><div class="highlight"><pre><code class="language-text">range 10.0.0.100 10.0.0.200;        # 可分配的起始IP-结束IP
+option subnet-mask 255.255.255.0;    # 设定netmask
+default-lease-time 21600;            # 设置默认的IP租用期限
+max-lease-time 43200;                # 设置最大的IP租用期限
+next-server 10.0.0.88;                # 告知客户端TFTP服务器的ip
+filename "/pxelinux.0";              # 告知客户端从TFTP根目录下载pxelinux.0文件
+</code></pre></div><p>注意：本来软件装完后都要加入开机自启动，但这个Kickstart系统就不能开机自启动，而且用完后服务都要关闭，防止未来重启服务器自动重装系统了。</p><p>如果机器数量过多的话，注意dhcp服务器的地址池，不要因为耗尽IP而导致dhcpd服务器没有IP地址release的情况。</p><h2>安装TFTP服务</h2><h2>TFTP简介</h2><p>TFTP（Trivial File Transfer Protocol,简单文件传输协议）是TCP/IP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，提供不复杂、开销不大的文件传输服务。端口号为69。</p><p>详细操作</p><div class="highlight"><pre><code class="language-text">[root@MAC ~]# yum install -y tftp-server
+
+[root@MAC ~]# rpm -ql tftp-server
+/etc/xinetd.d/tftp
+/usr/sbin/in.tftpd
+/usr/share/doc/tftp-server-0.49
+/usr/share/doc/tftp-server-0.49/CHANGES
+/usr/share/doc/tftp-server-0.49/README
+/usr/share/doc/tftp-server-0.49/README.security
+/usr/share/doc/tftp-server-0.49/README.security.tftpboot
+/usr/share/man/man8/in.tftpd.8.gz
+/usr/share/man/man8/tftpd.8.gz
+/var/lib/tftpboot
+
+[root@MAC ~]# vim /etc/xinetd.d/tftp
+  disable                 = no # 由原来的yes改为no
+
+[root@MAC ~]# /etc/init.d/xinetd start
+正在启动 xinetd：                                          [确定]
+
+[root@MAC ~]# netstat -lntup|grep '69'
+udp        0      0 0.0.0.0:69                  0.0.0.0:*                               3323/xinetd
+</code></pre></div><h2>配置http服务</h2><div><pre><code class="language-text">[root@MAC ~]# yum install -y httpd
+
+[root@MAC ~]# rpm -ql httpd|grep httpd.conf
+/etc/httpd/conf
+/etc/httpd/conf.d
+/etc/httpd/conf.d/README
+/etc/httpd/conf.d/welcome.conf
+/etc/httpd/conf/httpd.conf
+/etc/httpd/conf/magic
+
+[root@MAC ~]# sed -i "277i ServerName 127.0.0.1:80" /etc/httpd/conf/httpd.conf
+
+[root@MAC ~]# /etc/init.d/httpd start
+正在启动 httpd：                                           [确定]
+
+[root@MAC ~]# netstat -lntup|grep 80
+tcp        0      0 :::80                       :::*                        LISTEN      3370/httpd  
+
+[root@MAC ~]# mkdir /var/www/html/CentOS-6.8
+</code></pre></div><h2>通过虚拟机把我们的6.8镜像挂上去。</h2><p class="ztext-empty-paragraph"><br></p><figure data-size="normal"><noscript><img src="https://pic3.zhimg.com/v2-8e42ecd064056a5acab3fbefaae9dd7e_b.jpg" data-caption="" data-size="normal" data-rawwidth="597" data-rawheight="589" class="origin_image zh-lightbox-thumb" width="597" data-original="https://pic3.zhimg.com/v2-8e42ecd064056a5acab3fbefaae9dd7e_r.jpg"/></noscript><img src="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/v2-8e42ecd064056a5acab3fbefaae9dd7e_hd.jpg" data-caption="" data-size="normal" data-rawwidth="597" data-rawheight="589" class="origin_image zh-lightbox-thumb lazy" width="597" data-original="https://pic3.zhimg.com/v2-8e42ecd064056a5acab3fbefaae9dd7e_r.jpg" data-actualsrc="https://pic3.zhimg.com/v2-8e42ecd064056a5acab3fbefaae9dd7e_b.jpg"></figure><figure data-size="normal"><noscript><img src="https://pic3.zhimg.com/v2-5b928ee0404119aed5f325a209360b0e_b.jpg" data-caption="" data-size="normal" data-rawwidth="703" data-rawheight="604" class="origin_image zh-lightbox-thumb" width="703" data-original="https://pic3.zhimg.com/v2-5b928ee0404119aed5f325a209360b0e_r.jpg"/></noscript><img src="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/v2-5b928ee0404119aed5f325a209360b0e_hd.jpg" data-caption="" data-size="normal" data-rawwidth="703" data-rawheight="604" class="origin_image zh-lightbox-thumb lazy" width="703" data-original="https://pic3.zhimg.com/v2-5b928ee0404119aed5f325a209360b0e_r.jpg" data-actualsrc="https://pic3.zhimg.com/v2-5b928ee0404119aed5f325a209360b0e_b.jpg"></figure><figure data-size="normal"><noscript><img src="https://pic4.zhimg.com/v2-f537726313c2840983d91826a9d6efb3_b.jpg" data-caption="" data-size="normal" data-rawwidth="720" data-rawheight="455" class="origin_image zh-lightbox-thumb" width="720" data-original="https://pic4.zhimg.com/v2-f537726313c2840983d91826a9d6efb3_r.jpg"/></noscript><img src="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/v2-f537726313c2840983d91826a9d6efb3_hd.jpg" data-caption="" data-size="normal" data-rawwidth="720" data-rawheight="455" class="origin_image zh-lightbox-thumb lazy" width="720" data-original="https://pic4.zhimg.com/v2-f537726313c2840983d91826a9d6efb3_r.jpg" data-actualsrc="https://pic4.zhimg.com/v2-f537726313c2840983d91826a9d6efb3_b.jpg"></figure><p class="ztext-empty-paragraph"><br></p><div class="highlight"><pre><code class="language-text">[root@MAC ~]# mount /dev/cdrom /var/www/html/CentOS-6.8/
+mount: block device /dev/sr0 is write-protected, mounting read-only
+
+[root@MAC ~]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda3        62G  1.5G   58G   3% /
+tmpfs           497M     0  497M   0% /dev/shm
+/dev/sda1       190M   33M  147M  19% /boot
+/dev/sr0        3.7G  3.7G     0 100% /var/www/html/CentOS-6.8
+</code></pre></div><p>浏览器访问<a href="https://link.zhihu.com/?target=http%3A//10.0.0.88/CentOS-6.8/" class=" external" target="_blank" rel="nofollow noreferrer" data-za-detail-view-id="1043"><span class="invisible">http://</span><span class="visible">10.0.0.88/CentOS-6.8/</span><span class="invisible"></span></a>检验配置是否正确。</p><p class="ztext-empty-paragraph"><br></p><figure data-size="normal"><noscript><img src="https://pic3.zhimg.com/v2-5e4dc00acfac5e4378ce2e0cd2442cea_b.jpg" data-caption="" data-size="normal" data-rawwidth="1099" data-rawheight="733" class="origin_image zh-lightbox-thumb" width="1099" data-original="https://pic3.zhimg.com/v2-5e4dc00acfac5e4378ce2e0cd2442cea_r.jpg"/></noscript><img src="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/v2-5e4dc00acfac5e4378ce2e0cd2442cea_hd.jpg" data-caption="" data-size="normal" data-rawwidth="1099" data-rawheight="733" class="origin_image zh-lightbox-thumb lazy" width="1099" data-original="https://pic3.zhimg.com/v2-5e4dc00acfac5e4378ce2e0cd2442cea_r.jpg" data-actualsrc="https://pic3.zhimg.com/v2-5e4dc00acfac5e4378ce2e0cd2442cea_b.jpg"></figure><p class="ztext-empty-paragraph"><br></p><h2>配置支持PXE的启动程序</h2><h2>PXE引导配置（bootstrap）</h2><p>syslinux是一个功能强大的引导加载程序，而且兼容各种介质。SYSLINUX是一个小型的Linux操作系统，它的目的是简化首次安装Linux的时间，并建立修护或其它特殊用途的启动盘。如果没有找到pxelinux.0这个文件,可以安装一下。</p><p>详细操作</p><div class="highlight"><pre><code class="language-text">[root@MAC ~]# find / -type f -name 'pxelinux.0'
+
+[root@MAC ~]# yum install -y syslinux
+
+[root@MAC ~]# find / -type f -name 'pxelinux.0'
+/usr/share/syslinux/pxelinux.0
+
+[root@MAC ~]# cp /usr/share/syslinux/pxelinux.0 /var/lib/tftpboot/
+
+
+[root@MAC ~]# cp -a /var/www/html/CentOS-6.8/isolinux/* /var/lib/tftpboot/
+
+[root@MAC ~]# ls /var/lib/tftpboot/
+boot.cat  grub.conf   isolinux.bin  memtest     splash.jpg  vesamenu.c32
+boot.msg  initrd.img  isolinux.cfg  pxelinux.0  TRANS.TBL   vmlinuz
+
+# 新建一个pxelinux.cfg目录，存放客户端的配置文件。
+[root@MAC ~]# mkdir -p /var/lib/tftpboot/pxelinux.cfg
+
+[root@MAC ~]# cp /var/www/html/CentOS-6.8/isolinux/isolinux.cfg /var/lib/tftpboot/pxelinux.cfg/default
+</code></pre></div><p>/var/lib/tftpboot/pxelinux.cfg/default 文件简介</p><div class="highlight"><pre><code class="language-text">default vesamenu.c32  # 默认加载一个菜单
+
+#prompt 1             # 开启会显示命令行'boot: '提示符。prompt值为0时则不提示，将会直接启动'default'参数中指定的内容。
+
+timeout 600           # timeout时间是引导时等待用户手动选择的时间，设为1可直接引导，单位为1/10秒。
+display boot.msg
+
+# 菜单背景图片、标题、颜色。
+menu background splash.jpg
+menu title Welcome to CentOS 6.7!
+menu color border 0 #ffffffff #00000000
+menu color sel 7 #ffffffff #ff000000
+menu color title 0 #ffffffff #00000000
+menu color tabmsg 0 #ffffffff #00000000
+menu color unsel 0 #ffffffff #00000000
+menu color hotsel 0 #ff000000 #ffffffff
+menu color hotkey 7 #ffffffff #ff000000
+menu color scrollbar 0 #ffffffff #00000000
+
+# label指定在boot:提示符下输入的关键字，比如boot:linux[ENTER]，这个会启动label linux下标记的kernel和initrd.img文件。
+
+label linux       # 一个标签就是刚开始装机图片的一行选项。
+
+  menu label ^Install or upgrade an existing system
+  menu default
+  kernel vmlinuz  # 指定要启动的内核。同样要注意路径，默认是/tftpboot目录。
+  append initrd=initrd.img # 指定追加给内核的参数，initrd.img是一个最小的linux系统
+label vesa
+  menu label Install system with ^basic video driver
+  kernel vmlinuz
+  append initrd=initrd.img nomodeset
+label rescue
+  menu label ^Rescue installed system
+  kernel vmlinuz
+  append initrd=initrd.img rescue
+label local
+  menu label Boot from ^local drive
+  localboot 0xffff
+label memtest86
+  menu label ^Memory test
+  kernel memtest
+  append -
+</code></pre></div><h2>创建ks.cfg文件</h2><p>通常，我们在安装操作系统的过程中，需要大量的和服务器交互操作，为了减少这个交互过程，kickstart就诞生了。使用这种kickstart，只需事先定义好一个Kickstart自动应答配置文件ks.cfg（通常存放在安装服务器上），并让安装程序知道该配置文件的位置，在安装过程中安装程序就可以自己从该文件中读取安装配置，这样就避免了在安装过程中多次的人机交互，从而实现无人值守的自动化安装。</p><h2>生成kickstart配置文件的三种方法：</h2><p>方法1、 每安装好一台Centos机器，Centos安装程序都会创建一个kickstart配置文件，记录你的真实安装配置。如果你希望实现和某系统类似的安装，可以基于该系统的kickstart配置文件来生成你自己的kickstart配置文件。（生成的文件名字叫anaconda-ks.cfg位于/root/anaconda-ks.cfg）</p><p>方法2、Centos提供了一个图形化的kickstart配置工具。在任何一个安装好的Linux系统上运行该工具，就可以很容易地创建你自己的kickstart配置文件。kickstart配置工具命令为redhat-config-kickstart（RHEL3）或system-config-kickstart（RHEL4，RHEL5）.网上有很多用CentOS桌面版生成ks文件的文章，如果有现成的系统就没什么可说。但没有现成的，也没有必要去用桌面版，命令行也很简单。</p><p>方法3、阅读kickstart配置文件的手册。用任何一个文本编辑器都可以创建你自己的kickstart配置文件。</p><h2>ks.cfg详解</h2><p>官网文档 CentOS5 : <a href="https://link.zhihu.com/?target=http%3A//www.centos.org/docs/5/html/Installation_Guide-en-US/s1-kickstart2-options.html" class=" external" target="_blank" rel="nofollow noreferrer" data-za-detail-view-id="1043"><span class="invisible">http://www.</span><span class="visible">centos.org/docs/5/html/</span><span class="invisible">Installation_Guide-en-US/s1-kickstart2-options.html</span><span class="ellipsis"></span></a></p><p>CentOS6 : <a href="https://link.zhihu.com/?target=https%3A//access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-kickstart2-options.html" class=" external" target="_blank" rel="nofollow noreferrer" data-za-detail-view-id="1043"><span class="invisible">https://</span><span class="visible">access.redhat.com/knowl</span><span class="invisible">edge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-kickstart2-options.html</span><span class="ellipsis"></span></a> 官网自带中文版，选一下语言即可</p><p>命令段 键盘类型，语言，安装方式等系统的配置，有必选项和可选项，如果缺少某项必选项，安装时会中断并提示用户选择此项的选项</p><p>软件包段</p><div class="highlight"><pre><code class="language-text">%packages
+@groupname：指定安装的包组
+package_name：指定安装的包
+-package_name：指定不安装的包
+</code></pre></div><p>在安装过程中默认安装的软件包，安装软件时会自动分析依赖关系。</p><p>脚本段(可选)</p><div class="highlight"><pre><code class="language-text">%pre:安装系统前执行的命令或脚本(由于只依赖于启动镜像，支持的命令很少)
+%post:安装系统后执行的命令或脚本(基本支持所有命令)
+</code></pre></div><p>关键字 含义</p><div class="highlight"><pre><code class="language-text">install	告知安装程序，这是一次全新安装，而不是升级upgrade。
+
+url --url=" "	通过FTP或HTTP从远程服务器上的安装树中安装。
+
+url --url="http://10.0.0.7/CentOS-6.7/"
+
+url --url ftp://&lt;username&gt;:&lt;password&gt;@&lt;server&gt;/&lt;dir&gt;
+
+nfs	从指定的NFS服务器安装。
+
+nfs --server=nfsserver.example.com --dir=/tmp/install-tree
+
+text	使用文本模式安装。
+
+lang	设置在安装过程中使用的语言以及系统的缺省语言。lang en_US.UTF-8
+
+keyboard	设置系统键盘类型。keyboard us
+
+zerombr	清除mbr引导信息。
+
+bootloader	系统引导相关配置。
+
+bootloader --location=mbr --driveorder=sda --append="crashkernel=auto rhgb quiet"
+
+--location=,指定引导记录被写入的位置.有效的值如下:mbr(缺省),partition(在包含内核的分区的第一个扇区安装引导装载程序)或none(不安装引导装载程序)。
+
+--driveorder,指定在BIOS引导顺序中居首的驱动器。
+
+--append=,指定内核参数.要指定多个参数,使用空格分隔它们。
+
+network	为通过网络的kickstart安装以及所安装的系统配置联网信息。
+
+network --bootproto=dhcp --device=eth0 --onboot=yes --noipv6 --hostname=CentOS6
+
+--bootproto=[dhcp/bootp/static]中的一种，缺省值是dhcp。bootp和dhcp被认为是相同的。
+
+static方法要求在kickstart文件里输入所有的网络信息。
+
+network --bootproto=static --ip=10.0.0.100 --netmask=255.255.255.0 --gateway=10.0.0.2 --nameserver=10.0.0.2
+
+请注意所有配置信息都必须在一行上指定,不能使用反斜线来换行。
+
+--ip=,要安装的机器的IP地址.
+
+--gateway=,IP地址格式的默认网关.
+
+--netmask=,安装的系统的子网掩码.
+
+--hostname=,安装的系统的主机名.
+
+--onboot=,是否在引导时启用该设备.
+
+--noipv6=,禁用此设备的IPv6.
+
+--nameserver=,配置dns解析.
+
+timezone	设置系统时区。timezone --utc Asia/Shanghai
+
+authconfig	系统认证信息。authconfig --enableshadow --passalgo=sha512
+
+设置密码加密方式为sha512 启用shadow文件。
+
+rootpw	root密码
+
+clearpart	清空分区。clearpart --all --initlabel
+
+--all 从系统中清除所有分区，--initlable 初始化磁盘标签
+
+part	磁盘分区。
+
+part /boot --fstype=ext4 --asprimary --size=200
+
+part swap --size=1024
+
+part / --fstype=ext4 --grow --asprimary --size=200
+
+--fstype=,为分区设置文件系统类型.有效的类型为ext2,ext3,swap和vfat。
+
+--asprimary,强迫把分区分配为主分区,否则提示分区失败。
+
+--size=,以MB为单位的分区最小值.在此处指定一个整数值,如500.不要在数字后面加MB。
+
+--grow,告诉分区使用所有可用空间(若有),或使用设置的最大值。
+
+firstboot	负责协助配置redhat一些重要的信息。
+
+firstboot --disable
+
+selinux	关闭selinux。selinux --disabled
+
+firewall	关闭防火墙。firewall --disabled
+
+logging	设置日志级别。logging --level=info
+
+reboot	设定安装完成后重启,此选项必须存在，不然kickstart显示一条消息，并等待用户按任意键后才重新引导，也可以选择halt关机。
+</code></pre></div><h2>编写ks文件</h2><div class="highlight"><pre><code class="language-text">创建加密的密码
+[root@MAC ~]# grub-md5-crypt 
+Password: 123456
+Retype password: 123456
+$1$xNphK/$fL/JtDkQ8urr6BidQeXIJ0
+
+
+[root@MAC ~]# mkdir /var/www/html/ks_config
+
+[root@MAC ~]# cd /var/www/html/ks_config
+
+
+[root@linux-node1 ~]# vim /var/www/html/ks_config/CentOS-6.8-ks.cfg
+[root@mac ks_config]# cat /var/www/html/ks_config/CentOS-6.8-ks.cfg
+# Kickstart Configurator for CentOS 6.7 by keegv
+install
+url --url="http://10.0.0.88/CentOS-6.8/"
+text
+lang en_US.UTF-8
+keyboard us
+zerombr
+bootloader --location=mbr --driveorder=sda --append="crashkernel=auto rhgb quiet"
+network --bootproto=dhcp --device=eth0 --onboot=yes --noipv6 --hostname=CentOS6
+timezone --utc Asia/Shanghai
+authconfig --enableshadow --passalgo=md5
+rootpw  --iscrypted $1$xNphK/$fL/JtDkQ8urr6BidQeXIJ0        #这里是我们上面的MD5生成的密码结果
+clearpart --all --initlabel
+part /boot --fstype=ext4 --asprimary --size=200
+part swap --size=1024
+part / --fstype=ext4 --grow --asprimary --size=200
+firstboot --disable
+selinux --disabled
+firewall --disabled
+logging --level=info
+reboot
+
+%packages
+@base
+@compat-libraries
+@debugging
+@development
+tree
+nmap
+sysstat
+lrzsz
+dos2unix
+telnet
+
+%post
+wget -O /tmp/optimization.sh http://10.0.0.88/ks_config/optimization.sh &amp;&gt;/dev/null
+/bin/sh /tmp/optimization.sh
+%end
+
+#!/bin/bash
+##############################################################
+# File Name: /var/www/html/ks_config/optimization.sh
+# Version: V1.0
+# Author: Baojia Chen
+# Created Time : 2016-4-03 15:23:08
+# Description: Linux system initialization
+##############################################################
+. /etc/init.d/functions
+Ip=10.0.0.88
+Port=80
+ConfigDir=ks_config
+# Judge Http server is ok?      #判断http服务是否正常
+PortNum=`nmap $Ip  -p $Port 2&gt;/dev/null|grep open|wc -l`
+[ $PortNum -lt 1 ] &amp;&amp; {
+        echo "Http server is bad!"
+        exit 1
+}
+# Defined result function       #判断是否服务正常的自定义函数
+function Msg(){
+        if [ $? -eq 0 ];then
+          action "$1" /bin/true
+        else
+          action "$1" /bin/false
+        fi
+}
+# Defined IP function       #定义IP
+function ConfigIP(){
+        Suffix=`ifconfig eth0|awk -F "[ .]+" 'NR==2 {print $6}'`
+        cat &gt;/etc/sysconfig/network-scripts/ifcfg-eth0 &lt;&lt;-END
+        DEVICE=eth0
+        TYPE=Ethernet
+        ONBOOT=yes
+        NM_CONTROLLED=yes
+        BOOTPROTO=none
+        IPADDR=10.0.0.$Suffix
+        PREFIX=24
+        GATEWAY=10.0.0.2
+        DNS1=10.0.0.2
+        DEFROUTE=yes
+        IPV4_FAILURE_FATAL=yes
+        IPV6INIT=no
+        NAME="System eth0"
+        END
+        Msg "config eth0"
+}
+# Defined Yum source Functions  #定义yum源
+function yum(){
+        YumDir=/etc/yum.repos.d
+        [ -f "$YumDir/CentOS-Base.repo" ] &amp;&amp; cp $YumDir/CentOS-Base.repo{,.ori} 
+        wget -O $YumDir/CentOS-Base.repo http://$Ip:$Port/$ConfigDir/CentOS-Base.repo &amp;&gt;/dev/null &amp;&amp;\
+        wget -O $YumDir/epel.repo http://$Ip:$Port/$ConfigDir/epel.repo &amp;&gt;/dev/null &amp;&amp;\
+        Msg "YUM source"
+}
+# Defined Hide the system version number Functions      #隐藏系统版本
+function HideVersion(){
+        [ -f "/etc/issue" ] &amp;&amp; &gt;/etc/issue
+        Msg "Hide issue" 
+        [ -f "/etc/issue.net" ] &amp;&amp; &gt; /etc/issue.net
+        Msg "Hide issue.net"
+}
+# Defined OPEN FILES Functions          #优化文件打开数
+function openfiles(){
+        [ -f "/etc/security/limits.conf" ] &amp;&amp; {
+        echo '*  -  nofile  65535' &gt;&gt; /etc/security/limits.conf
+        Msg "open files"
+        }
+}
+# Defined Kernel parameters Functions       #优化内核参数
+function kernel(){
+        KernelDir=/etc
+        [ -f "$KernelDir/sysctl.conf" ] &amp;&amp; /bin/mv $KernelDir/sysctl.conf{,.ori}
+        wget -O $KernelDir/sysctl.conf http://$Ip:$Port/$ConfigDir/sysctl.conf &amp;&gt;/dev/null
+        Msg "Kernel config"
+}
+# Defined System Startup Services Functions     #关闭不需要的开机自启
+function boot(){
+        for baojia in `chkconfig --list|grep "3:on"|awk '{print $1}'|grep -vE "crond|network|rsyslog|sshd|sysstat"` 
+          do 
+           chkconfig $baojia off
+        done
+        Msg "BOOT config"
+}
+# Defined Time Synchronization Functions        #时间同步
+function Time(){
+        echo "#time sync by chenbaojia at $(date +%F)" &gt;&gt;/var/spool/cron/root
+        echo '*/5 * * * * /usr/sbin/ntpdate time.nist.gov &amp;&gt;/dev/null' &gt;&gt;/var/spool/cron/root
+        Msg "Time Synchronization"
+}
+# Defined main Functions
+function main(){
+        ConfigIP
+        yum
+        HideVersion
+        openfiles
+        kernel
+        boot
+        Time
+}
+main
+
+</code></pre></div><p>首先本机需要先做优化哈，然后复制到当前目录</p><div class="highlight"><pre><code class="language-text">[root@MAC ks_config]# cp /etc/hosts . 
+[root@MAC ks_config]# cp /etc/yum.repos.d/CentOS-Base.repo . 
+[root@MAC ks_config]# cp /etc/ssh/sshd_config . 
+[root@MAC ks_config]# cp /etc/sysctl.conf .
+[root@MAC ks_config]# ls
+CentOS-6.8-ks.cfg  CentOS-Base.repo  hosts  optimization.sh  sshd_config  sysctl.conf
+</code></pre></div><h2>整合编辑default配置文件</h2><h2>最精简配置</h2><p>vim /var/lib/tftpboot/pxelinux.cfg/default</p><div class="highlight"><pre><code class="language-text">default ks
+prompt 0
+label ks
+kernel vmlinuz
+append initrd=initrd.img ks=http://10.0.0.88/ks_config/CentOS-6.8-ks.cfg ksdevice=eth0
+
+</code></pre></div><p>注释</p><div class="highlight"><pre><code class="language-text">default ks
+prompt 0
+label ks
+kernel vmlinuz
+append initrd=initrd.img ks=http://10.0.0.88/ks_config/CentOS-6.8-ks.cfg  # 告诉安装程序ks.cfg文件在哪里
+ksdevice=eth0   #代表当客户端有多块网卡的时候，要实现自动化需要设置从eth0安装，不指定的话，安装的时候系统会让你选择，那就不叫全自动化了。
+</code></pre></div><h2>无人值守自动安装</h2><p>打开系统电源，出去喝杯水。过会回来,系统就以经装好了._ 下面是安装过程中截的几个图</p><p>如果不能上网检查网关，DNS。</p><p>网卡参考</p><div class="highlight"><pre><code class="language-text">[root@CentOS6 ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth0
+DEVICE=eth0
+TYPE=Ethernet
+ONBOOT=yes
+NM_CONTROLLED=yes
+BOOTPROTO=none
+IPADDR=10.0.0.105
+NETMASK=255.255.255.0
+DNS2=8.8.8.8
+GATEWAY=10.0.0.1
+DNS1=10.0.0.1
+IPV6INIT=no
+USERCTL=no
+[root@CentOS6 ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth1
+DEVICE=eth1
+TYPE=Ethernet
+ONBOOT=yes
+NM_CONTROLLED=yes
+BOOTPROTO=none
+IPADDR=172.16.1.105
+NETMASK=255.255.255.0
+IPV6INIT=no
+USERCTL=no
+</code></pre></div><p>阿里云的源 wget -O /etc/yum.repos.d/CentOS-Base.repo <a href="https://link.zhihu.com/?target=http%3A//mirrors.aliyun.com/repo/Centos-6.repo" class=" external" target="_blank" rel="nofollow noreferrer" data-za-detail-view-id="1043"><span class="invisible">http://</span><span class="visible">mirrors.aliyun.com/repo</span><span class="invisible">/Centos-6.repo</span><span class="ellipsis"></span></a></p><div class="highlight"><pre><code class="language-text"># CentOS-Base.repo
+#
+# The mirror system uses the connecting IP address of the client and the
+# update status of each mirror to pick mirrors that are updated to and
+# geographically close to the client.  You should use this for CentOS updates
+# unless you are manually picking other mirrors.
+#
+# If the mirrorlist= does not work for you, as a fall back you can try the 
+# remarked out baseurl= line instead.
+#
+#
+ 
+[base]
+name=CentOS-$releasever - Base - mirrors.aliyun.com
+failovermethod=priority
+baseurl=http://mirrors.aliyun.com/centos/$releasever/os/$basearch/
+        http://mirrors.aliyuncs.com/centos/$releasever/os/$basearch/
+#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os
+gpgcheck=1
+gpgkey=http://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-6
+ 
+#released updates 
+[updates]
+name=CentOS-$releasever - Updates - mirrors.aliyun.com
+failovermethod=priority
+baseurl=http://mirrors.aliyun.com/centos/$releasever/updates/$basearch/
+        http://mirrors.aliyuncs.com/centos/$releasever/updates/$basearch/
+#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=updates
+gpgcheck=1
+gpgkey=http://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-6
+ 
+#additional packages that may be useful
+[extras]
+name=CentOS-$releasever - Extras - mirrors.aliyun.com
+failovermethod=priority
+baseurl=http://mirrors.aliyun.com/centos/$releasever/extras/$basearch/
+        http://mirrors.aliyuncs.com/centos/$releasever/extras/$basearch/
+#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=extras
+gpgcheck=1
+gpgkey=http://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-6
+ 
+#additional packages that extend functionality of existing packages
+[centosplus]
+name=CentOS-$releasever - Plus - mirrors.aliyun.com
+failovermethod=priority
+baseurl=http://mirrors.aliyun.com/centos/$releasever/centosplus/$basearch/
+        http://mirrors.aliyuncs.com/centos/$releasever/centosplus/$basearch/
+#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=centosplus
+gpgcheck=1
+enabled=0
+gpgkey=http://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-6
+ 
+#contrib - packages by Centos Users
+[contrib]
+name=CentOS-$releasever - Contrib - mirrors.aliyun.com
+failovermethod=priority
+baseurl=http://mirrors.aliyun.com/centos/$releasever/contrib/$basearch/
+        http://mirrors.aliyuncs.com/centos/$releasever/contrib/$basearch/
+#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=contrib
+gpgcheck=1
+enabled=0
+gpgkey=http://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-6
+</code></pre></div><h2>常见错误</h2><p class="ztext-empty-paragraph"><br></p><figure data-size="normal"><noscript><img src="https://pic3.zhimg.com/v2-6e90f52e50519e4fd703e9ef7c4ca1d2_b.jpg" data-caption="" data-size="normal" data-rawwidth="704" data-rawheight="448" class="origin_image zh-lightbox-thumb" width="704" data-original="https://pic3.zhimg.com/v2-6e90f52e50519e4fd703e9ef7c4ca1d2_r.jpg"/></noscript><img src="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/v2-6e90f52e50519e4fd703e9ef7c4ca1d2_hd.jpg" data-caption="" data-size="normal" data-rawwidth="704" data-rawheight="448" class="origin_image zh-lightbox-thumb lazy" width="704" data-original="https://pic3.zhimg.com/v2-6e90f52e50519e4fd703e9ef7c4ca1d2_r.jpg" data-actualsrc="https://pic3.zhimg.com/v2-6e90f52e50519e4fd703e9ef7c4ca1d2_b.jpg"></figure><p>Unable to download the kickstart file. Please modify the kickstart parameter below or press Cancel to proceed as an interactive installation.</p><h2>原因：</h2><p>可能原因有四种：</p><p>（1）权限问题。</p><p>（2）TFTP配置问题。</p><p>（3）ks配置文件路径错误。</p><p>（4）iptables和selinux设置问题。</p><p>（5）PXE server与Client时间不一致。</p><p>(6) DHCP server IP 分配不正确。</p><h2>解决办法：</h2><p>（1）检查ks配置文件的权限，是否为755或者更高。</p><p>（2）检查TFTP的配置内容和服务，并测试是否能够访问。</p><p>（3）检查ks配置文件路径和，ks中指定的镜像路径是否正确。</p><p>（4）检查iptables配置和selinux的是否已关闭。</p><p>（5）用date检查PXE本地时间是否正确，并查看Client时间(无系统可查看BIOS),两者时间否是一致。<a href="https://link.zhihu.com/?target=http%3A//note.youdao.com/noteshare%3Fid%3D6c3a66c793191fc34618823e17147b60" class=" wrap external" target="_blank" rel="nofollow noreferrer" data-za-detail-view-id="1043">Linux ntpdate同步网络时间</a></p><p>(6) 检查 DHCP Server 的 IP 分配情况。</p><h2>END</h2><p class="ztext-empty-paragraph"><br></p><figure data-size="normal"><noscript><img src="https://pic4.zhimg.com/v2-6e47f316a45a5e3aca25f6904c27587f_b.jpg" data-caption="" data-size="normal" data-rawwidth="88" data-rawheight="31" class="content_image" width="88"/></noscript><img src="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/v2-6e47f316a45a5e3aca25f6904c27587f_hd.jpg" data-caption="" data-size="normal" data-rawwidth="88" data-rawheight="31" class="content_image lazy" width="88" data-actualsrc="https://pic4.zhimg.com/v2-6e47f316a45a5e3aca25f6904c27587f_b.jpg"></figure><p class="ztext-empty-paragraph"><br></p><p></p></div></div><div class="ContentItem-time">编辑于 2018-04-18</div><div></div></article></div></main><div class="CornerButtons"><div class="CornerAnimayedFlex"></div></div></div></div><script id="js-clientConfig" type="text/json">{"host":"zhihu.com","protocol":"https:","wwwHost":"www.zhihu.com","zhuanlanHost":"zhuanlan.zhihu.com"}</script><script id="js-initialData" type="text/json">{"initialState":{"common":{"ask":{}},"loading":{"global":{"count":0},"local":{"env\u002FgetIpinfo\u002F":false,"article\u002Fget\u002F":false,"brand\u002FgetUrl\u002F":false}},"entities":{"users":{"bjchen-86":{"isFollowed":false,"avatarUrlTemplate":"https:\u002F\u002Fpic1.zhimg.com\u002Fv2-6071fe854d081dfca4e9e2c746ed280c_{size}.jpg","uid":"774296138458079232","userType":"people","isFollowing":false,"urlToken":"bjchen-86","id":"172192b6dbe6162e0e53aac23bd7920f","description":"陈宝佳 码农，外敛内骚的技术发烧友； 曾负责大规模集群设计、部署优化等运维工作，在Linux运维、服务架构等领域有较深入的研究。目前专注Python自动化、大型数据库架构设计、企业监控系统建设、云计算虚拟化等。Mail：info@opsroad.com运维之路（OpsRoad）社区 ：http:\u002F\u002Fwww.opsroad.com运维之路（OpsRoad）社区 QQ群号：185014100群简介：运维之路（OpsRoad）社区创办于2018年，是由大陆一群年轻的运维工程师基于对技术的热爱与追求，自主发起的运维技术社区，通过不断精进与分享高质量的运维技术原创内容、线下技术沙龙等形式，为更多不满现状的技术人员提供交流学习平台与资源。","name":"陈宝佳","isAdvertiser":false,"headline":"技术沉淀，空杯心态。","gender":1,"url":"\u002Fpeople\u002F172192b6dbe6162e0e53aac23bd7920f","avatarUrl":"https:\u002F\u002Fpic1.zhimg.com\u002Fv2-6071fe854d081dfca4e9e2c746ed280c_l.jpg","isOrg":false,"type":"people","badge":[],"exposedMedal":{"medalId":"972478580856496128","medalName":"专栏作家","avatarUrl":"https:\u002F\u002Fpic2.zhimg.com\u002Fv2-c6395b66f4bf91be3056666c4ae80867_r.png","miniAvatarUrl":"https:\u002F\u002Fpic2.zhimg.com\u002Fv2-2675240add1d7e06c796232ba0f0ba64_is.png","description":"开通专栏并收获 1000 关注"}}},"questions":{},"answers":{},"articles":{"35268752":{"trackUrl":["https:\u002F\u002Fsugar.zhihu.com\u002Fplutus_adreaper\u002Fpage_monitor_log?si=__SESSIONID__&ti=__ATOKEN__&at=view&pf=__OS__&ed=__MEMBERID__&idfa=__IDFA__&imei=__IMEI__&androidid= __ANDROIDID__"],"id":35268752,"title":"CentOS Linux操作系统无人值守安装配置规范（2016版）","type":"article","excerptTitle":"","url":"https:\u002F\u002Fzhuanlan.zhihu.com\u002Fp\u002F35268752","imageUrl":"https:\u002F\u002Fpic2.zhimg.com\u002Fv2-7d50b2940e2652a6150ced844d293066_b.jpg","titleImage":"https:\u002F\u002Fpic2.zhimg.com\u002Fv2-7d50b2940e2652a6150ced844d293066_b.jpg","excerpt":"\u003Cimg src=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-8e42ecd064056a5acab3fbefaae9dd7e_200x112.jpg\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"597\" data-rawheight=\"589\" data-watermark=\"\" data-original-src=\"\" data-watermark-src=\"\" data-private-watermark-src=\"\" class=\"origin_image inline-img zh-lightbox-thumb\" data-original=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-8e42ecd064056a5acab3fbefaae9dd7e_r.jpg\"\u002F\u003E目录1 文档说明1.1文档简介1.2适用对象1.3生效范围1.4术语说明 2 概述3 系统安装3.1版本选择 4 安装kickstart环境准备安装前的准备 安装DHCP服务DHCP简介安装DHCP服务 安装TFTP服务TFTP简介 配置http服务通过虚拟机把我们的6.8镜像挂上去。配置支持PXE的启…","created":1522750455,"updated":1524041259,"author":{"isFollowed":false,"avatarUrlTemplate":"https:\u002F\u002Fpic1.zhimg.com\u002Fv2-6071fe854d081dfca4e9e2c746ed280c_{size}.jpg","uid":"774296138458079232","userType":"people","isFollowing":false,"urlToken":"bjchen-86","id":"172192b6dbe6162e0e53aac23bd7920f","description":"陈宝佳 码农，外敛内骚的技术发烧友； 曾负责大规模集群设计、部署优化等运维工作，在Linux运维、服务架构等领域有较深入的研究。目前专注Python自动化、大型数据库架构设计、企业监控系统建设、云计算虚拟化等。Mail：info@opsroad.com运维之路（OpsRoad）社区 ：http:\u002F\u002Fwww.opsroad.com运维之路（OpsRoad）社区 QQ群号：185014100群简介：运维之路（OpsRoad）社区创办于2018年，是由大陆一群年轻的运维工程师基于对技术的热爱与追求，自主发起的运维技术社区，通过不断精进与分享高质量的运维技术原创内容、线下技术沙龙等形式，为更多不满现状的技术人员提供交流学习平台与资源。","name":"陈宝佳","isAdvertiser":false,"headline":"技术沉淀，空杯心态。","gender":1,"url":"\u002Fpeople\u002F172192b6dbe6162e0e53aac23bd7920f","avatarUrl":"https:\u002F\u002Fpic1.zhimg.com\u002Fv2-6071fe854d081dfca4e9e2c746ed280c_l.jpg","isOrg":false,"type":"people","badge":[],"exposedMedal":{"medalId":"972478580856496128","medalName":"专栏作家","avatarUrl":"https:\u002F\u002Fpic2.zhimg.com\u002Fv2-c6395b66f4bf91be3056666c4ae80867_r.png","miniAvatarUrl":"https:\u002F\u002Fpic2.zhimg.com\u002Fv2-2675240add1d7e06c796232ba0f0ba64_is.png","description":"开通专栏并收获 1000 关注"}},"commentPermission":"all","state":"published","imageWidth":1280,"imageHeight":432,"content":"\u003Ch2\u003E目录\u003C\u002Fh2\u003E\u003Cul\u003E\u003Cli\u003E1 文档说明\u003C\u002Fli\u003E\u003Cul\u003E\u003Cli\u003E1.1文档简介\u003C\u002Fli\u003E\u003Cli\u003E1.2适用对象\u003C\u002Fli\u003E\u003Cli\u003E1.3生效范围\u003C\u002Fli\u003E\u003Cli\u003E1.4术语说明\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Ful\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cul\u003E\u003Cli\u003E2 概述\u003C\u002Fli\u003E\u003Cli\u003E3 系统安装\u003C\u002Fli\u003E\u003Cul\u003E\u003Cli\u003E3.1版本选择\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Ful\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cul\u003E\u003Cli\u003E4 安装kickstart\u003C\u002Fli\u003E\u003Cul\u003E\u003Cli\u003E环境准备\u003C\u002Fli\u003E\u003Cli\u003E安装前的准备\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Ful\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cul\u003E\u003Cli\u003E安装DHCP服务\u003C\u002Fli\u003E\u003Cul\u003E\u003Cli\u003EDHCP简介\u003C\u002Fli\u003E\u003Cli\u003E安装DHCP服务\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Ful\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cul\u003E\u003Cli\u003E安装TFTP服务\u003C\u002Fli\u003E\u003Cul\u003E\u003Cli\u003ETFTP简介\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Ful\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cul\u003E\u003Cli\u003E配置http服务\u003C\u002Fli\u003E\u003Cli\u003E通过虚拟机把我们的6.8镜像挂上去。\u003C\u002Fli\u003E\u003Cli\u003E配置支持PXE的启动程序\u003C\u002Fli\u003E\u003Cul\u003E\u003Cli\u003EPXE引导配置（bootstrap）\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Ful\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cul\u003E\u003Cli\u003E创建ks.cfg文件\u003C\u002Fli\u003E\u003Cul\u003E\u003Cli\u003E生成kickstart配置文件的三种方法：\u003C\u002Fli\u003E\u003Cli\u003Eks.cfg详解\u003C\u002Fli\u003E\u003Cli\u003E编写ks文件\u003C\u002Fli\u003E\u003Cli\u003E整合编辑default配置文件\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Ful\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cul\u003E\u003Cli\u003E最精简配置\u003C\u002Fli\u003E\u003Cli\u003E无人值守自动安装\u003C\u002Fli\u003E\u003Cli\u003E常见错误\u003C\u002Fli\u003E\u003Cul\u003E\u003Cli\u003E原因：\u003C\u002Fli\u003E\u003Cli\u003E解决办法：\u003C\u002Fli\u003E\u003C\u002Ful\u003E\u003C\u002Ful\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Ch2\u003E1 文档说明\u003C\u002Fh2\u003E\u003Ch2\u003E1.1文档简介\u003C\u002Fh2\u003E\u003Cp\u003E本规范为CentOS Linux操作系统的安装配置规范。\u003C\u002Fp\u003E\u003Ch2\u003E1.4术语说明\u003C\u002Fh2\u003E\u003Cp\u003EKICKSTART： Kickstart是一种无人值守的安装方式。它的工作原理是在安装过程中记录人工干预填写的各种参数，并生成一个名为ks.cfg的文件。\u003C\u002Fp\u003E\u003Cp\u003EPXE： 全名Pre-boot Execution Environment，预启动执行环境，通过网络接口启动计算机，不依赖本地存储设备（如硬盘）或本地已安装的操作系统，由Intel和Systemsoft公司于1999年9月20日公布的技术。\u003C\u002Fp\u003E\u003Cp\u003EDHCP： 全名Dynamic Host Configuration Protocol，动态主机配置协议，通常被应用在大型的局域网络环境中，主要作用是集中的管理、分配IP地址，使网络环境中的主机动态的获得IP地址、网关地址、DNS服务器地址等信息，并能够提升地址的使用率。端口为67。\u003C\u002Fp\u003E\u003Cp\u003ETFTP： TFTP（Trivial File Transfer Protocol,简单文件传输协议）是TCP\u002FIP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，提供不复杂、开销不大的文件传输服务。端口号为69。\u003C\u002Fp\u003E\u003Cp\u003Ehttpd： httpd是Apache超文本传输协议(HTTP)服务器的主程序。被设计为一个独立运行的后台进程，它会建立一个处理请求的子进程或线程的池。\u003C\u002Fp\u003E\u003Ch2\u003E2 概述\u003C\u002Fh2\u003E\u003Cp\u003E目前有时公司同时上线几十甚至上百台服务器，而且需要我们在短时间内完成系统安装。\u003C\u002Fp\u003E\u003Ch2\u003E3 系统安装\u003C\u002Fh2\u003E\u003Ch2\u003E3.1版本选择\u003C\u002Fh2\u003E\u003Cp\u003E根据应用的要求，并结合硬件类型，选择适当的操作系统版本。\u003C\u002Fp\u003E\u003Cp\u003E至本规范最后更新时，新安装操作系统允许使用的版本如下：\u003C\u002Fp\u003E\u003Cp\u003E1)CentOS Linux Server 6.8\u003C\u002Fp\u003E\u003Cp\u003E2)CentOS Linux Server 7.2(仅作为新技术研究\u002F测试,以及云计算平台使用)\u003C\u002Fp\u003E\u003Cp\u003E如无特殊要求，建议使用 CentOS Linux Server 6.8。为便于管理，不建议安装 SUSE 等其他厂商的 Linux 操作系统，若由于特殊要求，必须安装其他厂商的 Linux 操作系统，应及时报备，审批通过后方可安装，且应按照本配置规范要求进行配置。\u003C\u002Fp\u003E\u003Ch2\u003E4 安装kickstart\u003C\u002Fh2\u003E\u003Ch2\u003E环境准备\u003C\u002Fh2\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003E[root@MAC ~]# cat \u002Fetc\u002Fredhat-release \nCentOS release 6.8 (Final)\n\n[root@MAC ~]# uname -r\n2.6.32-642.el6.x86_64\n\n[root@MAC ~]# getenforce\nDisabled\n\n[root@MAC ~]# \u002Fetc\u002Finit.d\u002Fiptables stop\n# 提示防火墙必须关闭并且修改配置文件重启，必须是Disabled状态。\n\n[root@MAC ~]# ip a |egrep &#39;inet &#39; \n    inet 127.0.0.1\u002F8 scope host lo\n    inet 10.0.0.88\u002F24 brd 10.0.0.255 scope global eth0\n    inet 172.16.1.88\u002F24 brd 172.16.1.255 scope global eth1\n    \n[root@MAC ~]# hostname\nMAC\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Ch2\u003E安装前的准备\u003C\u002Fh2\u003E\u003Cp\u003E两块网卡。\u003C\u002Fp\u003E\u003Cp\u003E注意：\u003C\u002Fp\u003E\u003Cp\u003E虚拟机网卡采用NAT模式，不要使用桥接模式，因为稍后我们会搭建DHCP服务器，在同一局域网多个DHCP服务会有冲突。\u003C\u002Fp\u003E\u003Cp\u003E虚拟机的NAT模式的dhcp服务也关闭，避免干扰。\u003C\u002Fp\u003E\u003Ch2\u003E安装DHCP服务\u003C\u002Fh2\u003E\u003Ch2\u003EDHCP简介\u003C\u002Fh2\u003E\u003Cp\u003EDHCP（Dynamic Host Configuration Protocol，动态主机配置协议）通常被应用在大型的局域网络环境中，主要作用是集中的管理、分配IP地址，使网络环境中的主机动态的获得IP地址、网关地址、DNS服务器地址等信息，并能够提升地址的使用率。\u003C\u002Fp\u003E\u003Ch2\u003E安装DHCP服务\u003C\u002Fh2\u003E\u003Cp\u003Eip 一定要设置可以连接外网的网段。\u003C\u002Fp\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003E[root@MAC ~]# yum install -y dhcp\n\n#查看配置文件\n[root@MAC ~]# rpm -ql dhcp|grep &#34;dhcpd.conf&#34;\n\u002Fetc\u002Fdhcp\u002Fdhcpd.conf            # 这是dhcp配置的模板文件\n\u002Fusr\u002Fshare\u002Fdoc\u002Fdhcp-4.1.1\u002Fdhcpd-conf-to-ldap\n\u002Fusr\u002Fshare\u002Fdoc\u002Fdhcp-4.1.1\u002Fdhcpd.conf.sample\n\u002Fusr\u002Fshare\u002Fman\u002Fman5\u002Fdhcpd.conf.5.gz\n\n\n[root@MAC ~]# cat \u002Fetc\u002Fdhcp\u002Fdhcpd.conf \n#\n# DHCP Server Configuration file.\n#   see \u002Fusr\u002Fshare\u002Fdoc\u002Fdhcp*\u002Fdhcpd.conf.sample      # 提示我们可以参考这个模板来配置\n#   see &#39;man 5 dhcpd.conf&#39;\n#\n\n[root@MAC ~]# cat &gt;\u002Fetc\u002Fdhcp\u002Fdhcpd.conf&lt;&lt;EOF\n#\n# DHCP Server Configuration file.\n#   see \u002Fusr\u002Fshare\u002Fdoc\u002Fdhcp*\u002Fdhcpd.conf.sample\n#   see &#39;man 5 dhcpd.conf&#39;\n#\nsubnet 10.0.0.0 netmask 255.255.255.0 {\n        range 10.0.0.100 10.0.0.200;\n        option subnet-mask 255.255.255.0;\n        default-lease-time 21600;\n        max-lease-time 43200;\n        next-server 10.0.0.88;\n        filename &#34;\u002Fpxelinux.0&#34;;\n}\nEOF\n\n[root@MAC ~]# \u002Fetc\u002Finit.d\u002Fdhcpd start\n正在启动 dhcpd：        [确定]\n\n[root@MAC ~]# netstat -lntup|grep 67\nudp        0      0 0.0.0.0:67                  0.0.0.0:*                               3255\u002Fdhcpd   \n\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Cp\u003E#注释\u003C\u002Fp\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003Erange 10.0.0.100 10.0.0.200;        # 可分配的起始IP-结束IP\noption subnet-mask 255.255.255.0;    # 设定netmask\ndefault-lease-time 21600;            # 设置默认的IP租用期限\nmax-lease-time 43200;                # 设置最大的IP租用期限\nnext-server 10.0.0.88;                # 告知客户端TFTP服务器的ip\nfilename &#34;\u002Fpxelinux.0&#34;;              # 告知客户端从TFTP根目录下载pxelinux.0文件\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Cp\u003E注意：本来软件装完后都要加入开机自启动，但这个Kickstart系统就不能开机自启动，而且用完后服务都要关闭，防止未来重启服务器自动重装系统了。\u003C\u002Fp\u003E\u003Cp\u003E如果机器数量过多的话，注意dhcp服务器的地址池，不要因为耗尽IP而导致dhcpd服务器没有IP地址release的情况。\u003C\u002Fp\u003E\u003Ch2\u003E安装TFTP服务\u003C\u002Fh2\u003E\u003Ch2\u003ETFTP简介\u003C\u002Fh2\u003E\u003Cp\u003ETFTP（Trivial File Transfer Protocol,简单文件传输协议）是TCP\u002FIP协议族中的一个用来在客户机与服务器之间进行简单文件传输的协议，提供不复杂、开销不大的文件传输服务。端口号为69。\u003C\u002Fp\u003E\u003Cp\u003E详细操作\u003C\u002Fp\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003E[root@MAC ~]# yum install -y tftp-server\n\n[root@MAC ~]# rpm -ql tftp-server\n\u002Fetc\u002Fxinetd.d\u002Ftftp\n\u002Fusr\u002Fsbin\u002Fin.tftpd\n\u002Fusr\u002Fshare\u002Fdoc\u002Ftftp-server-0.49\n\u002Fusr\u002Fshare\u002Fdoc\u002Ftftp-server-0.49\u002FCHANGES\n\u002Fusr\u002Fshare\u002Fdoc\u002Ftftp-server-0.49\u002FREADME\n\u002Fusr\u002Fshare\u002Fdoc\u002Ftftp-server-0.49\u002FREADME.security\n\u002Fusr\u002Fshare\u002Fdoc\u002Ftftp-server-0.49\u002FREADME.security.tftpboot\n\u002Fusr\u002Fshare\u002Fman\u002Fman8\u002Fin.tftpd.8.gz\n\u002Fusr\u002Fshare\u002Fman\u002Fman8\u002Ftftpd.8.gz\n\u002Fvar\u002Flib\u002Ftftpboot\n\n[root@MAC ~]# vim \u002Fetc\u002Fxinetd.d\u002Ftftp\n  disable                 = no # 由原来的yes改为no\n\n[root@MAC ~]# \u002Fetc\u002Finit.d\u002Fxinetd start\n正在启动 xinetd：                                          [确定]\n\n[root@MAC ~]# netstat -lntup|grep &#39;69&#39;\nudp        0      0 0.0.0.0:69                  0.0.0.0:*                               3323\u002Fxinetd\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Ch2\u003E配置http服务\u003C\u002Fh2\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003E[root@MAC ~]# yum install -y httpd\n\n[root@MAC ~]# rpm -ql httpd|grep httpd.conf\n\u002Fetc\u002Fhttpd\u002Fconf\n\u002Fetc\u002Fhttpd\u002Fconf.d\n\u002Fetc\u002Fhttpd\u002Fconf.d\u002FREADME\n\u002Fetc\u002Fhttpd\u002Fconf.d\u002Fwelcome.conf\n\u002Fetc\u002Fhttpd\u002Fconf\u002Fhttpd.conf\n\u002Fetc\u002Fhttpd\u002Fconf\u002Fmagic\n\n[root@MAC ~]# sed -i &#34;277i ServerName 127.0.0.1:80&#34; \u002Fetc\u002Fhttpd\u002Fconf\u002Fhttpd.conf\n\n[root@MAC ~]# \u002Fetc\u002Finit.d\u002Fhttpd start\n正在启动 httpd：                                           [确定]\n\n[root@MAC ~]# netstat -lntup|grep 80\ntcp        0      0 :::80                       :::*                        LISTEN      3370\u002Fhttpd  \n\n[root@MAC ~]# mkdir \u002Fvar\u002Fwww\u002Fhtml\u002FCentOS-6.8\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Ch2\u003E通过虚拟机把我们的6.8镜像挂上去。\u003C\u002Fh2\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cfigure data-size=\"normal\"\u003E\u003Cnoscript\u003E\u003Cimg src=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-8e42ecd064056a5acab3fbefaae9dd7e_b.jpg\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"597\" data-rawheight=\"589\" class=\"origin_image zh-lightbox-thumb\" width=\"597\" data-original=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-8e42ecd064056a5acab3fbefaae9dd7e_r.jpg\"\u002F\u003E\u003C\u002Fnoscript\u003E\u003Cimg src=\"data:image\u002Fsvg+xml;utf8,&lt;svg xmlns=&#39;http:\u002F\u002Fwww.w3.org\u002F2000\u002Fsvg&#39; width=&#39;597&#39; height=&#39;589&#39;&gt;&lt;\u002Fsvg&gt;\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"597\" data-rawheight=\"589\" class=\"origin_image zh-lightbox-thumb lazy\" width=\"597\" data-original=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-8e42ecd064056a5acab3fbefaae9dd7e_r.jpg\" data-actualsrc=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-8e42ecd064056a5acab3fbefaae9dd7e_b.jpg\"\u002F\u003E\u003C\u002Ffigure\u003E\u003Cfigure data-size=\"normal\"\u003E\u003Cnoscript\u003E\u003Cimg src=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-5b928ee0404119aed5f325a209360b0e_b.jpg\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"703\" data-rawheight=\"604\" class=\"origin_image zh-lightbox-thumb\" width=\"703\" data-original=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-5b928ee0404119aed5f325a209360b0e_r.jpg\"\u002F\u003E\u003C\u002Fnoscript\u003E\u003Cimg src=\"data:image\u002Fsvg+xml;utf8,&lt;svg xmlns=&#39;http:\u002F\u002Fwww.w3.org\u002F2000\u002Fsvg&#39; width=&#39;703&#39; height=&#39;604&#39;&gt;&lt;\u002Fsvg&gt;\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"703\" data-rawheight=\"604\" class=\"origin_image zh-lightbox-thumb lazy\" width=\"703\" data-original=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-5b928ee0404119aed5f325a209360b0e_r.jpg\" data-actualsrc=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-5b928ee0404119aed5f325a209360b0e_b.jpg\"\u002F\u003E\u003C\u002Ffigure\u003E\u003Cfigure data-size=\"normal\"\u003E\u003Cnoscript\u003E\u003Cimg src=\"https:\u002F\u002Fpic4.zhimg.com\u002Fv2-f537726313c2840983d91826a9d6efb3_b.jpg\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"720\" data-rawheight=\"455\" class=\"origin_image zh-lightbox-thumb\" width=\"720\" data-original=\"https:\u002F\u002Fpic4.zhimg.com\u002Fv2-f537726313c2840983d91826a9d6efb3_r.jpg\"\u002F\u003E\u003C\u002Fnoscript\u003E\u003Cimg src=\"data:image\u002Fsvg+xml;utf8,&lt;svg xmlns=&#39;http:\u002F\u002Fwww.w3.org\u002F2000\u002Fsvg&#39; width=&#39;720&#39; height=&#39;455&#39;&gt;&lt;\u002Fsvg&gt;\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"720\" data-rawheight=\"455\" class=\"origin_image zh-lightbox-thumb lazy\" width=\"720\" data-original=\"https:\u002F\u002Fpic4.zhimg.com\u002Fv2-f537726313c2840983d91826a9d6efb3_r.jpg\" data-actualsrc=\"https:\u002F\u002Fpic4.zhimg.com\u002Fv2-f537726313c2840983d91826a9d6efb3_b.jpg\"\u002F\u003E\u003C\u002Ffigure\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003E[root@MAC ~]# mount \u002Fdev\u002Fcdrom \u002Fvar\u002Fwww\u002Fhtml\u002FCentOS-6.8\u002F\nmount: block device \u002Fdev\u002Fsr0 is write-protected, mounting read-only\n\n[root@MAC ~]# df -h\nFilesystem      Size  Used Avail Use% Mounted on\n\u002Fdev\u002Fsda3        62G  1.5G   58G   3% \u002F\ntmpfs           497M     0  497M   0% \u002Fdev\u002Fshm\n\u002Fdev\u002Fsda1       190M   33M  147M  19% \u002Fboot\n\u002Fdev\u002Fsr0        3.7G  3.7G     0 100% \u002Fvar\u002Fwww\u002Fhtml\u002FCentOS-6.8\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Cp\u003E浏览器访问\u003Ca href=\"https:\u002F\u002Flink.zhihu.com\u002F?target=http%3A\u002F\u002F10.0.0.88\u002FCentOS-6.8\u002F\" class=\" external\" target=\"_blank\" rel=\"nofollow noreferrer\"\u003E\u003Cspan class=\"invisible\"\u003Ehttp:\u002F\u002F\u003C\u002Fspan\u003E\u003Cspan class=\"visible\"\u003E10.0.0.88\u002FCentOS-6.8\u002F\u003C\u002Fspan\u003E\u003Cspan class=\"invisible\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003E检验配置是否正确。\u003C\u002Fp\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cfigure data-size=\"normal\"\u003E\u003Cnoscript\u003E\u003Cimg src=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-5e4dc00acfac5e4378ce2e0cd2442cea_b.jpg\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"1099\" data-rawheight=\"733\" class=\"origin_image zh-lightbox-thumb\" width=\"1099\" data-original=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-5e4dc00acfac5e4378ce2e0cd2442cea_r.jpg\"\u002F\u003E\u003C\u002Fnoscript\u003E\u003Cimg src=\"data:image\u002Fsvg+xml;utf8,&lt;svg xmlns=&#39;http:\u002F\u002Fwww.w3.org\u002F2000\u002Fsvg&#39; width=&#39;1099&#39; height=&#39;733&#39;&gt;&lt;\u002Fsvg&gt;\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"1099\" data-rawheight=\"733\" class=\"origin_image zh-lightbox-thumb lazy\" width=\"1099\" data-original=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-5e4dc00acfac5e4378ce2e0cd2442cea_r.jpg\" data-actualsrc=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-5e4dc00acfac5e4378ce2e0cd2442cea_b.jpg\"\u002F\u003E\u003C\u002Ffigure\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Ch2\u003E配置支持PXE的启动程序\u003C\u002Fh2\u003E\u003Ch2\u003EPXE引导配置（bootstrap）\u003C\u002Fh2\u003E\u003Cp\u003Esyslinux是一个功能强大的引导加载程序，而且兼容各种介质。SYSLINUX是一个小型的Linux操作系统，它的目的是简化首次安装Linux的时间，并建立修护或其它特殊用途的启动盘。如果没有找到pxelinux.0这个文件,可以安装一下。\u003C\u002Fp\u003E\u003Cp\u003E详细操作\u003C\u002Fp\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003E[root@MAC ~]# find \u002F -type f -name &#39;pxelinux.0&#39;\n\n[root@MAC ~]# yum install -y syslinux\n\n[root@MAC ~]# find \u002F -type f -name &#39;pxelinux.0&#39;\n\u002Fusr\u002Fshare\u002Fsyslinux\u002Fpxelinux.0\n\n[root@MAC ~]# cp \u002Fusr\u002Fshare\u002Fsyslinux\u002Fpxelinux.0 \u002Fvar\u002Flib\u002Ftftpboot\u002F\n\n\n[root@MAC ~]# cp -a \u002Fvar\u002Fwww\u002Fhtml\u002FCentOS-6.8\u002Fisolinux\u002F* \u002Fvar\u002Flib\u002Ftftpboot\u002F\n\n[root@MAC ~]# ls \u002Fvar\u002Flib\u002Ftftpboot\u002F\nboot.cat  grub.conf   isolinux.bin  memtest     splash.jpg  vesamenu.c32\nboot.msg  initrd.img  isolinux.cfg  pxelinux.0  TRANS.TBL   vmlinuz\n\n# 新建一个pxelinux.cfg目录，存放客户端的配置文件。\n[root@MAC ~]# mkdir -p \u002Fvar\u002Flib\u002Ftftpboot\u002Fpxelinux.cfg\n\n[root@MAC ~]# cp \u002Fvar\u002Fwww\u002Fhtml\u002FCentOS-6.8\u002Fisolinux\u002Fisolinux.cfg \u002Fvar\u002Flib\u002Ftftpboot\u002Fpxelinux.cfg\u002Fdefault\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Cp\u003E\u002Fvar\u002Flib\u002Ftftpboot\u002Fpxelinux.cfg\u002Fdefault 文件简介\u003C\u002Fp\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003Edefault vesamenu.c32  # 默认加载一个菜单\n\n#prompt 1             # 开启会显示命令行&#39;boot: &#39;提示符。prompt值为0时则不提示，将会直接启动&#39;default&#39;参数中指定的内容。\n\ntimeout 600           # timeout时间是引导时等待用户手动选择的时间，设为1可直接引导，单位为1\u002F10秒。\ndisplay boot.msg\n\n# 菜单背景图片、标题、颜色。\nmenu background splash.jpg\nmenu title Welcome to CentOS 6.7!\nmenu color border 0 #ffffffff #00000000\nmenu color sel 7 #ffffffff #ff000000\nmenu color title 0 #ffffffff #00000000\nmenu color tabmsg 0 #ffffffff #00000000\nmenu color unsel 0 #ffffffff #00000000\nmenu color hotsel 0 #ff000000 #ffffffff\nmenu color hotkey 7 #ffffffff #ff000000\nmenu color scrollbar 0 #ffffffff #00000000\n\n# label指定在boot:提示符下输入的关键字，比如boot:linux[ENTER]，这个会启动label linux下标记的kernel和initrd.img文件。\n\nlabel linux       # 一个标签就是刚开始装机图片的一行选项。\n\n  menu label ^Install or upgrade an existing system\n  menu default\n  kernel vmlinuz  # 指定要启动的内核。同样要注意路径，默认是\u002Ftftpboot目录。\n  append initrd=initrd.img # 指定追加给内核的参数，initrd.img是一个最小的linux系统\nlabel vesa\n  menu label Install system with ^basic video driver\n  kernel vmlinuz\n  append initrd=initrd.img nomodeset\nlabel rescue\n  menu label ^Rescue installed system\n  kernel vmlinuz\n  append initrd=initrd.img rescue\nlabel local\n  menu label Boot from ^local drive\n  localboot 0xffff\nlabel memtest86\n  menu label ^Memory test\n  kernel memtest\n  append -\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Ch2\u003E创建ks.cfg文件\u003C\u002Fh2\u003E\u003Cp\u003E通常，我们在安装操作系统的过程中，需要大量的和服务器交互操作，为了减少这个交互过程，kickstart就诞生了。使用这种kickstart，只需事先定义好一个Kickstart自动应答配置文件ks.cfg（通常存放在安装服务器上），并让安装程序知道该配置文件的位置，在安装过程中安装程序就可以自己从该文件中读取安装配置，这样就避免了在安装过程中多次的人机交互，从而实现无人值守的自动化安装。\u003C\u002Fp\u003E\u003Ch2\u003E生成kickstart配置文件的三种方法：\u003C\u002Fh2\u003E\u003Cp\u003E方法1、 每安装好一台Centos机器，Centos安装程序都会创建一个kickstart配置文件，记录你的真实安装配置。如果你希望实现和某系统类似的安装，可以基于该系统的kickstart配置文件来生成你自己的kickstart配置文件。（生成的文件名字叫anaconda-ks.cfg位于\u002Froot\u002Fanaconda-ks.cfg）\u003C\u002Fp\u003E\u003Cp\u003E方法2、Centos提供了一个图形化的kickstart配置工具。在任何一个安装好的Linux系统上运行该工具，就可以很容易地创建你自己的kickstart配置文件。kickstart配置工具命令为redhat-config-kickstart（RHEL3）或system-config-kickstart（RHEL4，RHEL5）.网上有很多用CentOS桌面版生成ks文件的文章，如果有现成的系统就没什么可说。但没有现成的，也没有必要去用桌面版，命令行也很简单。\u003C\u002Fp\u003E\u003Cp\u003E方法3、阅读kickstart配置文件的手册。用任何一个文本编辑器都可以创建你自己的kickstart配置文件。\u003C\u002Fp\u003E\u003Ch2\u003Eks.cfg详解\u003C\u002Fh2\u003E\u003Cp\u003E官网文档 CentOS5 : \u003Ca href=\"https:\u002F\u002Flink.zhihu.com\u002F?target=http%3A\u002F\u002Fwww.centos.org\u002Fdocs\u002F5\u002Fhtml\u002FInstallation_Guide-en-US\u002Fs1-kickstart2-options.html\" class=\" external\" target=\"_blank\" rel=\"nofollow noreferrer\"\u003E\u003Cspan class=\"invisible\"\u003Ehttp:\u002F\u002Fwww.\u003C\u002Fspan\u003E\u003Cspan class=\"visible\"\u003Ecentos.org\u002Fdocs\u002F5\u002Fhtml\u002F\u003C\u002Fspan\u003E\u003Cspan class=\"invisible\"\u003EInstallation_Guide-en-US\u002Fs1-kickstart2-options.html\u003C\u002Fspan\u003E\u003Cspan class=\"ellipsis\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003E\u003C\u002Fp\u003E\u003Cp\u003ECentOS6 : \u003Ca href=\"https:\u002F\u002Flink.zhihu.com\u002F?target=https%3A\u002F\u002Faccess.redhat.com\u002Fknowledge\u002Fdocs\u002Fen-US\u002FRed_Hat_Enterprise_Linux\u002F6\u002Fhtml\u002FInstallation_Guide\u002Fs1-kickstart2-options.html\" class=\" external\" target=\"_blank\" rel=\"nofollow noreferrer\"\u003E\u003Cspan class=\"invisible\"\u003Ehttps:\u002F\u002F\u003C\u002Fspan\u003E\u003Cspan class=\"visible\"\u003Eaccess.redhat.com\u002Fknowl\u003C\u002Fspan\u003E\u003Cspan class=\"invisible\"\u003Eedge\u002Fdocs\u002Fen-US\u002FRed_Hat_Enterprise_Linux\u002F6\u002Fhtml\u002FInstallation_Guide\u002Fs1-kickstart2-options.html\u003C\u002Fspan\u003E\u003Cspan class=\"ellipsis\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003E 官网自带中文版，选一下语言即可\u003C\u002Fp\u003E\u003Cp\u003E命令段 键盘类型，语言，安装方式等系统的配置，有必选项和可选项，如果缺少某项必选项，安装时会中断并提示用户选择此项的选项\u003C\u002Fp\u003E\u003Cp\u003E软件包段\u003C\u002Fp\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003E%packages\n@groupname：指定安装的包组\npackage_name：指定安装的包\n-package_name：指定不安装的包\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Cp\u003E在安装过程中默认安装的软件包，安装软件时会自动分析依赖关系。\u003C\u002Fp\u003E\u003Cp\u003E脚本段(可选)\u003C\u002Fp\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003E%pre:安装系统前执行的命令或脚本(由于只依赖于启动镜像，支持的命令很少)\n%post:安装系统后执行的命令或脚本(基本支持所有命令)\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Cp\u003E关键字 含义\u003C\u002Fp\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003Einstall\t告知安装程序，这是一次全新安装，而不是升级upgrade。\n\nurl --url=&#34; &#34;\t通过FTP或HTTP从远程服务器上的安装树中安装。\n\nurl --url=&#34;http:\u002F\u002F10.0.0.7\u002FCentOS-6.7\u002F&#34;\n\nurl --url ftp:\u002F\u002F&lt;username&gt;:&lt;password&gt;@&lt;server&gt;\u002F&lt;dir&gt;\n\nnfs\t从指定的NFS服务器安装。\n\nnfs --server=nfsserver.example.com --dir=\u002Ftmp\u002Finstall-tree\n\ntext\t使用文本模式安装。\n\nlang\t设置在安装过程中使用的语言以及系统的缺省语言。lang en_US.UTF-8\n\nkeyboard\t设置系统键盘类型。keyboard us\n\nzerombr\t清除mbr引导信息。\n\nbootloader\t系统引导相关配置。\n\nbootloader --location=mbr --driveorder=sda --append=&#34;crashkernel=auto rhgb quiet&#34;\n\n--location=,指定引导记录被写入的位置.有效的值如下:mbr(缺省),partition(在包含内核的分区的第一个扇区安装引导装载程序)或none(不安装引导装载程序)。\n\n--driveorder,指定在BIOS引导顺序中居首的驱动器。\n\n--append=,指定内核参数.要指定多个参数,使用空格分隔它们。\n\nnetwork\t为通过网络的kickstart安装以及所安装的系统配置联网信息。\n\nnetwork --bootproto=dhcp --device=eth0 --onboot=yes --noipv6 --hostname=CentOS6\n\n--bootproto=[dhcp\u002Fbootp\u002Fstatic]中的一种，缺省值是dhcp。bootp和dhcp被认为是相同的。\n\nstatic方法要求在kickstart文件里输入所有的网络信息。\n\nnetwork --bootproto=static --ip=10.0.0.100 --netmask=255.255.255.0 --gateway=10.0.0.2 --nameserver=10.0.0.2\n\n请注意所有配置信息都必须在一行上指定,不能使用反斜线来换行。\n\n--ip=,要安装的机器的IP地址.\n\n--gateway=,IP地址格式的默认网关.\n\n--netmask=,安装的系统的子网掩码.\n\n--hostname=,安装的系统的主机名.\n\n--onboot=,是否在引导时启用该设备.\n\n--noipv6=,禁用此设备的IPv6.\n\n--nameserver=,配置dns解析.\n\ntimezone\t设置系统时区。timezone --utc Asia\u002FShanghai\n\nauthconfig\t系统认证信息。authconfig --enableshadow --passalgo=sha512\n\n设置密码加密方式为sha512 启用shadow文件。\n\nrootpw\troot密码\n\nclearpart\t清空分区。clearpart --all --initlabel\n\n--all 从系统中清除所有分区，--initlable 初始化磁盘标签\n\npart\t磁盘分区。\n\npart \u002Fboot --fstype=ext4 --asprimary --size=200\n\npart swap --size=1024\n\npart \u002F --fstype=ext4 --grow --asprimary --size=200\n\n--fstype=,为分区设置文件系统类型.有效的类型为ext2,ext3,swap和vfat。\n\n--asprimary,强迫把分区分配为主分区,否则提示分区失败。\n\n--size=,以MB为单位的分区最小值.在此处指定一个整数值,如500.不要在数字后面加MB。\n\n--grow,告诉分区使用所有可用空间(若有),或使用设置的最大值。\n\nfirstboot\t负责协助配置redhat一些重要的信息。\n\nfirstboot --disable\n\nselinux\t关闭selinux。selinux --disabled\n\nfirewall\t关闭防火墙。firewall --disabled\n\nlogging\t设置日志级别。logging --level=info\n\nreboot\t设定安装完成后重启,此选项必须存在，不然kickstart显示一条消息，并等待用户按任意键后才重新引导，也可以选择halt关机。\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Ch2\u003E编写ks文件\u003C\u002Fh2\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003E创建加密的密码\n[root@MAC ~]# grub-md5-crypt \nPassword: 123456\nRetype password: 123456\n$1$xNphK\u002F$fL\u002FJtDkQ8urr6BidQeXIJ0\n\n\n[root@MAC ~]# mkdir \u002Fvar\u002Fwww\u002Fhtml\u002Fks_config\n\n[root@MAC ~]# cd \u002Fvar\u002Fwww\u002Fhtml\u002Fks_config\n\n\n[root@linux-node1 ~]# vim \u002Fvar\u002Fwww\u002Fhtml\u002Fks_config\u002FCentOS-6.8-ks.cfg\n[root@mac ks_config]# cat \u002Fvar\u002Fwww\u002Fhtml\u002Fks_config\u002FCentOS-6.8-ks.cfg\n# Kickstart Configurator for CentOS 6.7 by keegv\ninstall\nurl --url=&#34;http:\u002F\u002F10.0.0.88\u002FCentOS-6.8\u002F&#34;\ntext\nlang en_US.UTF-8\nkeyboard us\nzerombr\nbootloader --location=mbr --driveorder=sda --append=&#34;crashkernel=auto rhgb quiet&#34;\nnetwork --bootproto=dhcp --device=eth0 --onboot=yes --noipv6 --hostname=CentOS6\ntimezone --utc Asia\u002FShanghai\nauthconfig --enableshadow --passalgo=md5\nrootpw  --iscrypted $1$xNphK\u002F$fL\u002FJtDkQ8urr6BidQeXIJ0        #这里是我们上面的MD5生成的密码结果\nclearpart --all --initlabel\npart \u002Fboot --fstype=ext4 --asprimary --size=200\npart swap --size=1024\npart \u002F --fstype=ext4 --grow --asprimary --size=200\nfirstboot --disable\nselinux --disabled\nfirewall --disabled\nlogging --level=info\nreboot\n\n%packages\n@base\n@compat-libraries\n@debugging\n@development\ntree\nnmap\nsysstat\nlrzsz\ndos2unix\ntelnet\n\n%post\nwget -O \u002Ftmp\u002Foptimization.sh http:\u002F\u002F10.0.0.88\u002Fks_config\u002Foptimization.sh &amp;&gt;\u002Fdev\u002Fnull\n\u002Fbin\u002Fsh \u002Ftmp\u002Foptimization.sh\n%end\n\n#!\u002Fbin\u002Fbash\n##############################################################\n# File Name: \u002Fvar\u002Fwww\u002Fhtml\u002Fks_config\u002Foptimization.sh\n# Version: V1.0\n# Author: Baojia Chen\n# Created Time : 2016-4-03 15:23:08\n# Description: Linux system initialization\n##############################################################\n. \u002Fetc\u002Finit.d\u002Ffunctions\nIp=10.0.0.88\nPort=80\nConfigDir=ks_config\n# Judge Http server is ok?      #判断http服务是否正常\nPortNum=`nmap $Ip  -p $Port 2&gt;\u002Fdev\u002Fnull|grep open|wc -l`\n[ $PortNum -lt 1 ] &amp;&amp; {\n        echo &#34;Http server is bad!&#34;\n        exit 1\n}\n# Defined result function       #判断是否服务正常的自定义函数\nfunction Msg(){\n        if [ $? -eq 0 ];then\n          action &#34;$1&#34; \u002Fbin\u002Ftrue\n        else\n          action &#34;$1&#34; \u002Fbin\u002Ffalse\n        fi\n}\n# Defined IP function       #定义IP\nfunction ConfigIP(){\n        Suffix=`ifconfig eth0|awk -F &#34;[ .]+&#34; &#39;NR==2 {print $6}&#39;`\n        cat &gt;\u002Fetc\u002Fsysconfig\u002Fnetwork-scripts\u002Fifcfg-eth0 &lt;&lt;-END\n        DEVICE=eth0\n        TYPE=Ethernet\n        ONBOOT=yes\n        NM_CONTROLLED=yes\n        BOOTPROTO=none\n        IPADDR=10.0.0.$Suffix\n        PREFIX=24\n        GATEWAY=10.0.0.2\n        DNS1=10.0.0.2\n        DEFROUTE=yes\n        IPV4_FAILURE_FATAL=yes\n        IPV6INIT=no\n        NAME=&#34;System eth0&#34;\n        END\n        Msg &#34;config eth0&#34;\n}\n# Defined Yum source Functions  #定义yum源\nfunction yum(){\n        YumDir=\u002Fetc\u002Fyum.repos.d\n        [ -f &#34;$YumDir\u002FCentOS-Base.repo&#34; ] &amp;&amp; cp $YumDir\u002FCentOS-Base.repo{,.ori} \n        wget -O $YumDir\u002FCentOS-Base.repo http:\u002F\u002F$Ip:$Port\u002F$ConfigDir\u002FCentOS-Base.repo &amp;&gt;\u002Fdev\u002Fnull &amp;&amp;\\\n        wget -O $YumDir\u002Fepel.repo http:\u002F\u002F$Ip:$Port\u002F$ConfigDir\u002Fepel.repo &amp;&gt;\u002Fdev\u002Fnull &amp;&amp;\\\n        Msg &#34;YUM source&#34;\n}\n# Defined Hide the system version number Functions      #隐藏系统版本\nfunction HideVersion(){\n        [ -f &#34;\u002Fetc\u002Fissue&#34; ] &amp;&amp; &gt;\u002Fetc\u002Fissue\n        Msg &#34;Hide issue&#34; \n        [ -f &#34;\u002Fetc\u002Fissue.net&#34; ] &amp;&amp; &gt; \u002Fetc\u002Fissue.net\n        Msg &#34;Hide issue.net&#34;\n}\n# Defined OPEN FILES Functions          #优化文件打开数\nfunction openfiles(){\n        [ -f &#34;\u002Fetc\u002Fsecurity\u002Flimits.conf&#34; ] &amp;&amp; {\n        echo &#39;*  -  nofile  65535&#39; &gt;&gt; \u002Fetc\u002Fsecurity\u002Flimits.conf\n        Msg &#34;open files&#34;\n        }\n}\n# Defined Kernel parameters Functions       #优化内核参数\nfunction kernel(){\n        KernelDir=\u002Fetc\n        [ -f &#34;$KernelDir\u002Fsysctl.conf&#34; ] &amp;&amp; \u002Fbin\u002Fmv $KernelDir\u002Fsysctl.conf{,.ori}\n        wget -O $KernelDir\u002Fsysctl.conf http:\u002F\u002F$Ip:$Port\u002F$ConfigDir\u002Fsysctl.conf &amp;&gt;\u002Fdev\u002Fnull\n        Msg &#34;Kernel config&#34;\n}\n# Defined System Startup Services Functions     #关闭不需要的开机自启\nfunction boot(){\n        for baojia in `chkconfig --list|grep &#34;3:on&#34;|awk &#39;{print $1}&#39;|grep -vE &#34;crond|network|rsyslog|sshd|sysstat&#34;` \n          do \n           chkconfig $baojia off\n        done\n        Msg &#34;BOOT config&#34;\n}\n# Defined Time Synchronization Functions        #时间同步\nfunction Time(){\n        echo &#34;#time sync by chenbaojia at $(date +%F)&#34; &gt;&gt;\u002Fvar\u002Fspool\u002Fcron\u002Froot\n        echo &#39;*\u002F5 * * * * \u002Fusr\u002Fsbin\u002Fntpdate time.nist.gov &amp;&gt;\u002Fdev\u002Fnull&#39; &gt;&gt;\u002Fvar\u002Fspool\u002Fcron\u002Froot\n        Msg &#34;Time Synchronization&#34;\n}\n# Defined main Functions\nfunction main(){\n        ConfigIP\n        yum\n        HideVersion\n        openfiles\n        kernel\n        boot\n        Time\n}\nmain\n\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Cp\u003E首先本机需要先做优化哈，然后复制到当前目录\u003C\u002Fp\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003E[root@MAC ks_config]# cp \u002Fetc\u002Fhosts . \n[root@MAC ks_config]# cp \u002Fetc\u002Fyum.repos.d\u002FCentOS-Base.repo . \n[root@MAC ks_config]# cp \u002Fetc\u002Fssh\u002Fsshd_config . \n[root@MAC ks_config]# cp \u002Fetc\u002Fsysctl.conf .\n[root@MAC ks_config]# ls\nCentOS-6.8-ks.cfg  CentOS-Base.repo  hosts  optimization.sh  sshd_config  sysctl.conf\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Ch2\u003E整合编辑default配置文件\u003C\u002Fh2\u003E\u003Ch2\u003E最精简配置\u003C\u002Fh2\u003E\u003Cp\u003Evim \u002Fvar\u002Flib\u002Ftftpboot\u002Fpxelinux.cfg\u002Fdefault\u003C\u002Fp\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003Edefault ks\nprompt 0\nlabel ks\nkernel vmlinuz\nappend initrd=initrd.img ks=http:\u002F\u002F10.0.0.88\u002Fks_config\u002FCentOS-6.8-ks.cfg ksdevice=eth0\n\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Cp\u003E注释\u003C\u002Fp\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003Edefault ks\nprompt 0\nlabel ks\nkernel vmlinuz\nappend initrd=initrd.img ks=http:\u002F\u002F10.0.0.88\u002Fks_config\u002FCentOS-6.8-ks.cfg  # 告诉安装程序ks.cfg文件在哪里\nksdevice=eth0   #代表当客户端有多块网卡的时候，要实现自动化需要设置从eth0安装，不指定的话，安装的时候系统会让你选择，那就不叫全自动化了。\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Ch2\u003E无人值守自动安装\u003C\u002Fh2\u003E\u003Cp\u003E打开系统电源，出去喝杯水。过会回来,系统就以经装好了._ 下面是安装过程中截的几个图\u003C\u002Fp\u003E\u003Cp\u003E如果不能上网检查网关，DNS。\u003C\u002Fp\u003E\u003Cp\u003E网卡参考\u003C\u002Fp\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003E[root@CentOS6 ~]# cat \u002Fetc\u002Fsysconfig\u002Fnetwork-scripts\u002Fifcfg-eth0\nDEVICE=eth0\nTYPE=Ethernet\nONBOOT=yes\nNM_CONTROLLED=yes\nBOOTPROTO=none\nIPADDR=10.0.0.105\nNETMASK=255.255.255.0\nDNS2=8.8.8.8\nGATEWAY=10.0.0.1\nDNS1=10.0.0.1\nIPV6INIT=no\nUSERCTL=no\n[root@CentOS6 ~]# cat \u002Fetc\u002Fsysconfig\u002Fnetwork-scripts\u002Fifcfg-eth1\nDEVICE=eth1\nTYPE=Ethernet\nONBOOT=yes\nNM_CONTROLLED=yes\nBOOTPROTO=none\nIPADDR=172.16.1.105\nNETMASK=255.255.255.0\nIPV6INIT=no\nUSERCTL=no\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Cp\u003E阿里云的源 wget -O \u002Fetc\u002Fyum.repos.d\u002FCentOS-Base.repo \u003Ca href=\"https:\u002F\u002Flink.zhihu.com\u002F?target=http%3A\u002F\u002Fmirrors.aliyun.com\u002Frepo\u002FCentos-6.repo\" class=\" external\" target=\"_blank\" rel=\"nofollow noreferrer\"\u003E\u003Cspan class=\"invisible\"\u003Ehttp:\u002F\u002F\u003C\u002Fspan\u003E\u003Cspan class=\"visible\"\u003Emirrors.aliyun.com\u002Frepo\u003C\u002Fspan\u003E\u003Cspan class=\"invisible\"\u003E\u002FCentos-6.repo\u003C\u002Fspan\u003E\u003Cspan class=\"ellipsis\"\u003E\u003C\u002Fspan\u003E\u003C\u002Fa\u003E\u003C\u002Fp\u003E\u003Cdiv class=\"highlight\"\u003E\u003Cpre\u003E\u003Ccode class=\"language-text\"\u003E# CentOS-Base.repo\n#\n# The mirror system uses the connecting IP address of the client and the\n# update status of each mirror to pick mirrors that are updated to and\n# geographically close to the client.  You should use this for CentOS updates\n# unless you are manually picking other mirrors.\n#\n# If the mirrorlist= does not work for you, as a fall back you can try the \n# remarked out baseurl= line instead.\n#\n#\n \n[base]\nname=CentOS-$releasever - Base - mirrors.aliyun.com\nfailovermethod=priority\nbaseurl=http:\u002F\u002Fmirrors.aliyun.com\u002Fcentos\u002F$releasever\u002Fos\u002F$basearch\u002F\n        http:\u002F\u002Fmirrors.aliyuncs.com\u002Fcentos\u002F$releasever\u002Fos\u002F$basearch\u002F\n#mirrorlist=http:\u002F\u002Fmirrorlist.centos.org\u002F?release=$releasever&amp;arch=$basearch&amp;repo=os\ngpgcheck=1\ngpgkey=http:\u002F\u002Fmirrors.aliyun.com\u002Fcentos\u002FRPM-GPG-KEY-CentOS-6\n \n#released updates \n[updates]\nname=CentOS-$releasever - Updates - mirrors.aliyun.com\nfailovermethod=priority\nbaseurl=http:\u002F\u002Fmirrors.aliyun.com\u002Fcentos\u002F$releasever\u002Fupdates\u002F$basearch\u002F\n        http:\u002F\u002Fmirrors.aliyuncs.com\u002Fcentos\u002F$releasever\u002Fupdates\u002F$basearch\u002F\n#mirrorlist=http:\u002F\u002Fmirrorlist.centos.org\u002F?release=$releasever&amp;arch=$basearch&amp;repo=updates\ngpgcheck=1\ngpgkey=http:\u002F\u002Fmirrors.aliyun.com\u002Fcentos\u002FRPM-GPG-KEY-CentOS-6\n \n#additional packages that may be useful\n[extras]\nname=CentOS-$releasever - Extras - mirrors.aliyun.com\nfailovermethod=priority\nbaseurl=http:\u002F\u002Fmirrors.aliyun.com\u002Fcentos\u002F$releasever\u002Fextras\u002F$basearch\u002F\n        http:\u002F\u002Fmirrors.aliyuncs.com\u002Fcentos\u002F$releasever\u002Fextras\u002F$basearch\u002F\n#mirrorlist=http:\u002F\u002Fmirrorlist.centos.org\u002F?release=$releasever&amp;arch=$basearch&amp;repo=extras\ngpgcheck=1\ngpgkey=http:\u002F\u002Fmirrors.aliyun.com\u002Fcentos\u002FRPM-GPG-KEY-CentOS-6\n \n#additional packages that extend functionality of existing packages\n[centosplus]\nname=CentOS-$releasever - Plus - mirrors.aliyun.com\nfailovermethod=priority\nbaseurl=http:\u002F\u002Fmirrors.aliyun.com\u002Fcentos\u002F$releasever\u002Fcentosplus\u002F$basearch\u002F\n        http:\u002F\u002Fmirrors.aliyuncs.com\u002Fcentos\u002F$releasever\u002Fcentosplus\u002F$basearch\u002F\n#mirrorlist=http:\u002F\u002Fmirrorlist.centos.org\u002F?release=$releasever&amp;arch=$basearch&amp;repo=centosplus\ngpgcheck=1\nenabled=0\ngpgkey=http:\u002F\u002Fmirrors.aliyun.com\u002Fcentos\u002FRPM-GPG-KEY-CentOS-6\n \n#contrib - packages by Centos Users\n[contrib]\nname=CentOS-$releasever - Contrib - mirrors.aliyun.com\nfailovermethod=priority\nbaseurl=http:\u002F\u002Fmirrors.aliyun.com\u002Fcentos\u002F$releasever\u002Fcontrib\u002F$basearch\u002F\n        http:\u002F\u002Fmirrors.aliyuncs.com\u002Fcentos\u002F$releasever\u002Fcontrib\u002F$basearch\u002F\n#mirrorlist=http:\u002F\u002Fmirrorlist.centos.org\u002F?release=$releasever&amp;arch=$basearch&amp;repo=contrib\ngpgcheck=1\nenabled=0\ngpgkey=http:\u002F\u002Fmirrors.aliyun.com\u002Fcentos\u002FRPM-GPG-KEY-CentOS-6\n\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Ch2\u003E常见错误\u003C\u002Fh2\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cfigure data-size=\"normal\"\u003E\u003Cnoscript\u003E\u003Cimg src=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-6e90f52e50519e4fd703e9ef7c4ca1d2_b.jpg\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"704\" data-rawheight=\"448\" class=\"origin_image zh-lightbox-thumb\" width=\"704\" data-original=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-6e90f52e50519e4fd703e9ef7c4ca1d2_r.jpg\"\u002F\u003E\u003C\u002Fnoscript\u003E\u003Cimg src=\"data:image\u002Fsvg+xml;utf8,&lt;svg xmlns=&#39;http:\u002F\u002Fwww.w3.org\u002F2000\u002Fsvg&#39; width=&#39;704&#39; height=&#39;448&#39;&gt;&lt;\u002Fsvg&gt;\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"704\" data-rawheight=\"448\" class=\"origin_image zh-lightbox-thumb lazy\" width=\"704\" data-original=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-6e90f52e50519e4fd703e9ef7c4ca1d2_r.jpg\" data-actualsrc=\"https:\u002F\u002Fpic3.zhimg.com\u002Fv2-6e90f52e50519e4fd703e9ef7c4ca1d2_b.jpg\"\u002F\u003E\u003C\u002Ffigure\u003E\u003Cp\u003EUnable to download the kickstart file. Please modify the kickstart parameter below or press Cancel to proceed as an interactive installation.\u003C\u002Fp\u003E\u003Ch2\u003E原因：\u003C\u002Fh2\u003E\u003Cp\u003E可能原因有四种：\u003C\u002Fp\u003E\u003Cp\u003E（1）权限问题。\u003C\u002Fp\u003E\u003Cp\u003E（2）TFTP配置问题。\u003C\u002Fp\u003E\u003Cp\u003E（3）ks配置文件路径错误。\u003C\u002Fp\u003E\u003Cp\u003E（4）iptables和selinux设置问题。\u003C\u002Fp\u003E\u003Cp\u003E（5）PXE server与Client时间不一致。\u003C\u002Fp\u003E\u003Cp\u003E(6) DHCP server IP 分配不正确。\u003C\u002Fp\u003E\u003Ch2\u003E解决办法：\u003C\u002Fh2\u003E\u003Cp\u003E（1）检查ks配置文件的权限，是否为755或者更高。\u003C\u002Fp\u003E\u003Cp\u003E（2）检查TFTP的配置内容和服务，并测试是否能够访问。\u003C\u002Fp\u003E\u003Cp\u003E（3）检查ks配置文件路径和，ks中指定的镜像路径是否正确。\u003C\u002Fp\u003E\u003Cp\u003E（4）检查iptables配置和selinux的是否已关闭。\u003C\u002Fp\u003E\u003Cp\u003E（5）用date检查PXE本地时间是否正确，并查看Client时间(无系统可查看BIOS),两者时间否是一致。\u003Ca href=\"https:\u002F\u002Flink.zhihu.com\u002F?target=http%3A\u002F\u002Fnote.youdao.com\u002Fnoteshare%3Fid%3D6c3a66c793191fc34618823e17147b60\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\"\u003ELinux ntpdate同步网络时间\u003C\u002Fa\u003E\u003C\u002Fp\u003E\u003Cp\u003E(6) 检查 DHCP Server 的 IP 分配情况。\u003C\u002Fp\u003E\u003Ch2\u003EEND\u003C\u002Fh2\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cfigure data-size=\"normal\"\u003E\u003Cnoscript\u003E\u003Cimg src=\"https:\u002F\u002Fpic4.zhimg.com\u002Fv2-6e47f316a45a5e3aca25f6904c27587f_b.jpg\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"88\" data-rawheight=\"31\" class=\"content_image\" width=\"88\"\u002F\u003E\u003C\u002Fnoscript\u003E\u003Cimg src=\"data:image\u002Fsvg+xml;utf8,&lt;svg xmlns=&#39;http:\u002F\u002Fwww.w3.org\u002F2000\u002Fsvg&#39; width=&#39;88&#39; height=&#39;31&#39;&gt;&lt;\u002Fsvg&gt;\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"88\" data-rawheight=\"31\" class=\"content_image lazy\" width=\"88\" data-actualsrc=\"https:\u002F\u002Fpic4.zhimg.com\u002Fv2-6e47f316a45a5e3aca25f6904c27587f_b.jpg\"\u002F\u003E\u003C\u002Ffigure\u003E\u003Cp class=\"ztext-empty-paragraph\"\u003E\u003Cbr\u002F\u003E\u003C\u002Fp\u003E\u003Cp\u003EKeegv| 陈宝佳 作品采用\u003Ca href=\"https:\u002F\u002Flink.zhihu.com\u002F?target=http%3A\u002F\u002Fcreativecommons.org\u002Flicenses\u002Fby-nc-nd\u002F3.0\u002F\" class=\" wrap external\" target=\"_blank\" rel=\"nofollow noreferrer\"\u003E知识共享署名-非商业性使用-禁止演绎 3.0 未本地化版本许可协议\u003C\u002Fa\u003E进行许可。\u003C\u002Fp\u003E\u003Cfigure data-size=\"normal\"\u003E\u003Cnoscript\u003E\u003Cimg src=\"https:\u002F\u002Fpic1.zhimg.com\u002Fv2-2892f2d2ff22430be973f513d35b677c_b.jpg\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"1440\" data-rawheight=\"220\" class=\"origin_image zh-lightbox-thumb\" width=\"1440\" data-original=\"https:\u002F\u002Fpic1.zhimg.com\u002Fv2-2892f2d2ff22430be973f513d35b677c_r.jpg\"\u002F\u003E\u003C\u002Fnoscript\u003E\u003Cimg src=\"data:image\u002Fsvg+xml;utf8,&lt;svg xmlns=&#39;http:\u002F\u002Fwww.w3.org\u002F2000\u002Fsvg&#39; width=&#39;1440&#39; height=&#39;220&#39;&gt;&lt;\u002Fsvg&gt;\" data-caption=\"\" data-size=\"normal\" data-rawwidth=\"1440\" data-rawheight=\"220\" class=\"origin_image zh-lightbox-thumb lazy\" width=\"1440\" data-original=\"https:\u002F\u002Fpic1.zhimg.com\u002Fv2-2892f2d2ff22430be973f513d35b677c_r.jpg\" data-actualsrc=\"https:\u002F\u002Fpic1.zhimg.com\u002Fv2-2892f2d2ff22430be973f513d35b677c_b.jpg\"\u002F\u003E\u003C\u002Ffigure\u003E\u003Cp\u003E\u003C\u002Fp\u003E","adminClosedComment":false,"topics":[{"url":"https:\u002F\u002Fwww.zhihu.com\u002Fapi\u002Fv4\u002Ftopics\u002F19577255","type":"topic","id":"19577255","name":"CentOS"},{"url":"https:\u002F\u002Fwww.zhihu.com\u002Fapi\u002Fv4\u002Ftopics\u002F19648078","type":"topic","id":"19648078","name":"Linux 运维"},{"url":"https:\u002F\u002Fwww.zhihu.com\u002Fapi\u002Fv4\u002Ftopics\u002F19577758","type":"topic","id":"19577758","name":"系统安装"}],"voteupCount":2,"voting":0,"column":{"description":"运维之路（OpsRoad）社区 创办于2018年 是由大陆一群年轻的运维工程师基于对技术的热爱与追求 自主发起的运维技术社区 通过不断精进与分享高质量的运维技术原创内容、线下技术沙龙等形式  为更多不满现状的技术人员提供交流学习平台与资源。","canManage":false,"intro":"年轻人的运维社区（域名：Opsroad.com ）","isFollowing":false,"urlToken":"opsroad","id":"opsroad","articlesCount":104,"acceptSubmission":true,"title":"运维之路","url":"https:\u002F\u002Fzhuanlan.zhihu.com\u002Fopsroad","commentPermission":"all","created":1523155870,"updated":1528435443,"imageUrl":"https:\u002F\u002Fpic4.zhimg.com\u002Fv2-9c074880f4f4daaaada78d34f9edf74c_b.jpg","author":{"isFollowed":false,"avatarUrlTemplate":"https:\u002F\u002Fpic1.zhimg.com\u002Fv2-6071fe854d081dfca4e9e2c746ed280c_{size}.jpg","uid":"774296138458079232","userType":"people","isFollowing":false,"urlToken":"bjchen-86","id":"172192b6dbe6162e0e53aac23bd7920f","description":"陈宝佳 码农，外敛内骚的技术发烧友； 曾负责大规模集群设计、部署优化等运维工作，在Linux运维、服务架构等领域有较深入的研究。目前专注Python自动化、大型数据库架构设计、企业监控系统建设、云计算虚拟化等。Mail：info@opsroad.com运维之路（OpsRoad）社区 ：http:\u002F\u002Fwww.opsroad.com运维之路（OpsRoad）社区 QQ群号：185014100群简介：运维之路（OpsRoad）社区创办于2018年，是由大陆一群年轻的运维工程师基于对技术的热爱与追求，自主发起的运维技术社区，通过不断精进与分享高质量的运维技术原创内容、线下技术沙龙等形式，为更多不满现状的技术人员提供交流学习平台与资源。","name":"陈宝佳","isAdvertiser":false,"headline":"技术沉淀，空杯心态。","gender":1,"url":"\u002Fpeople\u002F172192b6dbe6162e0e53aac23bd7920f","avatarUrl":"https:\u002F\u002Fpic1.zhimg.com\u002Fv2-6071fe854d081dfca4e9e2c746ed280c_l.jpg","isOrg":false,"type":"people"},"followers":1399,"type":"column"},"commentCount":0,"contributions":[{"id":1257094,"state":"accepted","type":"include","column":{"description":"运维之路（OpsRoad）社区 创办于2018年 是由大陆一群年轻的运维工程师基于对技术的热爱与追求 自主发起的运维技术社区 通过不断精进与分享高质量的运维技术原创内容、线下技术沙龙等形式  为更多不满现状的技术人员提供交流学习平台与资源。","canManage":false,"intro":"年轻人的运维社区（域名：Opsroad.com ）","isFollowing":false,"urlToken":"opsroad","id":"opsroad","articlesCount":104,"acceptSubmission":true,"title":"运维之路","url":"https:\u002F\u002Fzhuanlan.zhihu.com\u002Fopsroad","commentPermission":"all","created":1523155870,"updated":1528435443,"imageUrl":"https:\u002F\u002Fpic4.zhimg.com\u002Fv2-9c074880f4f4daaaada78d34f9edf74c_b.jpg","author":{"isFollowed":false,"avatarUrlTemplate":"https:\u002F\u002Fpic1.zhimg.com\u002Fv2-6071fe854d081dfca4e9e2c746ed280c_{size}.jpg","uid":"774296138458079232","userType":"people","isFollowing":false,"urlToken":"bjchen-86","id":"172192b6dbe6162e0e53aac23bd7920f","description":"陈宝佳 码农，外敛内骚的技术发烧友； 曾负责大规模集群设计、部署优化等运维工作，在Linux运维、服务架构等领域有较深入的研究。目前专注Python自动化、大型数据库架构设计、企业监控系统建设、云计算虚拟化等。Mail：info@opsroad.com运维之路（OpsRoad）社区 ：http:\u002F\u002Fwww.opsroad.com运维之路（OpsRoad）社区 QQ群号：185014100群简介：运维之路（OpsRoad）社区创办于2018年，是由大陆一群年轻的运维工程师基于对技术的热爱与追求，自主发起的运维技术社区，通过不断精进与分享高质量的运维技术原创内容、线下技术沙龙等形式，为更多不满现状的技术人员提供交流学习平台与资源。","name":"陈宝佳","isAdvertiser":false,"headline":"技术沉淀，空杯心态。","gender":1,"url":"\u002Fpeople\u002F172192b6dbe6162e0e53aac23bd7920f","avatarUrl":"https:\u002F\u002Fpic1.zhimg.com\u002Fv2-6071fe854d081dfca4e9e2c746ed280c_l.jpg","isOrg":false,"type":"people"},"followers":1399,"type":"column"}}],"isTitleImageFullScreen":false,"upvotedFollowees":[],"commercialInfo":{"isCommercial":false,"plugin":{}},"suggestEdit":{"status":false,"reason":"","tip":"","url":"","title":""},"reason":"","annotationAction":[],"canTip":true,"tipjarorsCount":0,"isLabeled":false,"hasPublishingDraft":false,"isFavorited":false,"isNormal":true,"status":0,"shareText":"CentOS Linux操作系统无人值守安装配置规范（2016版） - 来自知乎专栏「运维之路」，作者: 陈宝佳 https:\u002F\u002Fzhuanlan.zhihu.com\u002Fp\u002F35268752 （想看更多？下载 @知乎 App：http:\u002F\u002Fweibo.com\u002Fp\u002F100404711598 ）","canComment":{"status":true,"reason":""}}},"columns":{"opsroad":{"description":"运维之路（OpsRoad）社区 创办于2018年 是由大陆一群年轻的运维工程师基于对技术的热爱与追求 自主发起的运维技术社区 通过不断精进与分享高质量的运维技术原创内容、线下技术沙龙等形式  为更多不满现状的技术人员提供交流学习平台与资源。","canManage":false,"intro":"年轻人的运维社区（域名：Opsroad.com ）","isFollowing":false,"urlToken":"opsroad","id":"opsroad","articlesCount":104,"acceptSubmission":true,"title":"运维之路","url":"https:\u002F\u002Fzhuanlan.zhihu.com\u002Fopsroad","commentPermission":"all","created":1523155870,"updated":1528435443,"imageUrl":"https:\u002F\u002Fpic4.zhimg.com\u002Fv2-9c074880f4f4daaaada78d34f9edf74c_b.jpg","author":{"isFollowed":false,"avatarUrlTemplate":"https:\u002F\u002Fpic1.zhimg.com\u002Fv2-6071fe854d081dfca4e9e2c746ed280c_{size}.jpg","uid":"774296138458079232","userType":"people","isFollowing":false,"urlToken":"bjchen-86","id":"172192b6dbe6162e0e53aac23bd7920f","description":"陈宝佳 码农，外敛内骚的技术发烧友； 曾负责大规模集群设计、部署优化等运维工作，在Linux运维、服务架构等领域有较深入的研究。目前专注Python自动化、大型数据库架构设计、企业监控系统建设、云计算虚拟化等。Mail：info@opsroad.com运维之路（OpsRoad）社区 ：http:\u002F\u002Fwww.opsroad.com运维之路（OpsRoad）社区 QQ群号：185014100群简介：运维之路（OpsRoad）社区创办于2018年，是由大陆一群年轻的运维工程师基于对技术的热爱与追求，自主发起的运维技术社区，通过不断精进与分享高质量的运维技术原创内容、线下技术沙龙等形式，为更多不满现状的技术人员提供交流学习平台与资源。","name":"陈宝佳","isAdvertiser":false,"headline":"技术沉淀，空杯心态。","gender":1,"url":"\u002Fpeople\u002F172192b6dbe6162e0e53aac23bd7920f","avatarUrl":"https:\u002F\u002Fpic1.zhimg.com\u002Fv2-6071fe854d081dfca4e9e2c746ed280c_l.jpg","isOrg":false,"type":"people"},"followers":1399,"type":"column"}},"topics":{},"roundtables":{},"favlists":{},"comments":{},"notifications":{},"ebooks":{},"activities":{},"feeds":{},"pins":{},"promotions":{},"drafts":{},"chats":{}},"currentUser":"","account":{"lockLevel":{},"unlockTicketStatus":false,"unlockTicket":null,"challenge":[],"errorStatus":false,"message":"","isFetching":false,"accountInfo":{},"urlToken":{"loading":false}},"settings":{"socialBind":null,"inboxMsg":null,"notification":{},"email":{},"privacyFlag":null,"blockedUsers":{"isFetching":false,"paging":{"pageNo":1,"pageSize":6},"data":[]},"blockedFollowees":{"isFetching":false,"paging":{"pageNo":1,"pageSize":6},"data":[]},"ignoredTopics":{"isFetching":false,"paging":{"pageNo":1,"pageSize":6},"data":[]},"restrictedTopics":null,"laboratory":{}},"notification":{},"people":{"profileStatus":{},"activitiesByUser":{},"answersByUser":{},"answersSortByVotesByUser":{},"answersIncludedByUser":{},"votedAnswersByUser":{},"thankedAnswersByUser":{},"voteAnswersByUser":{},"thankAnswersByUser":{},"topicAnswersByUser":{},"articlesByUser":{},"articlesSortByVotesByUser":{},"articlesIncludedByUser":{},"pinsByUser":{},"questionsByUser":{},"commercialQuestionsByUser":{},"favlistsByUser":{},"followingByUser":{},"followersByUser":{},"mutualsByUser":{},"followingColumnsByUser":{},"followingQuestionsByUser":{},"followingFavlistsByUser":{},"followingTopicsByUser":{},"publicationsByUser":{},"columnsByUser":{},"allFavlistsByUser":{},"brands":null,"creationsByUser":{},"creationsSortByVotesByUser":{}},"env":{"ab":{"config":{"experiments":[{"expId":"launch-us_foltopic_user-10","expPrefix":"us_foltopic_user","isDynamicallyUpdated":true,"isRuntime":false,"includeTriggerInfo":false}],"params":[{"id":"se_auto_syn","type":"String","value":"0","chainId":"_all_"},{"id":"se_new_topic","type":"String","value":"0","chainId":"_all_"},{"id":"se_p_slideshow","type":"String","value":"0","chainId":"_all_"},{"id":"se_timebox_num","type":"String","value":"3","chainId":"_all_"},{"id":"li_filter_ttl","type":"String","value":"2","chainId":"_all_"},{"id":"se_payconsult","type":"String","value":"0","chainId":"_all_"},{"id":"top_quality","type":"String","value":"0","chainId":"_all_"},{"id":"tp_sft_v2","type":"String","value":" a","chainId":"_all_"},{"id":"tp_sticky_android","type":"String","value":"0","chainId":"_all_"},{"id":"ls_videoad","type":"String","value":"0","chainId":"_all_"},{"id":"se_page_limit_20","type":"String","value":"1","chainId":"_all_"},{"id":"top_rank","type":"String","value":"0","chainId":"_all_"},{"id":"top_vipconsume","type":"String","value":"1","chainId":"_all_"},{"id":"se_limit","type":"String","value":"0","chainId":"_all_"},{"id":"zr_rel_search","type":"String","value":"base","chainId":"_all_"},{"id":"li_album3_ab","type":"String","value":"0","chainId":"_all_"},{"id":"li_mceb","type":"String","value":"0","chainId":"_all_"},{"id":"pf_foltopic_usernum","type":"String","value":"50","chainId":"_all_"},{"id":"se_webtimebox","type":"String","value":"0","chainId":"_all_"},{"id":"top_test_4_liguangyi","type":"String","value":"1","chainId":"_all_"},{"id":"se_preset_tech","type":"String","value":"0","chainId":"_all_"},{"id":"se_pyc_click2","type":"String","value":"1","chainId":"_all_"},{"id":"se_ri","type":"String","value":"0","chainId":"_all_"},{"id":"se_terminate","type":"String","value":"0","chainId":"_all_"},{"id":"top_ebook","type":"String","value":"0","chainId":"_all_"},{"id":"web_question_invite","type":"String","value":"B"},{"id":"tp_m_intro_re_topic","type":"String","value":"1","chainId":"_all_"},{"id":"zr_es_update","type":"String","value":"0","chainId":"_all_"},{"id":"li_hot_score_ab","type":"String","value":"0","chainId":"_all_"},{"id":"li_qa_cover","type":"String","value":"old","chainId":"_all_"},{"id":"se_famous","type":"String","value":"1","chainId":"_all_"},{"id":"zr_album_chapter_exp","type":"String","value":"0","chainId":"_all_"},{"id":"zr_ans_rec","type":"String","value":"gbrank","chainId":"_all_"},{"id":"zr_km_answer","type":"String","value":"open_cvr","chainId":"_all_"},{"id":"soc_update","type":"String","value":"1","chainId":"_all_"},{"id":"top_gr_ab","type":"String","value":"0","chainId":"_all_"},{"id":"tsp_lastread","type":"String","value":"0","chainId":"_all_"},{"id":"web_answer_list_ad","type":"String","value":"1"},{"id":"web_wx_block","type":"String","value":"2"},{"id":"zr_video_recall","type":"String","value":"current_recall","chainId":"_all_"},{"id":"li_ts_sample","type":"String","value":"old","chainId":"_all_"},{"id":"zr_se_footer","type":"String","value":"1","chainId":"_all_"},{"id":"li_price_test","type":"String","value":"1","chainId":"_all_"},{"id":"top_user_cluster","type":"String","value":"0","chainId":"_all_"},{"id":"ug_fw_answ_aut_1","type":"String","value":"0","chainId":"_all_"},{"id":"ug_zero_follow","type":"String","value":"0","chainId":"_all_"},{"id":"pf_newguide_vertical","type":"String","value":"0","chainId":"_all_"},{"id":"se_waterfall","type":"String","value":"0","chainId":"_all_"},{"id":"top_new_feed","type":"String","value":"5","chainId":"_all_"},{"id":"tsp_hotctr","type":"String","value":"1","chainId":"_all_"},{"id":"ug_goodcomment","type":"String","value":"0","chainId":"_all_"},{"id":"ug_zero_follow_0","type":"String","value":"0","chainId":"_all_"},{"id":"web_answerlist_ad","type":"String","value":"0"},{"id":"gue_anonymous","type":"String","value":"hide"},{"id":"se_billboardsearch","type":"String","value":"0","chainId":"_all_"},{"id":"se_ios_spb309","type":"String","value":"0","chainId":"_all_"},{"id":"ug_newtag","type":"String","value":"0","chainId":"_all_"},{"id":"zr_infinity_xgb","type":"String","value":"close","chainId":"_all_"},{"id":"zr_km_style","type":"String","value":"base","chainId":"_all_"},{"id":"pf_feed","type":"String","value":"1","chainId":"_all_"},{"id":"se_time_score","type":"String","value":"1","chainId":"_all_"},{"id":"se_whitelist","type":"String","value":"0","chainId":"_all_"},{"id":"se_zu_recommend","type":"String","value":"0","chainId":"_all_"},{"id":"web_n_web_msg","type":"String","value":"0"},{"id":"tp_qa_metacard","type":"String","value":"1","chainId":"_all_"},{"id":"li_lt_tp_score","type":"String","value":"1","chainId":"_all_"},{"id":"se_expired_ob","type":"String","value":"0","chainId":"_all_"},{"id":"se_km_ad_locate","type":"String","value":"1","chainId":"_all_"},{"id":"se_payconsult_click","type":"String","value":"0","chainId":"_all_"},{"id":"se_rr","type":"String","value":"0","chainId":"_all_"},{"id":"se_search_feed","type":"String","value":"N","chainId":"_all_"},{"id":"top_recall_exp_v1","type":"String","value":"1","chainId":"_all_"},{"id":"tp_qa_toast","type":"String","value":"1","chainId":"_all_"},{"id":"ug_follow_topic_1","type":"String","value":"2","chainId":"_all_"},{"id":"web_heifetz_grow_ad","type":"String","value":"1"},{"id":"zr_ebook_chapter","type":"String","value":"0","chainId":"_all_"},{"id":"qa_answerlist_ad","type":"String","value":"0","chainId":"_all_"},{"id":"se_wannasearch","type":"String","value":"0","chainId":"_all_"},{"id":"se_websearch","type":"String","value":"3","chainId":"_all_"},{"id":"se_zu_onebox","type":"String","value":"0","chainId":"_all_"},{"id":"tp_time_information","type":"String","value":"0","chainId":"_all_"},{"id":"ug_follow_answerer","type":"String","value":"0","chainId":"_all_"},{"id":"se_pay_score","type":"String","value":"0","chainId":"_all_"},{"id":"se_topic_express","type":"String","value":"0","chainId":"_all_"},{"id":"se_webrs","type":"String","value":"1","chainId":"_all_"},{"id":"top_recall_exp_v2","type":"String","value":"1","chainId":"_all_"},{"id":"tp_qa_metacard_top","type":"String","value":"top","chainId":"_all_"},{"id":"se_spb309","type":"String","value":"0","chainId":"_all_"},{"id":"top_ydyq","type":"String","value":"X","chainId":"_all_"},{"id":"ug_goodcomment_0","type":"String","value":"1","chainId":"_all_"},{"id":"web_column_auto_invite","type":"String","value":"0"},{"id":"li_tjys_ec_ab","type":"String","value":"0","chainId":"_all_"},{"id":"se_ad_index","type":"String","value":"10","chainId":"_all_"},{"id":"se_mobileweb","type":"String","value":"0","chainId":"_all_"},{"id":"se_site_onebox","type":"String","value":"0","chainId":"_all_"},{"id":"tp_sft","type":"String","value":"a","chainId":"_all_"},{"id":"zr_km_xgb_model","type":"String","value":"old","chainId":"_all_"},{"id":"se_hot_query","type":"String","value":"0","chainId":"_all_"},{"id":"se_time_threshold","type":"String","value":"0","chainId":"_all_"},{"id":"se_topicdirect","type":"String","value":"2","chainId":"_all_"},{"id":"top_recall_deep_user","type":"String","value":"1","chainId":"_all_"},{"id":"tp_header_style","type":"String","value":"1","chainId":"_all_"},{"id":"ug_follow_answerer_0","type":"String","value":"0","chainId":"_all_"},{"id":"web_answer_update","type":"String","value":"0"},{"id":"li_ebook_detail","type":"String","value":"1","chainId":"_all_"},{"id":"top_v_album","type":"String","value":"1","chainId":"_all_"},{"id":"tp_meta_card","type":"String","value":"0","chainId":"_all_"},{"id":"li_album_liutongab","type":"String","value":"0","chainId":"_all_"},{"id":"se_amovietab","type":"String","value":"0","chainId":"_all_"},{"id":"se_backsearch","type":"String","value":"0","chainId":"_all_"},{"id":"se_featured","type":"String","value":"1","chainId":"_all_"},{"id":"se_subtext","type":"String","value":"0","chainId":"_all_"},{"id":"soc_bignew","type":"String","value":"1","chainId":"_all_"},{"id":"ls_fmp4","type":"String","value":"0","chainId":"_all_"},{"id":"ls_new_upload","type":"String","value":"0","chainId":"_all_"},{"id":"pf_fuceng","type":"String","value":"1","chainId":"_all_"},{"id":"se_title_only","type":"String","value":"0","chainId":"_all_"},{"id":"top_native_answer","type":"String","value":"1","chainId":"_all_"},{"id":"tp_top_sticky","type":"String","value":"0","chainId":"_all_"},{"id":"pf_creator_card","type":"String","value":"1","chainId":"_all_"},{"id":"se_college","type":"String","value":"default","chainId":"_all_"},{"id":"pf_noti_entry_num","type":"String","value":"0","chainId":"_all_"},{"id":"se_topic_pu","type":"String","value":"0","chainId":"_all_"},{"id":"top_hotcommerce","type":"String","value":"1","chainId":"_all_"},{"id":"gue_new_special_page","type":"String","value":"0"},{"id":"li_qa_new_cover","type":"String","value":"0","chainId":"_all_"},{"id":"li_se_ebook_chapter","type":"String","value":"1","chainId":"_all_"},{"id":"qa_test","type":"String","value":"0","chainId":"_all_"},{"id":"se_likebutton","type":"String","value":"0","chainId":"_all_"},{"id":"se_movietab","type":"String","value":"0","chainId":"_all_"},{"id":"se_colorfultab","type":"String","value":"0","chainId":"_all_"},{"id":"se_lottery","type":"String","value":"0","chainId":"_all_"},{"id":"se_ltr_v008","type":"String","value":"0","chainId":"_all_"},{"id":"soc_special","type":"String","value":"0","chainId":"_all_"},{"id":"top_root","type":"String","value":"0","chainId":"_all_"},{"id":"tp_discussion_feed_type_android","type":"String","value":"2","chainId":"_all_"},{"id":"tsp_childbillboard","type":"String","value":"1","chainId":"_all_"},{"id":"web_rp_id","type":"String","value":"1"},{"id":"zr_album_exp","type":"String","value":"0","chainId":"_all_"},{"id":"zr_art_rec","type":"String","value":"base","chainId":"_all_"},{"id":"zr_km_slot_style","type":"String","value":"event_card","chainId":"_all_"},{"id":"li_auif_ab","type":"String","value":"0","chainId":"_all_"},{"id":"se_college_cm","type":"String","value":"0","chainId":"_all_"},{"id":"se_agency","type":"String","value":" 0","chainId":"_all_"},{"id":"se_ltr_v002","type":"String","value":"1","chainId":"_all_"},{"id":"se_webmajorob","type":"String","value":"0","chainId":"_all_"},{"id":"soc_bigone","type":"String","value":"0","chainId":"_all_"},{"id":"top_reason","type":"String","value":"1","chainId":"_all_"},{"id":"top_universalebook","type":"String","value":"1","chainId":"_all_"}],"chains":[{"chainId":"_all_"}]},"triggers":{}},"userAgent":{"Edge":false,"Wechat":false,"Weibo":false,"QQ":false,"MQQBrowser":false,"Qzone":false,"Mobile":false,"Android":false,"iOS":false,"isAppleDevice":true,"Zhihu":false,"ZhihuHybrid":false,"isBot":false,"Tablet":false,"UC":false,"Sogou":false,"Qihoo":false,"Baidu":false,"BaiduApp":false,"Safari":false,"GoogleBot":false,"isWebView":false,"origin":"Mozilla\u002F5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit\u002F537.36 (KHTML, like Gecko) Chrome\u002F75.0.3770.100 Safari\u002F537.36"},"ctx":{"path":"\u002Fp\u002F35268752"},"trafficSource":"production","edition":{"baidu":false,"sogou":false,"baiduBeijing":false,"sogouBeijing":false},"theme":"light","enableShortcut":true,"referer":"","conf":{},"ipInfo":{"cityName":"Wenshan","countryName":"China","regionName":"Yunnan","countryCode":"CN"},"logged":false,"tdkInfo":{}},"me":{"accountInfoLoadStatus":{},"organizationProfileStatus":{},"columnContributions":[]},"label":{"recognizerLists":{}},"ecommerce":{},"comments":{"pagination":{},"collapsed":{},"reverse":{},"reviewing":{},"conversation":{},"parent":{}},"commentsV2":{"stickers":[],"commentWithPicPermission":{},"notificationsComments":{},"pagination":{},"collapsed":{},"reverse":{},"reviewing":{},"conversation":{},"conversationMore":{},"parent":{}},"pushNotifications":{"default":{"isFetching":false,"isDrained":false,"ids":[]},"follow":{"isFetching":false,"isDrained":false,"ids":[]},"vote_thank":{"isFetching":false,"isDrained":false,"ids":[]},"currentTab":"default","notificationsCount":{"default":0,"follow":0,"vote_thank":0}},"messages":{"data":{},"currentTab":"common","messageCount":0},"register":{"registerValidateSucceeded":null,"registerValidateErrors":{},"registerConfirmError":null,"sendDigitsError":null,"registerConfirmSucceeded":null},"login":{"loginUnregisteredError":false,"loginBindWechatError":false,"loginConfirmError":null,"sendDigitsError":null,"validateDigitsError":false,"loginConfirmSucceeded":null,"qrcodeLoginToken":"","qrcodeLoginScanStatus":0,"qrcodeLoginError":null,"qrcodeLoginReturnNewToken":false},"active":{"sendDigitsError":null,"activeConfirmSucceeded":null,"activeConfirmError":null},"switches":{},"captcha":{"captchaNeeded":false,"captchaValidated":false,"captchaBase64String":null,"captchaValidationMessage":null,"loginCaptchaExpires":false},"sms":{"supportedCountries":[]},"chat":{"chats":{},"inbox":{"recents":{"isFetching":false,"isDrained":false,"isPrevDrained":false,"result":[],"next":null,"key":null},"strangers":{"isFetching":false,"isDrained":false,"isPrevDrained":false,"result":[],"next":null,"key":null},"friends":{"isFetching":false,"isDrained":false,"isPrevDrained":false,"result":[],"next":null,"key":null},"search":{"isFetching":false,"isDrained":false,"isPrevDrained":false,"result":[],"next":null,"key":null},"config":{"newCount":0,"strangerMessageSwitch":false,"strangerMessageUnread":false,"friendCount":0}},"global":{"isChatMqttExisted":false}},"emoticons":{"emoticonGroupList":[],"emoticonGroupDetail":{}},"recommendation":{"homeRecommendations":[]},"shareTexts":{},"articles":{"voters":{}},"previewPost":{},"favlists":{"relations":{}},"columns":{"voters":{}},"reward":{"answer":{},"article":{},"question":{}},"video":{"data":{},"shareVideoDetail":{},"last":{}},"topstory":{"topstorys":{"isFetching":false,"isDrained":false,"afterId":0,"items":[],"next":null},"recommend":{"isFetching":false,"isDrained":false,"afterId":0,"items":[],"next":null},"follow":{"isFetching":false,"isDrained":false,"afterId":0,"items":[],"next":null},"followWonderful":{"isFetching":false,"isDrained":false,"afterId":0,"items":[],"next":null},"sidebar":null,"announcement":{},"hotListCategories":[],"hotList":[],"guestFeeds":{"isFetching":false,"isDrained":false,"afterId":0,"items":[],"next":null},"followExtra":{"isNewUser":null,"isFetched":false,"followCount":0,"followers":[]}},"readStatus":{},"column":{},"requestColumn":{"categories":[],"error":null},"articleContribution":{"contributeRequests":[],"deleteContributeIdList":[],"handledContributeIdList":[],"recommendedColumns":[],"pinnedColumns":[],"sentContributeRequestsIdList":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,"opsroad"]},"columnContribution":{"contributeRequests":[],"autoInviteEnabled":false,"recommendedContributors":[],"contributionInvitation":null},"draftHistory":{"history":{},"drafts":{}},"upload":{},"articleDraft":{"titleImage":"","titleImageSize":{},"isTitleImageFullScreen":false,"canTitleImageFullScreen":false,"title":"","titleImageUploading":false,"error":"","content":"","draftLoading":false,"updating":false,"globalLoading":false,"pendingVideo":{"resource":null,"error":null},"deleteFail":{"fail":false},"recommendTopics":[],"selectedColumn":0},"articleDrafts":{"isDrained":false,"isLoading":false,"items":[]},"columnAutocomplete":{"users":[],"friends":[]}},"fetchHost":"www.zhihu.com","subAppName":"column"}</script><script src="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/vendor.6c16e03dca561b828324.js"></script><script src="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/column.app.facf02a1768e994e2fb5.js"></script><script></script><div><div style="display: none;">想来知乎工作？请发送邮件到 jobs@zhihu.com</div></div><div><div><div class="Editable-languageSuggestions" style="left: -1179px; top: -999px;"><div><div class="Popover"><div class="Editable-languageSuggestionsInput Input-wrapper"><input autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-activedescendant="AutoComplete13-0" id="Popover12-toggle" aria-haspopup="true" aria-owns="Popover12-content" class="Input" placeholder="选择语言" value=""><div class="Input-after"><svg class="Zi Zi--Select" fill="#afbdcf" viewBox="0 0 24 24" width="24" height="24"><path d="M12 16.183l2.716-2.966a.757.757 0 0 1 1.064.001.738.738 0 0 1 0 1.052l-3.247 3.512a.758.758 0 0 1-1.064 0L8.22 14.27a.738.738 0 0 1 0-1.052.758.758 0 0 1 1.063 0L12 16.183zm0-9.365L9.284 9.782a.758.758 0 0 1-1.064 0 .738.738 0 0 1 0-1.052l3.248-3.512a.758.758 0 0 1 1.065 0L15.78 8.73a.738.738 0 0 1 0 1.052.757.757 0 0 1-1.063.001L12 6.818z" fill-rule="evenodd"></path></svg></div></div></div></div></div></div></div><div><div><div></div></div></div><script src="./CentOS Linux操作系统无人值守安装配置规范（2016版） - 知乎_files/zap.js"></script><div><div><div></div></div></div></body></html>

@@ -2,9 +2,11 @@
 
 ## 前言
 
+[https://blog.csdn.net/shouzang/article/details/80624660](https://blog.csdn.net/shouzang/article/details/80624660)
+
 ## 准备
 
-1. `Tiny PXE Server` (`pxesrv.zip`)
+1. [`Tiny PXE Server` (`pxesrv.zip`) http://erwan.labalec.fr/tinypxeserver/pxesrv.zip](http://erwan.labalec.fr/tinypxeserver/pxesrv.zip)
 2. `syslinux` (`syslinux-3.86.zip`)
 3. `VMware EXSI` 镜像 (`VMware-VMvisor-Installer-6.7.0.update01-10302608.x86_64.iso`)
 4. `CentOS 7` 镜像 (`CentOS-7-x86_64-Minimal-1804.iso`)
@@ -97,71 +99,156 @@
 11. 添加 `centos` 的 `kickstart`文件
 
     ```
-    # net.ifnames=0 biosdevname=0 ks=ftp://10.181.242.242
+    # ks=http://10.181.242.242 net.ifnames=0 biosdevname=0 ksdevice=eth0
     #version=DEVEL
+    
     # System authorization information
     auth --enableshadow --passalgo=sha512
-    #repo --name="CentOS" --baseurl=ftp://10.181.242.242
+    
+    # Install OS instead of upgrade
+    install
+    
+    #repo --name="CentOS" --baseurl=http://10.181.242.242
+    #repo --name="base" --baseurl=http://mirrors.aliyun.com/centos/7/os/x86_64
+    #repo --name="EPEL" --baseurl=http://mirrors.aliyun.com/epel/7/x86_64
+    
     # Use CDROM installation media
-    url --url http://172.25.254.1/centos7
+    #url --url http://10.180.242.242/centos7
+    url --url="http://mirrors.aliyun.com/centos/7/os/x86_64/"
+    
     # Use graphical install
     text
-    # Run the Setup Agent on first boot
-    firstboot --enable
+    
+    # Do not configure the X Window System
+    skipx
+    
     ignoredisk --only-use=sda
+    
     # Keyboard layouts
     keyboard --vckeymap=us --xlayouts='us'
+    
     # System language
     lang en_US.UTF-8
     
-    # boot
-    zerombr
-    bootloader --location=mbr --driveorder=sda --append="crashkernel=auto net.ifnames=0 biosdevname=0 rhgb quiet"
-    
     # Network information
-    network  --bootproto=dhcp --device=eth0 --onboot=on --noipv6 --activate
-    network  --hostname=redhat7
+    network --bootproto=dhcp --device=eth0 --onboot=yes --ipv6=auto --activate
+    network --hostname=redhat7.example.com
     
     # Root password
-    rootpw --iscrypted $6$h0IAL1u8DwZZ924e$8Qqj88eQA6GNC08.ePU3lNU1eT8bibiLlTh47SwrH7Wn5S34BTDdYkwx3lHGZXLgYrFVi0ilw5SqbFNSqE2jW.
-    # System services
-    # services --disabled="chronyd"
+    rootpw --plaintext redhat
+    #rootpw --iscrypted $6$h0IAL1u8DwZZ924e$8Qqj88eQA6GNC08.ePU3lNU1eT8bibiLlTh47SwrH7Wn5S34BTDdYkwx3lHGZXLgYrFVi0ilw5SqbFNSqE2jW.
+    
     # System timezone
-    timezone Asia/Shanghai --isUtc --nontp
+    timezone Asia/Shanghai --isUtc
+    
     # System bootloader configuration
-    bootloader --append=" crashkernel=auto" --location=mbr --boot-drive=sda
+    bootloader --append="console=tty0 console=ttyS0,115200n8 crashkernel=auto" --location=mbr --boot-drive=sda
+    
+    # Clear the Master Boot Record
+    zerombr
+    
     # Partition clearing information
     clearpart --all --initlabel
-    # Disk partitioning information
-    part /boot --fstype="ext3" --ondisk=sda --size=1024
-    part pv.157 --fstype="lvmpv" --ondisk=sda --size=19455
-    volgroup centos --pesize=4096 pv.157
-    logvol / --fstype="ext4" --grow --maxsize=51200 --size=1024 --name=root --vgname=centos
-    logvol swap  --fstype="swap" --size=2047 --name=swap --vgname=centos
     
-    #
+    # Disk partitioning information
+    # 1.LVM
+    #part /boot --fstype="ext3" --ondisk=sda --size=1024
+    #part pv.157 --fstype="lvmpv" --ondisk=sda --size=19455
+    #volgroup centos --pesize=4096 pv.157
+    #logvol / --fstype="ext4" --grow --maxsize=51200 --size=1024 --name=root --vgname=centos
+    #logvol swap  --fstype="swap" --size=2047 --name=swap --vgname=centos
+    # 2.normal
+    #part /boot --fstype xfs --size 1024
+    #part swap --size 1024
+    #part / --fstype=xfs --grow --asprimary --size 10240
+    # 3.autopart
+    autopart --type=lvm
+    
+    # System services
     firstboot --disable
-    selinux --disabled
-    firewall --disabled
-    services --enable="chronyd"
+    # Selinux State
+    #selinux --permissive
+    #selinux --enforcing
+    selinux --disable
+    # Firewall State
+    firewall --disable
+    #firewall --enabled
+    
+    services --disabled="kdump,postfix" --enabled="network,sshd,rsyslog,chronyd"
+    
+    # Logg
     logging --level=info
+    
     reboot
     
+    %post --erroronfail
+    yum -C -y remove linux-firmware
+    %end
+    
     %packages
-    @^minimal
+    # @^minimal
+    # @core
+    # kexec-tools
     @core
+    chrony
+    firewalld
+    grub2
+    kernel
+    net-tools
     kexec-tools
+    nfs-utils
+    bind-utils
+    open-vm-tools
+    rsync
+    wget
+    tree
+    tmux
+    telnet
+    traceroute
+    tar
+    lrzsz
+    vim
+    yum-utils
+    NetworkManager
+    -aic94xx-firmware
+    -alsa-firmware
+    -alsa-lib
+    -alsa-tools-firmware
+    -biosdevname
+    -iprutils
+    -ivtv-firmware
+    -iwl100-firmware
+    -iwl1000-firmware
+    -iwl105-firmware
+    -iwl135-firmware
+    -iwl2000-firmware
+    -iwl2030-firmware
+    -iwl3160-firmware
+    -iwl3945-firmware
+    -iwl4965-firmware
+    -iwl5000-firmware
+    -iwl5150-firmware
+    -iwl6000-firmware
+    -iwl6000g2a-firmware
+    -iwl6000g2b-firmware
+    -iwl6050-firmware
+    -iwl7260-firmware
+    -iwl7265-firmware
+    -libertas-sd8686-firmware
+    -libertas-sd8787-firmware
+    -libertas-usb8388-firmware
+    -plymouth
     
     %end
     
-    %addon com_redhat_kdump --enable --reserve-mb='auto'
+    %addon com_redhat_kdump --disable --reserve-mb='auto'
     
     %end
     
     %anaconda
-    pwpolicy root --minlen=6 --minquality=1 --notstrict --nochanges --notempty
-    pwpolicy user --minlen=6 --minquality=1 --notstrict --nochanges --emptyok
-    pwpolicy luks --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+    # pwpolicy root --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+    # pwpolicy user --minlen=6 --minquality=1 --notstrict --nochanges --emptyok
+    # pwpolicy luks --minlen=6 --minquality=1 --notstrict --nochanges --notempty
     %end
     ```
 

@@ -34,6 +34,26 @@ reboot
 
 后续
 
+查看内核版本  `uname -msr`
+
+配置 grub2，有时需要
+
+```bash
+# 查看启动项
+awk -F\' '$1=="menuentry " {print i++ " : " $2}' /etc/grub2.cfg
+# 设置默认启动的内核（0 表示 第一个；1 表示 第二个）
+grub2-set-default 0
+```
+清楚旧的内核文件
+
+```bash
+yum install -y yum-utils
+package-cleanup --oldkernels
+reboot
+```
+
+yum 排除内核更新
+
 ```bash
 echo "exclude=kernel*" >> /etc/yum.conf
 ```

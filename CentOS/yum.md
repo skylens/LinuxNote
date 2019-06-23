@@ -144,5 +144,22 @@ gpgcheck=0
 ```sh
 yum install yum-utils
 yumdownloader samba httpd --destdir ./ --resolve
- yumdownloader "@Development Tools" --destdir ./ --resolve
+yumdownloader "@Development Tools" --destdir ./ --resolve
+```
+
+### 安全的完全卸载依赖
+
+```sh
+yum history list system-config-kickstart
+```
+
+已加载插件：fastestmirror
+ID     | 命令行                   | 日期和时间       | 操作           | 变更数
+-------------------------------------------------------------------------------
+     3 | -y install system-config | 2019-06-23 12:27 | Install        |  140
+
+卸载刚刚安装的所有软件包
+
+```sh
+yum history undo 3
 ```
