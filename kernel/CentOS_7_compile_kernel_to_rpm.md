@@ -2,7 +2,7 @@
 
 **！！！至少需要30G磁盘空间**
 
-**!!! 可能导致系统启动失败**
+**! ! ! 可能导致系统启动失败**
 
 ### 1、切换至普通用户
 
@@ -20,7 +20,7 @@ wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.124.tar.xz
 tar xvf linux-4.14.124.tar.xz
 ```
 
-###4、使用旧的内核配置文件 
+### 4、使用旧的内核配置文件 
 
 ```bash
 cd linux-4.14.124
@@ -54,7 +54,7 @@ awk -F\' '$1=="menuentry " {print i++ " : " $2}' /etc/grub2.cfg
 grub2-set-default 0
 ```
 
-###9、重启
+### 9、重启
 
 ```bash
 reboot
