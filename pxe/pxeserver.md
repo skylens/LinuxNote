@@ -2,6 +2,8 @@
 
 ## 前言
 
+[https://blog.csdn.net/shouzang/article/details/80624660](https://blog.csdn.net/shouzang/article/details/80624660)
+
 ## 准备
 
 1. [`Tiny PXE Server` (`pxesrv.zip`) http://erwan.labalec.fr/tinypxeserver/pxesrv.zip](http://erwan.labalec.fr/tinypxeserver/pxesrv.zip)
