@@ -2,6 +2,8 @@
 
 [Compile Linux Kernel on CentOS7](https://linuxhint.com/compile-linux-kernel-centos7/)
 
+[CentOS 7: Rebuild kernel with src.rpm](https://www.hiroom2.com/2016/05/29/centos-7-rebuild-kernel-with-src-rpm/)
+
 [Custom Compiled Kernel on CentOS 7](https://www.linode.com/docs/tools-reference/custom-kernels-distros/custom-compiled-kernel-centos-7/)
 
 [添加 BBR](https://www.cyberciti.biz/cloud-computing/increase-your-linux-server-internet-speed-with-tcp-bbr-congestion-control/)
