@@ -11,8 +11,11 @@ cd redis-5.0.4/
 make MALLOC=libc
 make test
 sudo make install
-sudo ./utils/install_server.sh
 ```
+
+`sudo ./utils/install_server.sh`
+
+![sudo ./utils/install_server.sh](redisinstall.png)
 
 ## 启动
 
