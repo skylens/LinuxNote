@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# systemctl stop firewalld 
+# setenforce 0
+# sed -i 's#SELINUX=enforcing#SELINUX=disabled#g' /etc/selinux/config
+
 # 使用 SSH 远程登录
 service sshd restart
 systemctl enable sshd 
