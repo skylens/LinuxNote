@@ -41,7 +41,9 @@ sed -i "s/^PASS_WARN_AGE.*/PASS_WARN_AGE   28/g" /etc/login.defs
 sed -i '9i\auth     required      pam_tally.so onerr=fail deny=5 unlock_time=180' /etc/pam.d/system-auth
 
 # 密码复杂度设置（包含大小写字母、特殊字符和数字）
-sed -i '16i\password     requisite      pam_cracklib.so ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1 minlen=8' /etc/pam.d/system-auth
+# 密码必须至少包含一个大写字母（ucredit），一个小写字母（lcredit），一个数字（dcredit）、一个标点符号（ocredit）和有0个字符与旧密码不同（difok）
+# 最小长度为8（minlen）、修改密码失败次数3次（retry）、try_first_pass
+sed -i '16i\password     requisite      pam_cracklib.so try_first_pass retry=3 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1 minlen=8' /etc/pam.d/system-auth
 
 awk -F: '($2 == "") { print $1 }' /etc/shadow
 
