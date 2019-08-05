@@ -4,6 +4,12 @@
 # setenforce 0
 # sed -i 's#SELINUX=enforcing#SELINUX=disabled#g' /etc/selinux/config
 
+# 时间同步问题
+# https://www.pool.ntp.org/zone/cn
+timedatectl
+timedatectl set-timezone Asia/Shanghai
+timedatectl set-ntp true
+
 # 使用 SSH 远程登录
 service sshd restart
 systemctl enable sshd 
