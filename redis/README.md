@@ -1,5 +1,7 @@
 # Redis
 
+[官方GitHub仓库](https://github.com/antirez/redis)
+
 ## 安装 (CentOS 7)
 
 ```bash
