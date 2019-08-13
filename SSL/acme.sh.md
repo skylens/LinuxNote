@@ -23,7 +23,7 @@ acme.sh --issue --dns -d readdemo.com -d *.readdemo.com \
 ### 安装证书
 
 ```sh
-acme.sh --install-cert -d readdemo.com -d *.readdemo.com \
+acme.sh --install-cert --ecc -d readdemo.com -d *.readdemo.com \
 --key-file /etc/nginx/ssl/privkey.pem \
 --fullchain-file /etc/nginx/ssl/fullchain.pem
 ```
