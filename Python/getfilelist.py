@@ -1,3 +1,11 @@
+# https://www.jianshu.com/p/359b935aee10
+# python -m compileall getfilelist.py 
+
+'''
+python -O -m py_compile getfilelist.py
+python getfilelist.pyo
+'''
+
 import os
 
 g = os.walk(os.getcwd())
