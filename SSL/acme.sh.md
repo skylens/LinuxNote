@@ -33,19 +33,60 @@ acme.sh --uninstall && rm -rf ~/.acme.sh
 
 ### 安装证书
 
++ RSA
+
+```sh
+~/.acme.sh/acme.sh --install-cert \
+-d readdemo.com -d *.readdemo.com \
+--key-file /tmp/privkey.pem \
+--fullchain-file /tmp/fullchain.pem
+```
+
++ ECC
+
 ```sh
 ~/.acme.sh/acme.sh --install-cert --ecc \
 -d readdemo.com -d *.readdemo.com \
---key-file /etc/nginx/ssl/privkey.pem \
---fullchain-file /etc/nginx/ssl/fullchain.pem
+--key-file /tmp/privkey.pem \
+--fullchain-file /tmp/fullchain.pem
 ```
 
 ### 更新证书
 
++ RSA
+
 ```sh
-acme.sh --renew -d readdemo.com -d *.readdemo.com --force --ecc \
+~/.acme.sh/acme.sh --renew --force \
+-d readdemo.com -d *.readdemo.com \
+--yes-I-know-dns-manual-mode-enough-go-ahead-please \
+--debug
+```
+
++ ECC
+
+```sh
+~/.acme.sh/acme.sh --renew --force --ecc \
+-d readdemo.com -d *.readdemo.com \
 --yes-I-know-dns-manual-mode-enough-go-ahead-please \
 --debug
 ```
 
 ### 吊销证书
+
++ RSA
+
+```sh
+~/.acme.sh/acme.sh --revoke --force \
+-d readdemo.com -d *.readdemo.com \
+--yes-I-know-dns-manual-mode-enough-go-ahead-please \
+--debug
+```
+
++ ECC
+
+```sh
+~/.acme.sh/acme.sh --revoke --ecc \
+-d readdemo.com -d *.readdemo.com \
+--yes-I-know-dns-manual-mode-enough-go-ahead-please \
+--debug
+```
