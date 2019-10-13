@@ -113,3 +113,9 @@ YA18K-0WY8P-H85DY-L4NZG-X7RAD
 $ su - root
 # vmware-installer -u vmware-workstation  //点下一步进行卸载
 ```
+
+ESXI 
+
+```bash
+https://download2.vmware.com/software/esx/67u3/VMware-VMvisor-Installer-6.7.0.update03-14320388.x86_64.iso
+```
