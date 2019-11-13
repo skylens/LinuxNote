@@ -23,8 +23,9 @@ vmware workstation 11 : https://download3.vmware.com/software/wkst/file/VMware-w
 (JZ6WK-4529P-HZAA1-9RAG6-33JNR / 5F4EV-4Z0DP-XZHN9-0L95H-02V17) 
 vmware workstation 12 pro : https://download3.vmware.com/software/wkst/file/VMware-workstation-full-12.5.7-5813279.exe
 vmware workstation 14 pro : https://download3.vmware.com/software/wkst/file/VMware-workstation-full-14.0.0-6661328.exe
-vmware workstation 15 pro : http://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.0.0-10134415.exe
-vmware workstation 15 pro : https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.5.0-14665864.exe
+vmware workstation 15.0.0 pro : http://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.0.0-10134415.exe
+vmware workstation 15.5.0 pro : https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.5.0-14665864.exe
+vmware workstation 15.5.1 pro : https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.5.1-15018445.exe
 ```
 
 macOS
