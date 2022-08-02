@@ -17,7 +17,7 @@ $ sudo /etc/init.d/mysql restart  //修改了配置文件, 重启服务
 $ mysql -uroot -p       #本地登录mysql
 
 //允许用户 root 从任何主机连接到 mysql 服务器
-mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'WITH GRANT OPTION;
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'IDENTIFIED BY 'password' WITH GRANT OPTION;
 //允许用户 root 从任意主机连接到 mysql 服务器，并使用 '123456' 作为密码
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'IDENTIFIED BY '123456' WITH GRANT OPTION;
 //允许用户 test 从ip为 192.168.1.6 的主机连接到 mysql 服务器，并使用 '123456' 作为密码
